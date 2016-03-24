@@ -10,8 +10,15 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(express.static('public'));
 app.use(express.static('public/views'));
+app.use(express.static('public/templates'));
+app.use(express.static('public/fonts'));
+app.use(express.static('public/images'));
 app.use(express.static('public/scripts'));
+app.use(express.static('public/scripts/factories'));
+app.use(express.static('public/scripts/controllers'));
 app.use(express.static('public/styles'));
+app.use(express.static('public/styles/css'));
+app.use(express.static('public/styles/scss'));
 app.use(express.static('public/vendors'));
 
 app.set('port', process.env.PORT || 5000);
