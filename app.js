@@ -2,9 +2,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var pg = require('pg');
-var dataRoute = require('./routes/data');
 var passport = require('passport');
-var auth = require('./routes/auth');
 var session = require('express-session');
 
 app.use(bodyParser.json());
