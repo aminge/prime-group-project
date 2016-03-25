@@ -1,55 +1,60 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Ze Real Estate Application</title>
-        <!-- links css -->
-        <link rel="stylesheet" href="/vendors/reset.css" />
-        <link rel="stylesheet" href="/vendors/bootstrap.min.css" />
-        <link rel="stylesheet" href="/styles/css/index.css" />
 
-        <!-- links depencies scripts -->
-        <script type="text/javascript" src="/vendors/angular.min.js"></script>
-        <script type="text/javascript" src="/vendors/angular-route.min.js"></script>
-        <script type="text/javascript" src="/vendors/angular-animate.min.js"></script>
-        <script type="text/javascript" src="/vendors/ui-bootstrap-tpls.js"></script>
+<head>
+  <title>Ze Real Estate Application</title>
+  <!-- links css -->
+  <link rel="stylesheet" href="/vendors/reset.css" />
+  <link rel="stylesheet" href="/vendors/bootstrap.min.css" />
+  <link rel="stylesheet" href="/styles/css/index.css" />
 
-        <!-- links client-side scripts -->
-        <script type="text/javascript" src="/scripts/app.js"></script>
-        <script type="text/javascript" src="/scripts/factories/dataFactory.js"></script>
-        <!-- TODO: add controllers -->
-        <script type="text/javascript" src="/scripts/controllers/searchController.js"></script>
+  <!-- links depencies scripts -->
+  <script type="text/javascript" src="/vendors/angular.min.js"></script>
+  <script type="text/javascript" src="/vendors/angular-route.min.js"></script>
+  <script type="text/javascript" src="/vendors/angular-animate.min.js"></script>
+  <script type="text/javascript" src="/vendors/ui-bootstrap-tpls.js"></script>
 
-    </head>
+  <!-- links client-side scripts -->
+  <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/factories/dataFactory.js"></script>
+  <!-- TODO: add controllers -->
+  <script type="text/javascript" src="/scripts/controllers/searchController.js"></script>
 
-    <!-- TODO: Should Nav Be persistent across all pages or only the main 5? -->
+</head>
 
-    <body ng-app="myApp">
-      <!-- Navbar taken directly from bootstrap sample site.  -->
-      <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Project name</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#search">Search Properties</a></li>
-            <li><a href="#evaluate">Evaluate</a></li>
-            <li><a href="#mortgage">Mortgage</a></li>
-            <li><a href="#resources">Resources</a></li>
-          </ul>
+<!-- TODO: Should Nav Be persistent across all pages or only the main 5? -->
 
-        </div><!--/.nav-collapse -->
+<body ng-app="myApp">
+  <!-- Navbar taken directly from bootstrap sample site.  -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Project name</a>
       </div>
-    </nav>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="#">Home</a></li>
+          <li><a href="#search">Search Properties</a></li>
+          <li><a href="#evaluate">Evaluate</a></li>
+          <li><a href="#mortgage">Mortgage</a></li>
+          <li><a href="#resources">Resources</a></li>
+        </ul>
 
-      <main ng-view="main">
-      </main>
-    </body>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <main ng-view="main">
+    </main>
+  </div>
+</body>
+
 </html>
