@@ -1,3 +1,6 @@
+#searchButton {
+  display: inline-block; }
+
 .navbar-fixed-top {
   position: relative; }
 
