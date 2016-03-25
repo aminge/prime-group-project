@@ -8,6 +8,6 @@ myApp.config(['$routeProvider', function($routeProvider) {
             controller: 'SearchController'
         })
         .otherwise({
-            redirectTo: ''
+            redirectTo: 'search'
         });
 }]);
