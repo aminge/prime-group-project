@@ -1,0 +1,12 @@
+<div class="six columns" id="form-container">
+    <form>
+        <label for="price">Price:</label>
+        <input type="number" ng-model="price" id="price" />
+        <label for="years">Number of Years:</label>
+        <input type="number" ng-model="years" id="years" />
+        <label for="interestRate">Percent Interest Rate:</label>
+        <textarea type="number" ng-model="interestRate" id="interestRate"></textarea>
+
+        <button id="save-goal" ng-click="calculateMortgage()">Save Goal</button>
+    </form>
+</div>
