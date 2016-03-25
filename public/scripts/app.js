@@ -7,7 +7,11 @@ myApp.config(['$routeProvider', function($routeProvider) {
             templateUrl: '/views/templates/search.html',
             controller: 'SearchController'
         })
+        .when('/mortgage', {
+            templateUrl: '/views/templates/mortgage.html',
+            controller: 'MortgageController'
+        })
         .otherwise({
-            redirectTo: ''
+            redirectTo: 'search'
         });
 }]);
