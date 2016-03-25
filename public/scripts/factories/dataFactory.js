@@ -3,7 +3,7 @@ myApp.factory('DataFactory', ['$http', function($http) {
     // Private
 
     var privateCalculateMortgage = function(price, years, ir) {
-        var months = years * 12;
+        var months = parseInt(years) * 12;
         ir = ir / 1200;
 
         var numerator = ir * price * Math.pow(1 + ir, months);
