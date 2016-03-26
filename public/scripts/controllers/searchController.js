@@ -4,9 +4,28 @@ myApp.controller('SearchController', ['$scope', '$http', 'DataFactory', function
 
 
 
-    $scope.searchListings = function(){
+// button from search.html calls searchListings():
+    $scope.searchListings = function() {
         console.log('YEEEAAAH!');
+
+        // TODO: angular directive to url address & cityStateZip
+
+        var address = $scope.addressSearch;
+        var cityStateZip = $scope.citySearch + $scope.stateSearch + $scope.zipSearch;
+       // console.log('search controller: ', address, cityStateZip);
+        // search
+        $scope.dataFactory.factoryAPICall(address, cityStateZip).then(function() {
+            $scope.apiResults = $scope.dataFactory.factoryExportApiSearchResults();
+        });
+
+        // clear form fields
+        $scope.addressSearch = null;
+        $scope.citySearch = null;
+        $scope.stateSearch = null;
+        $scope.zipSearch = null;
     };
+
+
 
     //begin elements for Angualar Carousel//
 
