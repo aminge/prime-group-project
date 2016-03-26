@@ -1,5 +1,19 @@
+main {
+  margin-bottom: 10rem; }
+
+form {
+  text-align: center; }
+
 #search-button {
   display: inline-block; }
+
+.main-carousel {
+  height: 500px;
+  margin: 3rem 0 0 0; }
+  .main-carousel .carousel, .main-carousel .carousel-inner {
+    height: 100%; }
+  .main-carousel img {
+    height: 100%; }
 
 .navbar-fixed-top {
   position: relative; }

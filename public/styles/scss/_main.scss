@@ -1,3 +1,16 @@
 #search-button {
   display: inline-block;
 }
+
+//begin styling for carousel
+.main-carousel {
+  height: 500px;
+  margin: 3rem 0 0 0;
+
+  .carousel, .carousel-inner {
+    height: 100%;
+  }
+  img {
+    height: 100%;
+  }
+}
