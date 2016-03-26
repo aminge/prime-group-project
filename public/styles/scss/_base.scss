@@ -3,9 +3,9 @@
 //Be sure to comment these out when making a commit. //
 
  // div, ul, li, a, nav, form, .container, .row {
- //   border: 1px solid #000;
+ //   border: 1px solid $black;
  // }
- // 
+ //
  // div, ul, li, a, nav, form, .container, .row {
  //   background: #ddd;
  // }
@@ -16,4 +16,10 @@
 //useful for Dev//
 main {
   margin-bottom: 10rem;
+}
+
+///begin the REAL rules
+
+.container-fluid {
+  padding: 0 3vw;
 }
