@@ -37,7 +37,7 @@ myApp.factory('DataFactory', ['$http', function($http) {
         factoryCalculateMortgage: function(price, years, interestRate) {
             return privateCalculateMortgage(price, years, interestRate)
         },
-        factoryAPICall: function (address, cityStateZip) {
+        factorySearchListings: function (address, cityStateZip) {
             return initialSearch(address, cityStateZip);
         },
         factoryExportApiSearchResults: function() {

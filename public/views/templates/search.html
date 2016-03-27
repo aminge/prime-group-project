@@ -2,22 +2,22 @@
 <form class="form-inline" id="searchForm" role="form">
   <div class="form-group">
       <label for="address-search"></label>
-    <input class="form-control" type="text" id="address-search" ng-model="addressSearch" placeholder="ADDRESS">
+    <input class="form-control" type="text" id="address-search" ng-model="addressSearch" placeholder="ADDRESS" name="address">
   </div>
 
   <div class="form-group">
     <label for="city-search"></label>
-    <input class="form-control" type="text" id="city-search" ng-model="citySearch" placeholder="CITY">
+    <input class="form-control" type="text" id="city-search" ng-model="citySearch" placeholder="CITY" name="city">
   </div>
 
   <div class="form-group">
     <label for="state-search"></label>
-    <input class="form-control" type="text" id="state-search" ng-model="stateSearch" placeholder="STATE">
+    <input class="form-control" type="text" id="state-search" ng-model="stateSearch" placeholder="STATE" name="state">
   </div>
 
   <div class="form-group">
     <label for="zip-search"></label>
-    <input class="form-control" type="text" id="zip-search" ng-model="zipSearch" placeholder="ZIP">
+    <input class="form-control" type="text" id="zip-search" ng-model="zipSearch" placeholder="ZIP" name="zip">
   </div>
 
   <button class="btn btn-primary btn-sm" ng-click="searchListings()" id="search-button">Search</button>
