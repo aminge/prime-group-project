@@ -3,8 +3,8 @@
         <label for="price">Price:</label>
         <input type="number" ng-model="price" id="price" />
 
-        <label for="interestRate">Percent Interest Rate:</label>
-        <textarea type="number" ng-model="interestRate" id="interestRate"></textarea>
+        <label for="interest-rate">Percent Interest Rate:</label>
+        <input type="number" ng-model="interestRate" id="interest-rate"></input>
 
         <!--<label for="years">Number of Years:</label>-->
         <select ng-model="years">
@@ -19,15 +19,3 @@
         <button id="save-goal" ng-click="calculateMortgage()">Save Goal</button>
     </form>
 </div>
-
-
-<select ng-change="getAnimal()" ng-model="animal">
-    <option value="barnyard">Barnyard Animal</option>
-    <option value="bird">Bird</option>
-    <option value="cat">Cat</option>
-    <option value="dog">Dog</option>
-    <option value="horse">Horse</option>
-    <option value="pig">Pig</option>
-    <option value="reptile">Reptile</option>
-    <option value="smallfurry">Small Furry Animal</option>
-</select>
