@@ -1,10 +1,10 @@
 <div class="six columns" id="form-container">
     <form>
         <label for="price">Price:</label>
-        <input type="number" ng-model="price" id="price" />
+        <input type="number" step="5000" ng-model="price" id="price" />
 
         <label for="interest-rate">Percent Interest Rate:</label>
-        <input type="number" ng-model="interestRate" id="interest-rate"></input>
+        <input type="number" ng-model="interestRate" id="interest-rate" />
 
         <!--<label for="years">Number of Years:</label>-->
         <select ng-model="years">
@@ -16,6 +16,6 @@
         </select>
 
 
-        <button id="save-goal" ng-click="calculateMortgage()">Save Goal</button>
+        <button id="save-goal" ng-click="calculateMortgage()">Calculate Mortgage</button>
     </form>
 </div>

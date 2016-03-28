@@ -3,6 +3,6 @@ console.log('MortgageController works');
     $scope.dataFactory = DataFactory;
 
     $scope.calculateMortgage = function() {
-        $scope.dataFactory.factoryCalculateMortgage($scope.price, $scope.years, $scope.interestRate);
+        $scope.dataFactory.factoryCalculateMortgage(parseFloat($scope.price), $scope.years, $scope.interestRate);
     };
 }]);
