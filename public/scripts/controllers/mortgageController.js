@@ -4,5 +4,5 @@ myApp.controller('MortgageController', ['$scope', 'DataFactory', function($scope
 
     $scope.calculateMortgage = function() {
         $scope.dataFactory.factoryCalculateMortgage($scope.price, $scope.years, $scope.interestRate);
-    }
+    };
 }]);
