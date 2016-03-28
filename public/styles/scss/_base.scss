@@ -1,1 +1,25 @@
 
+//Troubleshooting classes to see the space elements are taking up on the page.
+//Be sure to comment these out when making a commit. //
+
+ // div, ul, li, a, nav, form, .container, .row {
+ //   border: 1px solid $black;
+ // }
+ //
+ // div, ul, li, a, nav, form, .container, .row {
+ //   background: #ddd;
+ // }
+
+ //////////
+
+///This is so you can scroll down past the bottom of the page.
+//useful for Dev//
+main {
+  margin-bottom: 10rem;
+}
+
+///begin the REAL rules
+
+.container-fluid {
+  padding: 0 3vw;
+}

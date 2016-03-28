@@ -1,3 +1,17 @@
 .navbar-fixed-top {
   position: relative;
 }
+
+.navbar-default .navbar-nav>li{
+
+    &:hover, &:active, &:focus {
+      background-color: $light-gray;
+    }
+}
+
+.navbar-default .navbar-nav>li>a {
+    &:hover, &:active, &:focus {
+      // background-color: $light-gray;
+      color: $dark-gray;
+  }
+}

@@ -1,5 +1,5 @@
 myApp.controller('MortgageController', ['$scope', 'DataFactory', function($scope, DataFactory) {
-
+console.log('MortgageController works');
     $scope.dataFactory = DataFactory;
 
     $scope.calculateMortgage = function() {

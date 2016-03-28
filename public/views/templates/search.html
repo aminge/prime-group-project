@@ -1,23 +1,64 @@
-<form class="form-inline" id="searchForm" role"form">
+
+<form class="form-inline search-form" role="form">
   <div class="form-group">
-    <label for="addressSearch"></label>
-    <input class="form-control" type="text" id="addressSearch" ng-model="addressSearch" placeholder="ADDRESS">
+      <label for="address-search"></label>
+    <input class="form-control" type="text" id="address-search" ng-model="addressSearch" placeholder="ADDRESS" name="address">
   </div>
 
   <div class="form-group">
-    <label for="citySearch"></label>
-    <input class="form-control" type="text" id="citySearch" ng-model="citySearch" placeholder="CITY">
+    <label for="city-search"></label>
+    <input class="form-control" type="text" id="city-search" ng-model="citySearch" placeholder="CITY" name="city">
   </div>
 
   <div class="form-group">
-    <label for="stateSearch"></label>
-    <input class="form-control" type="text" id="stateSearch" ng-model="stateSearchx" placeholder="STATE">
+    <label for="state-search"></label>
+    <input class="form-control" type="text" id="state-search" ng-model="stateSearch" placeholder="STATE" name="state">
   </div>
 
   <div class="form-group">
-    <label for="zipSearch"></label>
-    <input class="form-control" type="text" id="zipSearch" ng-model="zipSearch" placeholder="ZIP">
+    <label for="zip-search"></label>
+    <input class="form-control" type="text" id="zip-search" ng-model="zipSearch" placeholder="ZIP" name="zip">
   </div>
 
-  <button class="btn btn-default btn-lg" ng-click="searchListings()" id="searchButton">Search</button>
+  <button class="btn btn-primary btn-sm" ng-click="searchListings()" id="search-button">Search</button>
 </form>
+
+<!-- begin carousel -->
+<div class="main-carousel">
+    <uib-carousel active="active" no-wrap="noWrapSlides">
+      <uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+        <img ng-src="{{slide.image}}" class="img-responsive">
+        <!-- <div class="carousel-caption">
+          <h4>Slide {{slide.id}}</h4>
+          <p>{{slide.text}}</p>
+        </div> -->
+      </uib-slide>
+    </uib-carousel>
+</div>
+<!-- end carousel -->
+
+<!-- begin info panel -->
+<div class="row home-information">
+  <div class="col-sm-4 info info-one">
+    <ul>
+      <li>Listing:</li>
+      <li>Zestimate:</li>
+      <li>SqFt:</li>
+      <li>Price / SqFt:</li>
+    </ul>
+  </div>
+  <div class="col-sm-4 info info-two">
+    <ul>
+      <li>Use Code:</li>
+      <li>Year Built:</li>
+      <li>Beds:</li>
+      <li>Baths:</li>
+    </ul>
+  </div>
+  <div class="col-sm-4 info info-three">
+    <ul>
+      <button class="btn btn-primary btn-xs btn-block" name="eval-button">Evaluate</button>
+      <button class="btn btn-secondary btn-xs btn-block" name="mortgage-button">Mortgage</button>
+    </ul>
+  </div>
+</div>

@@ -1,7 +1,50 @@
-#searchButton {
+main {
+  margin-bottom: 10rem; }
+
+.container-fluid {
+  padding: 0 3vw; }
+
+#search-button {
   display: inline-block; }
+
+.search-form {
+  text-align: center; }
+  .search-form .form-control {
+    border-radius: 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #ddd;
+    box-shadow: none;
+    -webkit-box-shadow: none; }
+
+.main-carousel {
+  height: 500px;
+  margin: 3rem 0 0 0; }
+  .main-carousel .carousel, .main-carousel .carousel-inner {
+    height: 100%; }
+  .main-carousel img {
+    height: 100%; }
+
+.home-information {
+  color: #666;
+  margin: 2rem 0 0 0;
+  border-top: 2px solid #666;
+  padding: 3rem 0 0 0; }
+
+.info {
+  padding-left: 0; }
+
+.info-three {
+  padding-right: 0; }
 
 .navbar-fixed-top {
   position: relative; }
+
+.navbar-default .navbar-nav > li:hover, .navbar-default .navbar-nav > li:active, .navbar-default .navbar-nav > li:focus {
+  background-color: #ddd; }
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:active, .navbar-default .navbar-nav > li > a:focus {
+  color: #111; }
 
 /*# sourceMappingURL=index.css.map */

@@ -1,3 +1,54 @@
-#searchButton {
+#search-button {
   display: inline-block;
+}
+
+//styling specific to search form --just messing around on a long car ride
+.search-form {
+  text-align: center;
+
+  .form-control {
+  border-radius: 0;
+
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solid $light-gray;
+
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  }
+}
+//
+
+//begin styling for carousel
+.main-carousel {
+  height: 500px; ///arbitrary for now
+  margin: 3rem 0 0 0;
+
+  .carousel, .carousel-inner {
+    height: 100%;
+  }
+  img {
+    height: 100%;
+  }
+}
+
+//end styling for carousel
+
+// styling for info box
+
+.home-information {
+    // font-weight: 500;
+    color: $med-gray;
+    margin: 2rem 0 0 0;
+    border-top: 2px solid $med-gray;
+    padding: 3rem 0 0 0;
+}
+
+.info {
+  padding-left: 0;
+}
+
+.info-three {
+  padding-right: 0;
 }
