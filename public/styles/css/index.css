@@ -4,6 +4,9 @@ main {
 .container-fluid {
   padding: 0 6vw; }
 
+.hr-form {
+  border-top: 2px solid #ddd; }
+
 #search-button {
   display: inline-block; }
 
