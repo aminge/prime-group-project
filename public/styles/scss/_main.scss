@@ -2,6 +2,24 @@
   display: inline-block;
 }
 
+//styling specific to search form --just messing around on a long car ride
+.search-form {
+  text-align: center;
+
+  .form-control {
+  border-radius: 0;
+
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solid $light-gray;
+
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  }
+}
+//
+
 //begin styling for carousel
 .main-carousel {
   height: 500px; ///arbitrary for now
@@ -20,6 +38,8 @@
 // styling for info box
 
 .home-information {
+    // font-weight: 500;
+    color: $med-gray;
     margin: 2rem 0 0 0;
     border-top: 2px solid $med-gray;
     padding: 3rem 0 0 0;
