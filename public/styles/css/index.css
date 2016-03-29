@@ -66,6 +66,9 @@
   padding: 6px 6px;
   font-size: 13px; }
 
+.greyedOutLabels {
+  color: #AAA; }
+
 .login-background {
   background: url("../../images/house-1.jpg") no-repeat center center/cover;
   position: relative;

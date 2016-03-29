@@ -5,15 +5,18 @@ var pg = require('pg');
 //var register = require('./routes/register');
 var passport = require('passport');
 var session = require('express-session');
-var request = require('request');
-var xml2js = require('xml2js'); // this one neccessary?? don't think so :/
-var parseString = require('xml2js').parseString;
-//var ZWSID = require('/modules/zillowID.js');
 
+
+//var request = require('request');
+//
+//var xml2js = require('xml2js'); // this one neccessary?? don't think so :/
+//var parseString = require('xml2js').parseString;
+////var ZWSID = require('/modules/zillowID.js');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
+<<<<<<< HEAD
 
 var ZWSID = "X1-ZWz19ssev2coi3_1u0pu";
 var url = "http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=" + ZWSID
