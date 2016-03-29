@@ -1,11 +1,9 @@
-main {
+.container-fluid {
   margin-bottom: 10rem; }
 
 .container-fluid {
-  padding: 0 6vw; }
-
-.navbar-fixed-top {
-  position: relative; }
+  padding: 0 6vw;
+  margin-top: 71px; }
 
 .navbar-default .navbar-nav > li:hover, .navbar-default .navbar-nav > li:active, .navbar-default .navbar-nav > li:focus {
   background-color: #ddd; }
@@ -17,15 +15,18 @@ main {
   border-top: 2px solid #ddd; }
 
 .centered-form {
+  color: #111;
   position: absolute;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  max-width: 600px;
   width: 50%;
   background: #fff;
-  border: 5px solid red;
   padding: 2em; }
+  .centered-form h1 {
+    font-weight: 300; }
 
 #search-button {
   display: inline-block; }
