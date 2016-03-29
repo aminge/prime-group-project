@@ -1,5 +1,4 @@
 myApp.controller('EvaluateController', ['$scope', 'DataFactory', function($scope, DataFactory) {
-
   $scope.buyHoldForm = false;
   $scope.flipForm = true;
 
@@ -18,5 +17,6 @@ myApp.controller('EvaluateController', ['$scope', 'DataFactory', function($scope
     financingUsed: "1",
     lenderAVRCostOfProject: "1"
   };
-}]);
 
+
+}]);
