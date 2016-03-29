@@ -40,6 +40,6 @@ myApp.config(['$routeProvider', function($routeProvider) {
             controller: 'ResourcesController'
         })
         .otherwise({
-            redirectTo: 'search'
+            redirectTo: 'login'
         });
 }]);
