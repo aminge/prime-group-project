@@ -22,8 +22,8 @@ var register = require('./routes/register');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.use('/register', register);
 
+app.use('/register', register);
 
 var ZWSID = "X1-ZWz19ssev2coi3_1u0pu";
 var url = "http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=" + ZWSID

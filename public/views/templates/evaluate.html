@@ -257,51 +257,52 @@
       <div class="form-group form-group-sm">
         <label class="col-xs-8" for="totalLoanAmount">23. Total Loan Amount</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="totalLoanAmount" placeholder="70,086" id="totalLoanAmount">
+          <input class="form-control input" type="text" ng-model="totalLoanAmount" placeholder="70,086" disabled="disabled" id="totalLoanAmount">
         </div>
       </div>
 
       <div class="form-group form-group-sm">
         <label class="col-xs-8" for="cashRequired">24. Cash Required (over life of project)</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="cashRequired" placeholder="7,000" id="cashRequired">
+          <input class="form-control input" type="text" ng-model="cashRequired" placeholder="7,000" disabled="disabled" id="cashRequired">
         </div>
       </div>
 
       <hr class="hr-form">
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="something">Something</label>
+        <label class="col-xs-8" for="totalCostEndOfRehab">25. Total All-in Costs at end of Rehab</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="something">
+          <input class="form-control input" type="text" ng-model="totalCostEndOfRehab" placeholder="77,086" disabled="disabled" id="totalCostEndOfRehab">
         </div>
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="something">Something</label>
+        <label class="col-xs-8" for="percentageOfArv">26. % of ARV</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="something">
+          <input class="form-control input" type="text" ng-model="percentageOfArv" placeholder="77%" disabled="disabled" id="percentageOfArv">
         </div>
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="something">Something</label>
+        <label class="col-xs-8" for="projectedResalePrice">27. Projected Resale Price</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="something">
+          <input class="form-control input" type="text" ng-model="projectedResalePrice" placeholder="100,000" id="projectedResalePrice">
         </div>
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="something">Something</label>
-        <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="something">
+        <label class="col-xs-8" for="projectedCostSale">28. Projected Cost of Sale (% of Sale Price)</label>
+        <div class="col-xs-4 input-group">
+          <input class="form-control input" type="text" ng-model="projectedCostSale" placeholder="7" id="projectedCostSale">
+          <div class="input-group-addon">%</div>
         </div>
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="something">Something</label>
+        <label class="col-xs-8" for="projectedProfit">29. Projected Profit (after any lender split)</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="something">
+          <input class="form-control input text-highlights-green" type="text" ng-model="projectedProfit" placeholder="7,957" id="projectedProfit">
         </div>
       </div>
 
