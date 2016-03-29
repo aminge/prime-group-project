@@ -33,20 +33,20 @@ var url = "http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=" + ZWSI
 app.get('/zillow/:searchCriteria', function(req, res){
 
 request(
-    { method: 'GET',
+  { method: 'GET',
     uri: url,
     gzip: true
-    },
-    function (error, response, body){
-        console.log('server encoded the data as: ' + (response.headers['content-encoding'] || 'identity'));
-        console.log('the decoded data is: ' + body)
-    }).on('data', function(data){
-        console.log('decoded chunk: ' + data)
-    }).on('response', function(response) {
-        response.on('data', function(data){
-            console.log('received ' + data.length + ' bytes of compressed data')
-        })
+  },
+  function (error, response, body){
+    console.log('server encoded the data as: ' + (response.headers['content-encoding'] || 'identity'));
+    console.log('the decoded data is: ' + body)
+  }).on('data', function(data){
+    console.log('decoded chunk: ' + data)
+  }).on('response', function(response) {
+    response.on('data', function(data){
+      console.log('received ' + data.length + ' bytes of compressed data')
     });
+  });
     //.get(url, function(error, request, body) {
     //console.log('made it to app.js!')
     //.on('response', function(response){
@@ -92,5 +92,5 @@ app.use(express.static('public/vendors'));
 
 app.set('port', process.env.PORT || 5000);
 app.listen(app.get('port'), function() {
-    console.log('Kicking ass and taking names on port ', app.get('port'));
+  console.log('Kicking ass and taking names on port ', app.get('port'));
 });
