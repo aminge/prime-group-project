@@ -116,7 +116,7 @@
 
       <div class="form-group form-group-sm">
         <label class="col-xs-8" for="otherClosingCost">11. Other Closing Cost Paid to Lender</label>
-        <div class="col-xs-4 percentage">
+        <div class="col-xs-4 input-group">
           <input class="form-control input" type="text" ng-model="otherClosingCost" placeholder="0">
           <span class="input-group-addon">%</span>
         </div>
@@ -125,8 +125,8 @@
       <div class="form-group form-group-sm">
         <label class="col-xs-8" for="pointsClosingCosts">12. Points and Closing Costs Upfront or Back-end</label>
         <div class="col-xs-4">
-          <select class="form-control" ng-model="pointsClosingCosts">
-            <option value="1" selected="selected">Paid Backend</option>
+          <select class="form-control" ng-model="model.pointsClosingCosts">
+            <option value="1">Paid Backend</option>
             <option value="0">Paid Upfront</option>
           </select>
         </div>
@@ -134,7 +134,7 @@
 
       <div class="form-group form-group-sm">
         <label class="col-xs-8" for="interestRate">13. Interest Rate</label>
-        <div class="col-xs-4">
+        <div class="col-xs-4 input-group">
           <input class="form-control input" type="text" ng-model="interestRate" placeholder="10">
           <span class="input-group-addon">%</span>
 
@@ -154,8 +154,8 @@
       <div class="form-group form-group-sm">
         <label class="col-xs-8" for="splitBackendProfitsWithLender">15. Split Back-End Profits with Lender?</label>
         <div class="col-xs-4">
-          <select class="form-control" ng-model="splitBackendProfitsWithLender">
-            <option value="1" selected="selected">Yes</option>
+          <select class="form-control" ng-model="model.splitBackendProfitsWithLender">
+            <option value="1">Yes</option>
             <option value="0">No</option>
           </select>
         </div>
@@ -163,7 +163,7 @@
 
       <div class="form-group form-group-sm">
         <label class="col-xs-8" for="percentagePreTaxProfits">16. What % of Pre-Tax Profits Does Lender Get?</label>
-        <div class="col-xs-4">
+        <div class="col-xs-4 input-group">
           <input class="form-control input" type="text" ng-model="percentagePreTaxProfits" placeholder="50">
           <span class="input-group-addon">%</span>
         </div>
@@ -194,10 +194,10 @@
       <div class="form-group form-group-sm">
         <label class="col-xs-8" for="monthsCompleteSaleAfterRehab">18. Months to Complete Sale (After Rehab)</label>
         <div class="col-xs-4">
-          <select class="form-control" ng-model="monthsCompleteSaleAfterRehab">
+          <select class="form-control" ng-model="model.monthsCompleteSaleAfterRehab">
             <option value="0">0</option>
             <option value="1">1</option>
-            <option value="2" selected="selected">2</option>
+            <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
             <option value="5">5</option>
@@ -225,46 +225,46 @@
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="something">Something</label>
+        <label class="col-xs-8 greyedOutLabels" for="totalCapNeeded">19. Total Capital Needed</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="something">
+          <input class="form-control input" type="text" ng-model="totalCapNeeded" placeholder="73,000" disabled="disabled" id="totalCapNeeded">
         </div>
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="something">Something</label>
+        <label class="col-xs-8 greyedOutLabels" for="maxDollarsFinanced">20. Max $ that can be financed</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="something">
+          <input class="form-control input" type="text" ng-model="maxDollarsFinanced" placeholder="63,000" disabled="disabled" id="maxDollarsFinanced">
         </div>
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="something">Something</label>
+        <label class="col-xs-8 greyedOutLabels" for="actualToBeFinanced">21. Actual to be financed (not inc. closing/holding)</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="something">
+          <input class="form-control input" type="text" ng-model="actualToBeFinanced" placeholder="63,000" disabled="disabled" id="actualToBeFinanced">
         </div>
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="something">Something</label>
+        <label class="col-xs-8 greyedOutLabels" for="closingCostAddedToLoan">22. Closing/Holding Costs/Interest Added to Loan</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="something">
+          <input class="form-control input" type="text" ng-model="closingCostAddedToLoan" placeholder="7,086" disabled="disabled" id="closingCostAddedToLoan">
         </div>
       </div>
 
       <hr class="hr-form">
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="something">Something</label>
+        <label class="col-xs-8" for="totalLoanAmount">23. Total Loan Amount</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="something">
+          <input class="form-control input" type="text" ng-model="totalLoanAmount" placeholder="70,086" id="totalLoanAmount">
         </div>
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="something">Something</label>
+        <label class="col-xs-8" for="cashRequired">24. Cash Required (over life of project)</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="something">
+          <input class="form-control input" type="text" ng-model="cashRequired" placeholder="7,000" id="cashRequired">
         </div>
       </div>
 
