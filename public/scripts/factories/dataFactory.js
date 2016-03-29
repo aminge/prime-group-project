@@ -13,6 +13,12 @@ myApp.factory('DataFactory', ['$http', function($http) {
         return output.toFixed(2);
     };
 
+    var privateAddNewUser = function(user) {
+      $http.post('/data/newUser', user).then(function(response){
+        
+      });
+    }
+
 
 
     var initialSearch = function(address, cityStateZip) {
@@ -42,14 +48,6 @@ myApp.factory('DataFactory', ['$http', function($http) {
 
     };
 
-
-
-
-
-
-
-
-
     // Public
 
     var publicAPI = {
@@ -61,6 +59,9 @@ myApp.factory('DataFactory', ['$http', function($http) {
         },
         factoryExportApiSearchResults: function() {
             return apiData;
+        },
+        factoryAddNewUser: function(user) {
+          return privateAddNewUser(user);
         }
 
     };

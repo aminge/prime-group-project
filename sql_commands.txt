@@ -9,10 +9,10 @@ date_registered date DEFAULT now(),
 date_of_last_visit date DEFAULT now(),
 number_of_visits integer DEFAULT 1,
 account_type varchar(20)
-)
+);
 
-INSERT INTO users (email, password, first_name, last_name, phone_number)
-VALUES ('john@mail.com', 'johnb', 'john', 'ball', '612-000-0001');
+INSERT INTO users (email, password, first_name, last_name, phone_number, account_type)
+VALUES ('john@mail.com', 'johnb', 'john', 'ball', '612-000-0001', 'user');
 
-INSERT INTO users (email, password, first_name, last_name, phone_number)
-VALUES ('aminge37@gmail.com', '12345', 'alex', 'minge', '612-867-5309');
+INSERT INTO users (email, password, first_name, last_name, phone_number, account_type)
+VALUES ('aminge37@gmail.com', '12345', 'alex', 'minge', '612-867-5309', 'admin');
