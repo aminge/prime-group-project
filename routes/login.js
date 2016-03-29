@@ -5,8 +5,8 @@ var passport = require('passport');
 // Handles login form POST from index.html
 router.post('/',
     passport.authenticate('local', {
-        successRedirect: '/views/index.html',
-        failureRedirect: '/views/failure.html'
+        successRedirect: '/views/templates/search.html',
+        failureRedirect: '/views/templates/failure.html'
     })
 );
 
