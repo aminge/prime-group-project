@@ -1,16 +1,18 @@
 CREATE TABLE users (
 id serial PRIMARY KEY,
 email varchar(100) NOT NULL,
-pass_word varchar(100) NOT NULL,
+password varchar(100) NOT NULL,
 first_name varchar(100) NOT NULL,
 last_name varchar(100) NOT NULL,
 phone_number varchar(100) NOT NULL,
+date_registered date DEFAULT now(),
 date_of_last_visit date DEFAULT now(),
-number_of_visits integer DEFAULT 1;
+number_of_visits integer DEFAULT 1,
+account_type varchar(20)
 )
 
-INSERT INTO users (email, pass_word, first_name, last_name, phone_number)
+INSERT INTO users (email, password, first_name, last_name, phone_number)
 VALUES ('john@mail.com', 'johnb', 'john', 'ball', '612-000-0001');
 
-INSERT INTO users (email, pass_word, first_name, last_name, phone_number)
+INSERT INTO users (email, password, first_name, last_name, phone_number)
 VALUES ('aminge37@gmail.com', '12345', 'alex', 'minge', '612-867-5309');
