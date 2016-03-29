@@ -12,6 +12,13 @@ var parseString = require('xml2js').parseString;
 var register = require('./routes/register');
 
 
+
+//var request = require('request');
+//
+//var xml2js = require('xml2js'); // this one neccessary?? don't think so :/
+//var parseString = require('xml2js').parseString;
+////var ZWSID = require('/modules/zillowID.js');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
