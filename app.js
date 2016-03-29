@@ -16,7 +16,6 @@ var session = require('express-session');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-<<<<<<< HEAD
 
 var ZWSID = "X1-ZWz19ssev2coi3_1u0pu";
 var url = "http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=" + ZWSID
