@@ -1,8 +1,7 @@
 .centered-form {
   position: absolute;
   @include centerer;
-  width: 400px;
-  height: 400px;
+  width: 50%;
   background: $white;
   border:5px solid red;
   padding: 2em;
