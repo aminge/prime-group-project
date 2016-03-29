@@ -99,18 +99,18 @@
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="maxPercentCostFinanced">9. Max % of Cost to be Financed</label>
-        <div class="col-xs-4 percentage">
-          <input class="form-control input" type="text" ng-model="maxPercentCostFinanced" placeholder="9" name="maxPercentCostFinanced">
-          <span class="input-group-addon">%</span>
+        <label class="col-xs-8" for="lenderAVRCostOfProject">9. Max % of Cost to be Financed</label>
+        <div class="col-xs-4 input-group">
+          <input type="text" class="form-control input" id="exampleInputAmount" placeholder="9">
+          <div class="input-group-addon">%</div>
         </div>
       </div>
 
       <div class="form-group form-group-sm">
         <label class="col-xs-8" for="originationDiscountPoints">10. Origination Discount Points</label>
-        <div class="col-xs-4 percentage">
+        <div class="col-xs-4 input-group">
           <input class="form-control input" type="text" ng-model="originationDiscountPoints" placeholder="3" name="originationDiscountPoints">
-          <span class="input-group-addon">%</span>
+          <div class="input-group-addon">%</div>
         </div>
       </div>
 
@@ -144,8 +144,8 @@
       <div class="form-group form-group-sm">
         <label class="col-xs-8" for="interestPaymentDuringRehab">14. Interest Payment During Rehab</label>
         <div class="col-xs-4">
-          <select class="form-control" ng-model="interestPaymentDuringRehab">
-            <option value="1" selected="selected">Yes</option>
+          <select class="form-control" ng-model="model.interestPaymentDuringRehab">
+            <option value="1">Yes</option>
             <option value="0">No</option>
           </select>
         </div>

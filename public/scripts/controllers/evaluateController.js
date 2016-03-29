@@ -16,7 +16,8 @@ myApp.controller('EvaluateController', ['$scope', 'DataFactory', function($scope
     includeCloseHoldCosts: "1",
     projectRehabPeriod: "2",
     financingUsed: "1",
-    lenderAVRCostOfProject: "1"
+    lenderAVRCostOfProject: "1",
+    interestPaymentDuringRehab: "0"
   };
 }]);
 
