@@ -66,7 +66,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 
 
-
 // Serve back static files
 app.use(express.static('public'));
 app.use(express.static('public/views'));
