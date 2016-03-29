@@ -55,16 +55,8 @@ request(
 });
 
 
-
-
-
-
-
-
-
-
-
-
+// We need to add code in here to catch the POST request and send it to register
+// I will do this soon -Alex
 
 
 // Serve back static files

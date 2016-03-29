@@ -18,7 +18,10 @@ router.post('/', function(req, res, next) {
 
     var saveUser = {
       email: req.body.email,
-      password: encryptLib.encryptPassword(req.body.password)
+      password: encryptLib.encryptPassword(req.body.password),
+      first_name: req.body.firstName,
+      last_name: req.body.lastName,
+      phone_number: req.body.telNumber
     };
     console.log('new user:', saveUser);
 
