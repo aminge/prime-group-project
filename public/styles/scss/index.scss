@@ -1,7 +1,5 @@
-@import "variables";
+@import "global/global";
 @import "bourbon/bourbon";
-@import "base";
-@import "evaluate";
-@import "form";
-@import "main";
-@import "nav";
+@import "helpers/helpers";
+@import "landmarks/landmarks";
+@import "views/views";

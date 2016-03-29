@@ -1,5 +1,4 @@
 myApp.controller('EvaluateController', ['$scope', 'DataFactory', function($scope, DataFactory) {
-  console.log('evaluate controller works');
 
   $scope.buyHoldForm = false;
   $scope.flipForm = true;
@@ -13,5 +12,11 @@ myApp.controller('EvaluateController', ['$scope', 'DataFactory', function($scope
     $scope.buyHoldForm = true;
   };
 
-
+  $scope.model = {
+    includeCloseHoldCosts: "1",
+    projectRehabPeriod: "2",
+    financingUsed: "1",
+    lenderAVRCostOfProject: "1"
+  };
 }]);
+
