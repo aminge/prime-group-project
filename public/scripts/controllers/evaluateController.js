@@ -3,8 +3,6 @@ myApp.controller('EvaluateController', ['$scope', 'DataFactory', function($scope
 
   $scope.buyHoldForm = false;
   $scope.flipForm = true;
-  console.log($scope.flipForm);
-  console.log($scope.buyHoldForm);
 
   $scope.viewFlip = function() {
     $scope.flipForm = true;
@@ -14,4 +12,6 @@ myApp.controller('EvaluateController', ['$scope', 'DataFactory', function($scope
     $scope.flipForm = false;
     $scope.buyHoldForm = true;
   };
+
+
 }]);
