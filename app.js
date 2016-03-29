@@ -21,6 +21,7 @@ var url = "http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=" + ZWSI
 
 
 app.get('/zillow/:searchCriteria', function(req, res){
+
 request(
     { method: 'GET',
     uri: url,
