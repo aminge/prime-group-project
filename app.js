@@ -9,10 +9,13 @@ var request = require('request');
 var xml2js = require('xml2js'); // this one neccessary?? don't think so :/
 var parseString = require('xml2js').parseString;
 //var ZWSID = require('/modules/zillowID.js');
+var register = require('./routes/register');
 
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+
+app.use('/register', register);
 
 
 var ZWSID = "X1-ZWz19ssev2coi3_1u0pu";
@@ -53,10 +56,6 @@ request(
 
 
 });
-
-
-// We need to add code in here to catch the POST request and send it to register
-// I will do this soon -Alex
 
 
 // Serve back static files
