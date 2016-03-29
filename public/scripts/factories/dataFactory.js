@@ -28,15 +28,27 @@ myApp.factory('DataFactory', ['$http', function($http) {
         //    findState: cityStateZip
         //};
 
-        var ZWSID = "X1-ZWz19ssev2coi3_1u0pu";
-        // test hardcoded request url:
-        var url = "http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=" + ZWSID + "&address=2114+Bigelow+Ave&citystatezip=Seattle%2C+WA";
+
+        //
+        //var ZWSID = "X1-ZWz19ssev2coi3_1u0pu";
+        //
+        //// test hardcoded request url:
+        //var url = "http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=" + ZWSID + "&address=2114+Bigelow+Ave&citystatezip=Seattle%2C+WA";
+        //
+
         //var url = "http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=" + ZWSID + "&address="
         //    + address + "&citystatezip=" + cityStateZip;
 
-        $http.get('/zillow/' + searchCriteria).then(function(response) {
+        //var promise = $http.get('/zillow/' + searchCriteria).then(function(response) {
+        //    console.log('data factory says yeehaw', searchCriteria);
+        //    apiData = response.data;
+        //    console.log('Async data response: ', apiData);
+        //});
+        //
+        //return promise;
+        var promise = $http.get('/GetZestimate').then(function(results) {
             console.log('data factory says yeehaw', searchCriteria);
-            apiData = response.data;
+            apiData = results;
             console.log('Async data response: ', apiData);
         });
     };
