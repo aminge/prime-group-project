@@ -19,7 +19,8 @@ myApp.controller('EvaluateController', ['$scope', 'DataFactory', function($scope
     interestPaymentDuringRehab: "0",
     pointsClosingCosts: "1",
     splitBackendProfitsWithLender: "1",
-    monthsCompleteSaleAfterRehab: "2"
+    monthsCompleteSaleAfterRehab: "2",
+    monthsToRentAfterRehab: "2"
   };
 
 

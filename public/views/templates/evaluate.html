@@ -303,116 +303,21 @@
       <div class="form-group form-group-sm">
         <label class="col-xs-8" for="projectedProfit">29. Projected Profit (after any lender split)</label>
         <div class="col-xs-4">
-          <input class="form-control input text-highlights-green" type="text" ng-model="projectedProfit" placeholder="7,957" id="projectedProfit">
+          <input class="form-control input text-highlights-green" type="text" ng-model="projectedProfit" placeholder="7,957" disabled="disabled" id="projectedProfit">
         </div>
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="something">Something</label>
+        <label class="col-xs-8" for="Roi">30. ROI (Return on CASH invested)</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="something">
+          <input class="form-control input text-highlights-green" type="text" ng-model="Roi" placeholder="113.67%" disabled="disabled"  id="Roi">
         </div>
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="something">Something</label>
+        <label class="col-xs-8" for="RoiAnnualized">31. ROI (Annualized)</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="something">
-        </div>
-      </div>
-
-      <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="something">Something</label>
-        <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="something">
-        </div>
-      </div>
-
-      <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="something">Something</label>
-        <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="something">
-        </div>
-      </div>
-
-      <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="something">Something</label>
-        <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="something">
-        </div>
-      </div>
-
-      <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="something">Something</label>
-        <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="something">
-        </div>
-      </div>
-
-      <hr class="hr-form">
-
-      <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="something">Something</label>
-        <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="something">
-        </div>
-      </div>
-
-      <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="something">Something</label>
-        <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="something">
-        </div>
-      </div>
-
-      <hr class="hr-form">
-
-      <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="something">Something</label>
-        <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="something">
-        </div>
-      </div>
-
-      <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="something">Something</label>
-        <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="something">
-        </div>
-      </div>
-
-      <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="something">Something</label>
-        <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="something">
-        </div>
-      </div>
-
-      <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="something">Something</label>
-        <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="something">
-        </div>
-      </div>
-
-      <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="something">Something</label>
-        <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="something">
-        </div>
-      </div>
-
-      <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="something">Something</label>
-        <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="something">
-        </div>
-      </div>
-
-      <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="something">Something</label>
-        <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="something">
+          <input class="form-control input text-highlights-green" type="text" ng-model="RoiAnnualized" placeholder="341.02%" disabled="disabled" id="RoiAnnualized">
         </div>
       </div>
 
@@ -425,42 +330,68 @@
       <h3>Hold / Rent Analysis</h3>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="something">Something</label>
+        <label class="col-xs-8" for="afterRepairValue">32. After-Repair Value (ARV) for RENT</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="something">
+          <input class="form-control input" type="text" ng-model="afterRepairValue" placeholder="100,000" id="afterRepairValue">
         </div>
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="#">Select</label>
+        <label class="col-xs-8" for="monthsToRentAfterRehab">33. 	Months to Rent (after Rehab Period is Over)</label>
         <div class="col-xs-4">
-          <select class="form-control" ng-model="x"></select>
+          <select class="form-control" ng-model="model.monthsToRentAfterRehab">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+          </select>
         </div>
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="something">Something</label>
+        <label class="col-xs-8 greyedOutLabels" for="totalCapNeededTwo">34. Total Capital Needed</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="something">
+          <input class="form-control input" type="text" ng-model="totalCapNeededTwo" placeholder="73,000" disabled="disabled" id="totalCapNeededTwo">
         </div>
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="something">Something</label>
+        <label class="col-xs-8 greyedOutLabels" for="maxDollarsFinancedTwo">35. Max $ that can be financed</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="something">
+          <input class="form-control input" type="text" ng-model="maxDollarsThatCanBeFinancedTwo" placeholder="63,000" disabled="disabled" id="maxDollarsThatCanBeFinancedTwo">
         </div>
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="something">Something</label>
+        <label class="col-xs-8 greyedOutLabels" for="actualToBeFinancedTwo">36. Actual to be financed (not inc. closing/holding)</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="something">
+          <input class="form-control input" type="text" ng-model="actualToBeFinancedTwo" placeholder="63,000" disabled="disabled" id="actualToBeFinancedTwo">
         </div>
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="something">Something</label>
+        <label class="col-xs-8" for="something">37. Something</label>
         <div class="col-xs-4">
           <input class="form-control input" type="text" ng-model="something">
         </div>
@@ -469,7 +400,7 @@
       <hr class="hr-form">
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="something">Something</label>
+        <label class="col-xs-8" for="something">38. Something</label>
         <div class="col-xs-4">
           <input class="form-control input" type="text" ng-model="something">
         </div>
