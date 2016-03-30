@@ -69,6 +69,9 @@
 .greyedOutLabels {
   color: #AAA; }
 
+.text-highlights-green {
+  background: #72c02c; }
+
 .login-background {
   background: url("../../images/house-1.jpg") no-repeat center center/cover;
   position: relative;

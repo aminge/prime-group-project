@@ -14,7 +14,7 @@ myApp.factory('DataFactory', ['$http', function($http) {
     };
 
     var privateAddNewUser = function(user) {
-      $http.post('/data/register', user).then(function(response){
+      $http.post('/register', user).then(function(response){
         
       });
     };
