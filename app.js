@@ -39,12 +39,12 @@ request(
   },
   function (error, response, body){
     console.log('server encoded the data as: ' + (response.headers['content-encoding'] || 'identity'));
-    console.log('the decoded data is: ' + body)
+    console.log('the decoded data is: ' + body);
   }).on('data', function(data){
-    console.log('decoded chunk: ' + data)
+    console.log('decoded chunk: ' + data);
   }).on('response', function(response) {
     response.on('data', function(data){
-      console.log('received ' + data.length + ' bytes of compressed data')
+      console.log('received ' + data.length + ' bytes of compressed data');
     });
   });
     //.get(url, function(error, request, body) {
