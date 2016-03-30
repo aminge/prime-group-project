@@ -20,11 +20,16 @@
     "bourbon": "^4.2.6",
     "express": "^4.13.4",
     "express-session": "^1.13.0",
+    "lodash": "^4.6.1",
     "node-sass": "^3.4.2",
     "node-zillow": "^1.0.1",
+    "object-assign": "^4.0.1",
     "passport": "^0.3.2",
     "pg": "^4.5.1",
+    "q": "^1.4.1",
     "reset-css": "^2.0.2011012603",
-    "xml2js": "^0.4.16"
+    "sax": "^1.2.1",
+    "xml2js": "^0.4.16",
+    "xmlbuilder": "^8.1.0"
   }
 }

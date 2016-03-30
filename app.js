@@ -10,7 +10,27 @@ var xml2js = require('xml2js'); // this one neccessary?? don't think so :/
 var parseString = require('xml2js').parseString;
 //var ZWSID = require('/modules/zillowID.js');
 var register = require('./routes/register');
+var parameters = require('./zillow/zillow');
+var ZWSID = "X1-ZWz19ssev2coi3_1u0pu";
 
+// xml2js parser instance
+var parser = new xml2js.Parser();
+
+// GET request to EVE Online API
+var url = 'http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id=' + ZWSID + '&address=2114+Bigelow+Ave&citystatezip=Seattle%2C+WA';
+
+
+request.get(url, function(error, request, body) {
+  // Parse XML data from body
+  parser.parseString(body, function(err, parsedXml) {
+    try {
+      var houseInfo = parsedXml;
+      console.log(houseInfo);
+    } catch(e) {
+      console.log('Character not found');
+    }
+  });
+});
 
 
 //var request = require('request');
@@ -21,14 +41,16 @@ var register = require('./routes/register');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+//app.use('/GetZestimate', zillow);
 
 
 app.use('/register', register);
 
-var ZWSID = "X1-ZWz19ssev2coi3_1u0pu";
+
 var url = "http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=" + ZWSID
     + "&address=2114+Bigelow+Ave&citystatezip=Seattle%2C+WA";
 
+var xmlResponse = '';
 
 app.get('/zillow/:searchCriteria', function(req, res){
 
@@ -42,6 +64,7 @@ request(
     console.log('the decoded data is: ' + body);
   }).on('data', function(data){
     console.log('decoded chunk: ' + data);
+    xmlData = data;
   }).on('response', function(response) {
     response.on('data', function(data){
       console.log('received ' + data.length + ' bytes of compressed data');
@@ -55,14 +78,16 @@ request(
     //});
     //
     ////parse XML data from body
-    //parseString(body, function(err, result){
-    //    console.log(result);
-    //   console.dir(result);
-    //});
-//});
-
-
+    var x = parseString(xmlResponse, function(err, result){
+    console.log('Line 62: ', x);
+      //var xml = result;
+      //  parseString(xml)(err, result)
+      // console.dir(result);
+    });
 });
+
+
+//});
 
 
 
