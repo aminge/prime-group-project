@@ -40,10 +40,13 @@ var parameters = (function() {
 // Call the primary API function based on the arguments passed in
 var example = zillow.get(apiName, parameters);
 
+app.get('/GetZestimate', function(req, res){
 
-example.then(function(data) {
+    example.then(function(data) {
     inspect(data);
     return data;
+
+});
 });
 
 
@@ -52,17 +55,16 @@ example.then(function(data) {
 
 
 
-
-
-
-var parameters = {
-    zpid: 1111111
-};
-
-zillow.get('/GetZestimate', parameters)
-    .then(function(results) {
-        console.log('From app.js zillow.get call: ', results);
-
-        return results;
-        // results here is an object { message: {}, request: {}, response: {}}
-    });
+//
+//
+//var parameters = {
+//    zpid: 1111111
+//};
+//
+//zillow.get('/GetZestimate', parameters)
+//    .then(function(results) {
+//        console.log('From app.js zillow.get call: ', results);
+//
+//        return results;
+//        // results here is an object { message: {}, request: {}, response: {}}
+//    });

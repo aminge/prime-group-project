@@ -1,0 +1,12 @@
+.centered-form {
+  color: $dark-gray;
+  position: absolute;
+  @include centerer;
+  max-width: 600px;
+  width: 50%;
+  background: $white;
+  padding: 2em;
+  h1 {
+    font-weight: 300;
+  }
+}

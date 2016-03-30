@@ -1,5 +1,5 @@
 myApp.controller('SearchController', ['$scope', '$http', 'DataFactory', function($scope, $http, DataFactory) {
-    console.log('SearchController working');
+  console.log('SearchController working');
     $scope.dataFactory = DataFactory;
 
 
@@ -14,7 +14,7 @@ myApp.controller('SearchController', ['$scope', '$http', 'DataFactory', function
         var cityStateZip = $scope.citySearch + $scope.stateSearch + $scope.zipSearch;
        // console.log('search controller: ', address, cityStateZip);
         // search
-        $scope.dataFactory.factoryAPICall(address, cityStateZip).then(function() {
+        $scope.dataFactory.factorySearchListings(address, cityStateZip).then(function() {
             $scope.apiResults = $scope.dataFactory.factoryExportApiSearchResults();
         });
 

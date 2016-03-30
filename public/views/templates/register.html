@@ -1,0 +1,56 @@
+<!-- npmemail, password, confim password, first, last, phone # -->
+<div class="login-background">
+
+
+</div>
+
+<div class="container centered-form">
+  <h1 class="text-center">Register New User</h1>
+  <form class="assumptions-form form-horizontal" role="form">
+    <div class="form-group form-group-sm">
+      <label class="col-xs-3" for="firstName">Name (first)</label>
+      <div class="col-xs-9">
+        <input class="form-control input" type="text" id="firstName" ng-model="firstName">
+      </div>
+    </div>
+
+    <div class="form-group form-group-sm">
+      <label class="col-xs-3" for="lastName">Name (last)</label>
+      <div class="col-xs-9">
+        <input class="form-control input" type="text" id="lastName" ng-model="lastName">
+      </div>
+    </div>
+
+    <div class="form-group form-group-sm">
+      <label class="col-xs-3" for="email">Email</label>
+      <div class="col-xs-9">
+        <input class="form-control input" type="email" id="email" ng-model="email">
+      </div>
+    </div>
+
+    <div class="form-group form-group-sm">
+      <label class="col-xs-3" for="telNumber">Phone Number</label>
+      <div class="col-xs-9">
+        <input class="form-control input" type="tel" id="telNumber" ng-model="telNumber">
+      </div>
+    </div>
+
+    <div class="form-group form-group-sm">
+      <label class="col-xs-3" for="password">Password</label>
+      <div class="col-xs-9">
+        <input class="form-control" type="password" id="password" ng-model="password">
+      </div>
+    </div>
+
+    <div class="form-group form-group-sm">
+      <label class="col-xs-3" for="confirmPassword">Confirm Password</label>
+      <div class="col-xs-9">
+        <input class="form-control" type="password" id="confirmPassword" ng-model="confirmPassword">
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-danger btn-block" ng-click="addNewUser()">Register</button>
+
+  </form>
+
+</div>

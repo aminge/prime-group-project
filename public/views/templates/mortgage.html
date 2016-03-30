@@ -1,33 +1,42 @@
-<div class="six columns" id="form-container">
-    <form>
+<div class="container-fluid">
+
+  <form class="mortgage-form form-horizontal">
+    <div class="form-group">
+      <div class="col-sm-8">
         <label for="price">Price:</label>
-        <input type="number" ng-model="price" id="price" />
+      </div>
+      <div class="col-sm-4">
+        <input type="number" step="5000" ng-model="price" id="price" class="form-control" />
+      </div>
+    </div>
 
-        <label for="interestRate">Percent Interest Rate:</label>
-        <textarea type="number" ng-model="interestRate" id="interestRate"></textarea>
+    <div class="form-group">
+      <div class="col-sm-8">
+        <label for="interest-rate">Percent Interest Rate:</label>
+      </div>
+      <div class="col-sm-4">
+        <input type="number" ng-model="interestRate" id="interest-rate" class="form-control" />
+      </div>
+    </div>
 
-        <!--<label for="years">Number of Years:</label>-->
-        <select ng-model="years">
-            <option value="10">10 Years</option>
-            <option value="15">15 Years</option>
-            <option value="20">20 Years</option>
-            <option value="25">25 Years</option>
-            <option value="30">30 Years</option>
+    <!--<label for="years">Number of Years:</label>-->
+    <div class="form-group">
+      <div class="col-sm-8">
+        <label for="mortgageLength">Mortgage Length</label>
+      </div>
+      <div class="col-sm-4">
+        <select class="form-control" ng-model="years">
+          <option value="10">10 Years</option>
+          <option value="15">15 Years</option>
+          <option value="20">20 Years</option>
+          <option value="25">25 Years</option>
+          <option value="30">30 Years</option>
         </select>
+      </div>
+    </div>
 
-
-        <button id="save-goal" ng-click="calculateMortgage()">Save Goal</button>
-    </form>
+    <div class="col-sm-4 col-sm-offset-8">
+      <button id="mortgage-button" class="btn btn-primary" ng-click="calculateMortgage()">Calculate Mortgage</button>
+    </div>
+  </form>
 </div>
-
-
-<select ng-change="getAnimal()" ng-model="animal">
-    <option value="barnyard">Barnyard Animal</option>
-    <option value="bird">Bird</option>
-    <option value="cat">Cat</option>
-    <option value="dog">Dog</option>
-    <option value="horse">Horse</option>
-    <option value="pig">Pig</option>
-    <option value="reptile">Reptile</option>
-    <option value="smallfurry">Small Furry Animal</option>
-</select>

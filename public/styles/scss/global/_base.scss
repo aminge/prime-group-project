@@ -3,9 +3,9 @@
 //Be sure to comment these out when making a commit. //
 
  // div, ul, li, a, nav, form, .container, .row {
- //   border: 1px solid #000;
+ //   border: 1px solid $black;
  // }
- // 
+ //
  // div, ul, li, a, nav, form, .container, .row {
  //   background: #ddd;
  // }
@@ -14,6 +14,13 @@
 
 ///This is so you can scroll down past the bottom of the page.
 //useful for Dev//
-main {
+.container-fluid {
   margin-bottom: 10rem;
+}
+
+///begin the REAL rules
+
+.container-fluid {
+  padding: 0 6vw;
+  margin-top: 71px;
 }

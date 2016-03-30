@@ -30,6 +30,9 @@
   <script type="text/javascript" src="/scripts/controllers/registerController.js"></script>
   <script type="text/javascript" src="/scripts/controllers/resourcesController.js"></script>
 
+<!-- Bootstrap wants this -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 
 <!-- TODO: Should Nav Be persistent across all pages or only the main 5? -->
@@ -37,7 +40,7 @@
 <body ng-app="myApp">
   <nav ng-include="'/templates/nav.html'"></nav>
   <div>
-    <main class="container-fluid" ng-view="main"></main>
+    <main ng-view="main"></main>
   </div>
 </body>
 

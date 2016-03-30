@@ -16,30 +16,30 @@ myApp.config(['$routeProvider', function($routeProvider) {
             controller: 'AdminController'
         })
         .when('/evaluate', {
-            templateURL: 'views/templates/evaluate.html',
+            templateUrl: 'views/templates/evaluate.html',
             controller: 'EvaluateController'
         })
         .when('/favorites', {
-            templateURL: 'views/templates/favorites.html',
+            templateUrl: 'views/templates/favorites.html',
             controller: 'FavoritesController'
         })
         .when('/login', {
-            templateURL: 'views/templates/login.html',
+            templateUrl: 'views/templates/login.html',
             controller: 'LoginController'
         })
         .when('/logout', {
-            templateURL: 'views/templates/logout.html',
+            templateUrl: 'views/templates/logout.html',
             controller: 'LogoutController'
         })
         .when('/register', {
-            templateURL: 'views/templates/register.html',
+            templateUrl: 'views/templates/register.html',
             controller: 'RegisterController'
         })
         .when('/resources', {
-            templateURL: 'views/templates/resources.html',
+            templateUrl: 'views/templates/resources.html',
             controller: 'ResourcesController'
         })
         .otherwise({
-            redirectTo: 'search'
+            redirectTo: 'login'
         });
 }]);
