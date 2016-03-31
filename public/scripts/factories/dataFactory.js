@@ -32,6 +32,7 @@ myApp.factory('DataFactory', ['$http', function($http) {
             params: searchCriteria
         }).then(function (response) {
            apiData = response.data.results.result[0];
+            console.log('from factory: ', apiData);
         });
     };
 

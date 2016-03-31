@@ -8,8 +8,6 @@ myApp.controller('SearchController', ['$scope', '$http', 'DataFactory', function
     $scope.searchListings = function() {
         console.log('YEEEAAAH!');
 
-        // TODO: encodeURIComponent JS function or angular directive? -address & cityStateZip
-
         var address = $scope.addressSearch;
         var cityStateZip = $scope.citySearch + $scope.stateSearch + $scope.zipSearch;
        // console.log('search controller: ', address, cityStateZip);
