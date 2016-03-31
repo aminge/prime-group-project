@@ -5,11 +5,8 @@ var pg = require('pg');
 //var register = require('./routes/register');
 var passport = require('passport');
 var session = require('express-session');
-//var xml2js = require('xml2js'); // this one neccessary?? don't think so :/
-var parseString = require('xml2js').parseString;
-//var ZWSID = require('/modules/zillowID.js');
 var register = require('./routes/register');
-var parameters = require('./zillow/zillow');
+//var parameters = require('./zillow/zillow');
 var ZWSID = "X1-ZWz19ssev2coi3_1u0pu";
 var Zillow = require('node-zillow');
 
@@ -19,7 +16,6 @@ var Zillow = require('node-zillow');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-//app.use('/GetZestimate', zillow);
 
 app.use('/register', register);
 
@@ -38,7 +34,7 @@ app.get('/zillow/GetDeepSearchResults', function(req, res){
 });
 
 
-//});
+
 
 
 
