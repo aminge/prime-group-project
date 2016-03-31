@@ -11,7 +11,17 @@ var parseString = require('xml2js').parseString;
 //var ZWSID = require('/modules/zillowID.js');
 var register = require('./routes/register');
 
-
+var convertSpaceToPlus = function(string) {
+  var outputString = '';
+  for (var i = 0; i < string.length; i++) {
+    if (string[i] == ' ') {
+      outputString += '+';
+    } else {
+      outputString += string[i];
+    }
+  }
+  return outputString;
+};
 
 //var request = require('request');
 //
@@ -31,6 +41,10 @@ var url = "http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=" + ZWSI
 
 
 app.get('/zillow/:searchCriteria', function(req, res){
+
+  url = 'http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=' + ZWSID
+  + '&address=' + convertSpaceToPlus(req.body.address) + '&citystatezip=' + req.body.city + '%2C+' + req.body.state;
+  // not sure how to attach the zip code in the request, since it isn't in the sample
 
 request(
   { method: 'GET',
@@ -61,13 +75,8 @@ request(
     //});
 //});
 
-
 });
 
-
-
-// We need to add code in here to catch the POST request and send it to register
-// I will do this soon -Alex
 
 // Serve back static files
 app.use(express.static('public'));
