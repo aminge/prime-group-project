@@ -5,85 +5,36 @@ var pg = require('pg');
 //var register = require('./routes/register');
 var passport = require('passport');
 var session = require('express-session');
-var request = require('request');
-var xml2js = require('xml2js'); // this one neccessary?? don't think so :/
+//var xml2js = require('xml2js'); // this one neccessary?? don't think so :/
 var parseString = require('xml2js').parseString;
 //var ZWSID = require('/modules/zillowID.js');
 var register = require('./routes/register');
 var parameters = require('./zillow/zillow');
 var ZWSID = "X1-ZWz19ssev2coi3_1u0pu";
+var Zillow = require('node-zillow');
 
-// xml2js parser instance
-var parser = new xml2js.Parser();
+// Will automatically download and use any missing schemas
 
 // GET request to EVE Online API
-var url = 'http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id=' + ZWSID + '&address=2114+Bigelow+Ave&citystatezip=Seattle%2C+WA';
-
-
-request.get(url, function(error, request, body) {
-  // Parse XML data from body
-  parser.parseString(body, function(err, parsedXml) {
-    try {
-      var houseInfo = parsedXml;
-      console.log(houseInfo);
-    } catch(e) {
-      console.log('Character not found');
-    }
-  });
-});
-
-
-//var request = require('request');
-//
-//var xml2js = require('xml2js'); // this one neccessary?? don't think so :/
-//var parseString = require('xml2js').parseString;
-////var ZWSID = require('/modules/zillowID.js');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 //app.use('/GetZestimate', zillow);
 
-
 app.use('/register', register);
 
+app.get('/zillow/GetDeepSearchResults', function(req, res){
+  var zillow = new Zillow(ZWSID);
 
-var url = "http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=" + ZWSID
-    + "&address=2114+Bigelow+Ave&citystatezip=Seattle%2C+WA";
+  var queryParameters = req.query;
 
-var xmlResponse = '';
-
-app.get('/zillow/:searchCriteria', function(req, res){
-
-request(
-  { method: 'GET',
-    uri: url,
-    gzip: true
-  },
-  function (error, response, body){
-    console.log('server encoded the data as: ' + (response.headers['content-encoding'] || 'identity'));
-    console.log('the decoded data is: ' + body);
-  }).on('data', function(data){
-    console.log('decoded chunk: ' + data);
-    xmlData = data;
-  }).on('response', function(response) {
-    response.on('data', function(data){
-      console.log('received ' + data.length + ' bytes of compressed data');
-    });
+ // get will return a promise
+  zillow.get('GetDeepSearchResults', {
+    address: queryParameters.findAddress,
+    citystatezip: queryParameters.findState
+  }).then(function(data) {
+    res.send(data.response);
   });
-    //.get(url, function(error, request, body) {
-    //console.log('made it to app.js!')
-    //.on('response', function(response){
-    //    console.log(response.statusCode);
-    //    console.log(response.headers['content-type']);
-    //});
-    //
-    ////parse XML data from body
-    var x = parseString(xmlResponse, function(err, result){
-    console.log('Line 62: ', x);
-      //var xml = result;
-      //  parseString(xml)(err, result)
-      // console.dir(result);
-    });
 });
 
 

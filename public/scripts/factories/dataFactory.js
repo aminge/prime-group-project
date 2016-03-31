@@ -19,42 +19,20 @@ myApp.factory('DataFactory', ['$http', function($http) {
       });
     };
 
-
-
     var initialSearch = function(address, cityStateZip) {
         console.log('API search from factory happening NOW!', address, cityStateZip);
         var searchCriteria = {
             findAddress: address,
             findState: cityStateZip
         };
-
-
-
-        var ZWSID = "X1-ZWz19ssev2coi3_1u0pu";
-
-        // test hardcoded request url:
-        var url = "http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=" + ZWSID + "&address=2114+Bigelow+Ave&citystatezip=Seattle%2C+WA";
-
-
-        //var url = "http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=" + ZWSID + "&address="
-        //    + address + "&citystatezip=" + cityStateZip;
-
-        var promise = $http.get('/zillow/' + searchCriteria).then(function(response) {
-
-
-            console.log('data factory says yeehaw', searchCriteria);
-            apiData = response.data;
-            console.log('Async data response: ', apiData);
+        //http returns a promise
+        return $http({
+            method: 'GET',
+            url: '/zillow/GetDeepSearchResults',
+            params: searchCriteria
+        }).then(function (response) {
+           apiData = response.data.results.result[0];
         });
-
-        //return promise;
-    //    var promise = $http.get('/GetZestimate').then(function(results) {
-    //        console.log('data factory says yeehaw', searchCriteria);
-    //        apiData = results;
-    //        console.log('Async data response: ', apiData);
-    //    });
-
-        return promise;
     };
 
 
@@ -67,13 +45,13 @@ myApp.factory('DataFactory', ['$http', function($http) {
 
     var publicAPI = {
         factoryCalculateMortgage: function(price, years, interestRate) {
-            return privateCalculateMortgage(price, years, interestRate)
+          return privateCalculateMortgage(price, years, interestRate)
         },
         factorySearchListings: function (address, cityStateZip) {
-            return initialSearch(address, cityStateZip);
+          return initialSearch(address, cityStateZip);
         },
         factoryExportApiSearchResults: function() {
-            return apiData;
+          return apiData;
         },
         factoryAddNewUser: function(user) {
           return privateAddNewUser(user);
