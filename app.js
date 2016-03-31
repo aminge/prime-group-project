@@ -33,6 +33,22 @@ app.get('/zillow/GetDeepSearchResults', function(req, res){
   });
 });
 
+app.get('/zillow/GetUpdatedPropertyDetails', function(req, res){
+  var zillow = new Zillow(ZWSID);
+  var queryParameters = req.query;
+  //console.log('queryParameters are ', queryParameters);
+  console.log('zpid is ', queryParameters.zpid);
+  // I think the problem is that queryParameters doesn't have the zpid
+  // this console log is printing out 'zpid is undefined'
+
+// get will return a promise
+  zillow.get('GetUpdatedPropertyDetails', {
+    zpid: parseInt(queryParameters.zpid)
+  }).then(function(data) {
+    res.send(data);
+  });
+
+});
 
 
 

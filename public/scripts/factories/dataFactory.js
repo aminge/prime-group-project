@@ -1,5 +1,6 @@
 myApp.factory('DataFactory', ['$http', function($http) {
     var apiData = undefined;
+    var apiPhotoData = undefined;
 
     // Private
 
@@ -31,8 +32,22 @@ myApp.factory('DataFactory', ['$http', function($http) {
             url: '/zillow/GetDeepSearchResults',
             params: searchCriteria
         }).then(function (response) {
-           apiData = response.data.results.result[0];
-            console.log('from factory: ', apiData);
+          apiData = response.data.results.result[0];
+          console.log('from factory: ', apiData);
+          // GetUpdatedPropertyDetails
+          console.log(apiData.zpid[0]);
+
+          var zpid = parseInt(apiData.zpid[0]);
+          console.log('zpid is ', zpid);
+
+          return $http({
+            method: 'GET',
+            url: '/zillow/GetUpdatedPropertyDetails',
+            params: zpid
+          }).then(function (response) {
+            apiPhotoData = response;
+            console.log(apiPhotoData);
+          })
         });
     };
 
