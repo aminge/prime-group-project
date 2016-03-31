@@ -1,6 +1,6 @@
 myApp.controller('SearchController', ['$scope', '$http', 'DataFactory', function($scope, $http, DataFactory) {
   console.log('SearchController working');
-    $scope.dataFactory = DataFactory;
+
 
 
 
@@ -8,21 +8,23 @@ myApp.controller('SearchController', ['$scope', '$http', 'DataFactory', function
     $scope.searchListings = function() {
         console.log('YEEEAAAH!');
 
-        // TODO: encodeURIComponent JS function or angular directive? -address & cityStateZip
-
         var address = $scope.addressSearch;
         var cityStateZip = $scope.citySearch + $scope.stateSearch + $scope.zipSearch;
        // console.log('search controller: ', address, cityStateZip);
         // search
-        $scope.dataFactory.factorySearchListings(address, cityStateZip).then(function() {
-            $scope.apiResults = $scope.dataFactory.factoryExportApiSearchResults();
-        });
+        DataFactory.factorySearchListings(address, cityStateZip)
+          .then(function() {
+            $scope.apiResults = DataFactory.factoryExportApiSearchResults();
+        }) // clear form fields
+          .then(function() {
+            $scope.addressSearch = null;
+            $scope.citySearch = null;
+            $scope.stateSearch = null;
+            $scope.zipSearch = null;
+          });
 
-        // clear form fields
-        $scope.addressSearch = null;
-        $scope.citySearch = null;
-        $scope.stateSearch = null;
-        $scope.zipSearch = null;
+
+
     };
 
 
