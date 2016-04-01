@@ -25,13 +25,22 @@ myApp.controller('SearchController', ['$scope', '$http', 'DataFactory', function
             var photoArray = DataFactory.factoryGetPhotos();
             $scope.slides = [];
 
-            for (var i = 0; i < photoArray.length; i++) {
-              $scope.slides.push({id: i, image: photoArray[i]});
+            console.log('photoArray is ', photoArray);
+            console.log('length of photoArray is ', photoArray.length);
+
+            if (photoArray.length < 1) {
+              console.log('resetting photo array');
+              // display message saying no photos are available
+              $scope.slides = [
+                {id: 0, image: '../../images/house-1.jpg'},
+                {id: 1, image: '../../images/house-2.jpg'}
+              ];
+            } else {
+              for (var i = 0; i < photoArray.length; i++) {
+                $scope.slides.push({id: i, image: photoArray[i]});
+              }
             }
           });
-
-
-
     };
 
 
@@ -43,7 +52,6 @@ myApp.controller('SearchController', ['$scope', '$http', 'DataFactory', function
   $scope.slides = [
     {id: 0, image: '../../images/house-1.jpg'},
     {id: 1, image: '../../images/house-2.jpg'}
-
   ];
   var currIndex = 0;
 

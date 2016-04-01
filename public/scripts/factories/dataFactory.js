@@ -45,10 +45,14 @@ myApp.factory('DataFactory', ['$http', function($http) {
             method: 'GET',
             url: '/zillow/GetUpdatedPropertyDetails/' + zpid
           }).then(function (response) {
-            apiPhotoData = response.data.response.images.image[0].url;
-            //console.log(apiPhotoData);
-
-          })
+            try {
+              apiPhotoData = response.data.response.images.image[0].url;
+            } catch(err) {
+              apiPhotoData = [];
+              console.log('Error: ', err);
+            }
+            console.log(apiPhotoData);
+          });
         });
     };
 
