@@ -41,18 +41,18 @@
   <div class="row home-information">
     <div class="col-sm-4 info info-one">
       <ul>
-        <li>Listing:</li>
-        <li>Zestimate:</li>
-        <li>SqFt:</li>
-        <li>Price / SqFt:</li>
+        <li><strong>Listing:</strong> {{apiResults.address[0].street[0]}}<a class="symbols" ng-show="userHasSearched">,</a> {{apiResults.address[0].city[0]}}<a class="symbols" ng-show="userHasSearched">,</a> {{apiResults.address[0].state[0]}} {{apiResults.address[0].zipcode[0]}}</li>
+        <li><strong>Zestimate:</strong> {{apiResults.zestimate[0].amount[0]._ | currency}}</li>
+        <li><strong>SqFt:</strong> {{apiResults.finishedSqFt[0]}}</li>
+        <li><strong>Price / SqFt:</strong> {{pricePerSquareFoot | currency}}</li>
       </ul>
     </div>
     <div class="col-sm-4 info info-two">
       <ul>
-        <li>Use Code:</li>
-        <li>Year Built:{{apiResults.yearBuilt[0]}}</li>
-        <li>Beds:</li>
-        <li>Baths:</li>
+        <li><strong>Use Code:</strong> {{apiResults.useCode[0]}}</li>
+        <li><strong>Year Built:</strong> {{apiResults.yearBuilt[0]}}</li>
+        <li><strong>Beds:</strong> {{apiResults.bedrooms[0]}}</li>
+        <li><strong>Baths:</strong> {{apiResults.bathrooms[0]}}</li>
       </ul>
     </div>
     <div class="col-sm-4 info info-three">

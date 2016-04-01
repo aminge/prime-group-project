@@ -81,4 +81,13 @@
   height: 100vh;
   margin: 0; }
 
+.symbols {
+  color: #666; }
+  .symbols:hover {
+    text-decoration: none;
+    color: #666; }
+
+.listingLabels {
+  color: black; }
+
 /*# sourceMappingURL=index.css.map */

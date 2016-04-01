@@ -10,61 +10,10 @@ var register = require('./routes/register');
 var ZWSID = "X1-ZWz19ssev2coi3_1u0pu";
 var Zillow = require('node-zillow');
 
-
-//var convertSpaceToPlus = function(string) {
-//  var outputString = '';
-//  for (var i = 0; i < string.length; i++) {
-//    if (string[i] == ' ') {
-//      outputString += '+';
-//    } else {
-//      outputString += string[i];
-//    }
-//  }
-//  return outputString;
-//};
-
-//var request = require('request');
-//
-//var xml2js = require('xml2js'); // this one neccessary?? don't think so :/
-//var parseString = require('xml2js').parseString;
-////var ZWSID = require('/modules/zillowID.js');
-
-// Will automatically download and use any missing schemas
-
-// GET request to EVE Online API
-
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/register', register);
-
-
-// Do we need this code anymore? -Alex
-//var ZWSID = "X1-ZWz19ssev2coi3_1u0pu";
-//var url = "http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=" + ZWSID
-//    + "&address=2114+Bigelow+Ave&citystatezip=Seattle%2C+WA";
-//app.get('/zillow/:searchCriteria', function(req, res){
-//
-//  url = 'http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=' + ZWSID
-//  + '&address=' + convertSpaceToPlus(req.body.address) + '&citystatezip=' + req.body.city + '%2C+' + req.body.state;
-//  // not sure how to attach the zip code in the request, since it isn't in the sample
-//
-//request(
-//  { method: 'GET',
-//    uri: url,
-//    gzip: true
-//  },
-//  function (error, response, body){
-//    console.log('server encoded the data as: ' + (response.headers['content-encoding'] || 'identity'));
-//    console.log('the decoded data is: ' + body);
-//  }).on('data', function(data){
-//    console.log('decoded chunk: ' + data);
-//  }).on('response', function(response) {
-//  response.on('data', function (data) {
-//    console.log('received ' + data.length + ' bytes of compressed data');
-//  });
-//});
 
 app.get('/zillow/GetDeepSearchResults', function(req, res){
   var zillow = new Zillow(ZWSID);
@@ -79,10 +28,6 @@ app.get('/zillow/GetDeepSearchResults', function(req, res){
     res.send(data.response);
   });
 });
-
-
-
-
 
 app.get('/zillow/GetUpdatedPropertyDetails', function(req, res){
   var zillow = new Zillow(ZWSID);

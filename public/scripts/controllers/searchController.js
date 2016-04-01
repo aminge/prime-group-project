@@ -1,27 +1,42 @@
 myApp.controller('SearchController', ['$scope', '$http', 'DataFactory', function($scope, $http, DataFactory) {
   console.log('SearchController working');
 
+  $scope.userHasSearched = false;
 
-
+  $scope.addCommasToNumber = function(number) {
+    if (!number) {
+      return '';
+    }
+    var sNumber = toString(number);
+    if (sNumber.length < 3) {
+      return '$' + sNumber;
+    } else {
+      return $scope.addCommasToNumber(sNumber.slice(0, sNumber.length - 3)) + ',' + sNumber.slice(sNumber.length - 3);
+    }
+  };
 
 // button from search.html calls searchListings():
     $scope.searchListings = function() {
-        console.log('YEEEAAAH!');
 
-        var address = $scope.addressSearch;
-        var cityStateZip = $scope.citySearch + $scope.stateSearch + $scope.zipSearch;
+      console.log('YEEEAAAH!');
+
+      var address = $scope.addressSearch;
+      var cityStateZip = $scope.citySearch + $scope.stateSearch + $scope.zipSearch;
        // console.log('search controller: ', address, cityStateZip);
         // search
-        DataFactory.factorySearchListings(address, cityStateZip)
-          .then(function() {
-            $scope.apiResults = DataFactory.factoryExportApiSearchResults();
+      DataFactory.factorySearchListings(address, cityStateZip)
+        .then(function() {
+          $scope.apiResults = DataFactory.factoryExportApiSearchResults();
+          $scope.pricePerSquareFoot = Math.round($scope.apiResults.zestimate[0].amount[0]._ / $scope.apiResults.finishedSqFt[0]);
         }) // clear form fields
-          .then(function() {
-            $scope.addressSearch = null;
-            $scope.citySearch = null;
-            $scope.stateSearch = null;
-            $scope.zipSearch = null;
-          });
+        .then(function() {
+          $scope.userHasSearched = true;
+
+          $scope.addressSearch = null;
+          $scope.citySearch = null;
+          $scope.stateSearch = null;
+          $scope.zipSearch = null;
+        });
 
 
 

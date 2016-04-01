@@ -20,6 +20,17 @@ myApp.factory('DataFactory', ['$http', function($http) {
       });
     };
 
+    var privateLogInUser = function(ussr) {
+      $http.post('/login', user).then(
+        function (res) {
+          $location.path('/profile');
+        },
+        function (err) {
+          $location.path('/failure');
+        });
+    };
+
+
     var initialSearch = function(address, cityStateZip) {
         console.log('API search from factory happening NOW!', address, cityStateZip);
         var searchCriteria = {
