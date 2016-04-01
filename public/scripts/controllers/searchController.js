@@ -1,7 +1,9 @@
 myApp.controller('SearchController', ['$scope', '$http', 'DataFactory', function($scope, $http, DataFactory) {
   console.log('SearchController working');
 
-
+$scope.model ={
+  stateSearch: "MN"
+};
 
 
 // button from search.html calls searchListings():
@@ -9,8 +11,8 @@ myApp.controller('SearchController', ['$scope', '$http', 'DataFactory', function
         console.log('YEEEAAAH!');
 
         var address = $scope.addressSearch;
-        var cityStateZip = $scope.citySearch + $scope.stateSearch + $scope.zipSearch;
-       // console.log('search controller: ', address, cityStateZip);
+        var cityStateZip = $scope.citySearch + $scope.model.stateSearch + $scope.zipSearch;
+        //console.log('search controller: ', address, cityStateZip);
         // search
         DataFactory.factorySearchListings(address, cityStateZip)
           .then(function() {
@@ -19,7 +21,7 @@ myApp.controller('SearchController', ['$scope', '$http', 'DataFactory', function
           .then(function() {
             $scope.addressSearch = null;
             $scope.citySearch = null;
-            $scope.stateSearch = null;
+            $scope.model.stateSearch = null;
             $scope.zipSearch = null;
 
             var photoArray = DataFactory.factoryGetPhotos();
