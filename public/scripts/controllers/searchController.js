@@ -21,6 +21,13 @@ myApp.controller('SearchController', ['$scope', '$http', 'DataFactory', function
             $scope.citySearch = null;
             $scope.stateSearch = null;
             $scope.zipSearch = null;
+
+            var photoArray = DataFactory.factoryGetPhotos();
+            $scope.slides = [];
+
+            for (var i = 0; i < photoArray.length; i++) {
+              $scope.slides.push({id: i, image: photoArray[i]});
+            }
           });
 
 
