@@ -10,5 +10,17 @@
 .text-highlights-green:disabled {
   background-color: #00FF00;
   color: #000;
-  font-weight: bold;
+  font-weight: 700;
+}
+
+.assumptions-form label, .flip-form label, .buy-hold-form label {
+  font-weight: 400;
+}
+
+label.text-weight-bold {
+  font-weight: 700;
+}
+
+select.blue-background {
+  background-color: #99ccff;
 }

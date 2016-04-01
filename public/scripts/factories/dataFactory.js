@@ -16,7 +16,7 @@ myApp.factory('DataFactory', ['$http', function($http) {
 
     var privateAddNewUser = function(user) {
       $http.post('/register', user).then(function(response){
-        
+        console.log('Successfully added new user');
       });
     };
 
@@ -44,21 +44,26 @@ myApp.factory('DataFactory', ['$http', function($http) {
             params: searchCriteria
         }).then(function (response) {
           apiData = response.data.results.result[0];
-          console.log('from factory: ', apiData);
+          //console.log('from factory: ', apiData);
+
           // GetUpdatedPropertyDetails
-          console.log(apiData.zpid[0]);
+          //console.log(apiData.zpid[0]);
 
           var zpid = parseInt(apiData.zpid[0]);
-          console.log('zpid is ', zpid);
+          //console.log('zpid is ', zpid);
 
           return $http({
             method: 'GET',
-            url: '/zillow/GetUpdatedPropertyDetails',
-            params: zpid
+            url: '/zillow/GetUpdatedPropertyDetails/' + zpid
           }).then(function (response) {
-            apiPhotoData = response;
+            try {
+              apiPhotoData = response.data.response.images.image[0].url;
+            } catch(err) {
+              apiPhotoData = [];
+              console.log('Error: ', err);
+            }
             console.log(apiPhotoData);
-          })
+          });
         });
     };
 
@@ -71,19 +76,21 @@ myApp.factory('DataFactory', ['$http', function($http) {
     // Public
 
     var publicAPI = {
-        factoryCalculateMortgage: function(price, years, interestRate) {
-          return privateCalculateMortgage(price, years, interestRate)
-        },
-        factorySearchListings: function (address, cityStateZip) {
-          return initialSearch(address, cityStateZip);
-        },
-        factoryExportApiSearchResults: function() {
-          return apiData;
-        },
-        factoryAddNewUser: function(user) {
-          return privateAddNewUser(user);
-        }
-
+      factoryCalculateMortgage: function(price, years, interestRate) {
+        return privateCalculateMortgage(price, years, interestRate)
+      },
+      factorySearchListings: function (address, cityStateZip) {
+        return initialSearch(address, cityStateZip);
+      },
+      factoryExportApiSearchResults: function() {
+        return apiData;
+      },
+      factoryAddNewUser: function(user) {
+        return privateAddNewUser(user);
+      },
+      factoryGetPhotos: function() {
+        return apiPhotoData;
+      }
     };
 
     return publicAPI;

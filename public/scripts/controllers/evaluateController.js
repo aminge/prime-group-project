@@ -20,8 +20,33 @@ myApp.controller('EvaluateController', ['$scope', 'DataFactory', function($scope
     pointsClosingCosts: "1",
     splitBackendProfitsWithLender: "1",
     monthsCompleteSaleAfterRehab: "2",
-    monthsToRentAfterRehab: "2"
+    monthsToRentAfterRehab: "2",
+    refinancePerm: "true",
+    amortizationYears: "20"
   };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }]);
