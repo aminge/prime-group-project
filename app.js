@@ -2,27 +2,39 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var pg = require('pg');
-//var register = require('./routes/register');
-var passport = require('passport');
+var passport = require('./strategies/user.js');
 var session = require('express-session');
 var register = require('./routes/register');
-//var parameters = require('./zillow/zillow');
+var user = require('./routes/user');
+var login = require('./routes/login');
 var ZWSID = "X1-ZWz19ssev2coi3_1u0pu";
 var Zillow = require('node-zillow');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
+// Passport Session Configuration //
+app.use(session({
+  secret: 'secret',
+  key: 'user',
+  resave: 'true',
+  saveUninitialized: false,
+  cookie: {maxage: 60000, secure: false}
+}));
+
+// start up passport sessions
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use('/register', register);
+app.use('/login', login);
 
 app.get('/zillow/GetDeepSearchResults', function(req, res){
+
   var zillow = new Zillow(ZWSID);
-
   var queryParameters = req.query;
-
   console.log('req.query is: ', req.query);
 
- // get will return a promise
   zillow.get('GetDeepSearchResults', {
     address: queryParameters.findAddress,
     citystatezip: queryParameters.findState
@@ -35,10 +47,7 @@ app.get('/zillow/GetDeepSearchResults', function(req, res){
 app.get('/zillow/GetUpdatedPropertyDetails/:zpid', function(req, res){
 
   var zillow = new Zillow(ZWSID);
-
-
   console.log(req.params.zpid);
-
   var zpid = req.params.zpid;
   console.log('zpid is ', zpid);
 
@@ -47,10 +56,7 @@ app.get('/zillow/GetUpdatedPropertyDetails/:zpid', function(req, res){
   }).then(function(data) {
     res.send(data);
   });
-
 });
-
-
 
 
 // Serve back static files
@@ -67,16 +73,6 @@ app.use(express.static('public/styles/css'));
 app.use(express.static('public/styles/scss'));
 app.use(express.static('public/vendors'));
 
-//app.use(search);
-//app.use(register);
-
-////app.use(session({
-//  secret: 'secret',
-//  key: 'user',
-//  resave: 'true',
-//  saveUninitialized: false,
-//  cookie: {maxage: 60000, secure: false}
-//}));
 
 app.set('port', process.env.PORT || 5000);
 app.listen(app.get('port'), function() {
