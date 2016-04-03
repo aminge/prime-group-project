@@ -81,4 +81,40 @@
   height: 100vh;
   margin: 0; }
 
+.file-container {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-flow: row wrap; }
+
+.document {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  height: 200px;
+  min-width: 200px;
+  max-width: 200px;
+  background-color: #666;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  margin: 1rem;
+  cursor: pointer; }
+  .document:hover {
+    color: tomato; }
+
+.document-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
 /*# sourceMappingURL=index.css.map */

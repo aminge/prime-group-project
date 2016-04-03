@@ -1,0 +1,25 @@
+.file-container{
+  @include display(flex);
+  flex-flow:row wrap;
+}
+
+.document {
+  @include flex(1);
+  height: 200px;
+  min-width: 200px;
+  max-width: 200px;
+  background-color: $med-gray;
+  color: $white;
+  text-align: center;
+  position: relative;
+  margin: 1rem;
+  cursor: pointer;
+  &:hover{
+    color: tomato;
+  }
+}
+
+.document-content {
+
+  @include centerer;
+}
