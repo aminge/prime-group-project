@@ -24,6 +24,7 @@
     "node-sass": "^3.4.2",
     "node-zillow": "^1.0.1",
     "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
     "pg": "^4.5.1",
     "request": "^2.69.0",
     "reset-css": "^2.0.2011012603",
