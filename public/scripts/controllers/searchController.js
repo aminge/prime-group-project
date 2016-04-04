@@ -16,9 +16,9 @@ myApp.controller('SearchController', ['$scope', '$http', 'DataFactory', function
     }
   };
 
-$scope.model ={
-  stateSearch: "MN"
-};
+  $scope.model = {
+    stateSearch: "MN"
+  };
 
 
 // button from search.html calls searchListings():
