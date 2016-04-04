@@ -28,6 +28,21 @@
   .centered-form h1 {
     font-weight: 300; }
 
+.carousel-inner > .item {
+  height: 100%; }
+
+.carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {
+  display: block;
+  max-width: 100%;
+  height: 100%;
+  margin: 0 auto; }
+
+.carousel-control.right {
+  background-image: none; }
+
+.carousel-control.left {
+  background-image: none; }
+
 #search-button {
   display: inline-block; }
 
