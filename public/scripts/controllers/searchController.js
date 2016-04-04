@@ -1,6 +1,12 @@
-myApp.controller('SearchController', ['$scope', '$http', 'DataFactory', function($scope, $http, DataFactory) {
+myApp.controller('SearchController', ['$scope', '$http', '$location', 'DataFactory', function($scope, $http, $location, DataFactory) {
   console.log('SearchController working');
 
+  // check to see if the user is logged in
+  if (!DataFactory.factoryIsUserLoggedIn()) {
+    // redirect to login and display message letting user know they have to log in to see the content
+    DataFactory.factorySetReminderMessageToTrue();
+    $location.path('./views/templates/login.html');
+  }
 
   $scope.userHasSearched = false;
 

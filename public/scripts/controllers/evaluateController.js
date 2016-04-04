@@ -1,4 +1,12 @@
-myApp.controller('EvaluateController', ['$scope', 'DataFactory', function($scope, DataFactory) {
+myApp.controller('EvaluateController', ['$scope', '$location', 'DataFactory', function($scope, $location, DataFactory) {
+
+  // check to see if the user is logged in
+  if (!DataFactory.factoryIsUserLoggedIn()) {
+    // redirect to login and display message letting user know they have to log in to see the content
+    DataFactory.factorySetReminderMessageToTrue();
+    $location.path('./views/templates/login.html');
+  }
+
   $scope.buyHoldForm = false;
   $scope.flipForm = true;
 
@@ -26,26 +34,7 @@ myApp.controller('EvaluateController', ['$scope', 'DataFactory', function($scope
     refinancePerm: "true",
     amortizationYears: "20"
   };
-$scope.financingUsed = true;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  $scope.financingUsed = true;
 
 }]);

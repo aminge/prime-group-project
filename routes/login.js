@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var passport = require('passport');
+//var passport = require('passport');
+var passport = require('../strategies/user.js');
 
 // Handles login form POST from index.html
 router.post('/',
@@ -9,7 +10,7 @@ router.post('/',
         // handle this in a .then after the request is sent (in the data factory)
         // .then(function(response) { }
         successRedirect: '/views/templates/search.html',
-        failureRedirect: '/views/templates/failure.html'
+        failureRedirect: '/views/templates/login.html'
     })
 );
 

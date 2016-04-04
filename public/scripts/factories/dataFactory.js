@@ -1,8 +1,14 @@
 myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
   var apiData = undefined;
   var apiPhotoData = undefined;
+  var isUserLoggedIn = false;
+  var displayReminderMessage = false;
 
   // Private
+
+  var priavteSetReminderMessageToTrue = function() {
+    displayReminderMessage = true;
+  };
 
   var privateCalculateMortgage = function(price, years, ir) {
     var months = parseInt(years) * 12;
@@ -25,6 +31,7 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
     $http.post('/login', user).then(
       function (res) {
         $location.path('/search');
+        isUserLoggedIn = true;
       },
       function (err) {
         $location.path('/failure');
@@ -70,11 +77,6 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
   };
 
 
-
-
-
-
-
     // Public
 
     var publicAPI = {
@@ -95,6 +97,16 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
       },
       factoryGetPhotos: function() {
         return apiPhotoData;
+      },
+      factoryIsUserLoggedIn: function() {
+        return isUserLoggedIn;
+      },
+      factoryDisplayReminderMessage: function() {
+        console.log('Getting displayReminderMessage, which is equal to: ', displayReminderMessage);
+        return displayReminderMessage;
+      },
+      factorySetReminderMessageToTrue: function () {
+        return priavteSetReminderMessageToTrue();
       }
     };
 

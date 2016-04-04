@@ -1,31 +1,36 @@
 <div class="login-background"> </div>
 
 <div class="container centered-form">
-  <h1 class="text-center">login</h1>
+  <h1 ng-hide="hideForm" class="text-center">login</h1>
 
-    <form class="login-form form-horizontal" role="form">
+  <form ng-hide="hideForm" class="login-form form-horizontal" role="form">
 
-      <div class="form-group form-group-sm">
-        <label class="col-xs-3" for="email">Email</label>
-        <div class="col-xs-9">
-          <input class="form-control input" type="text" id="email" ng-model="email">
-        </div>
+    <div class="form-group form-group-sm">
+      <label class="col-xs-3" for="email">Email</label>
+      <div class="col-xs-9">
+        <input class="form-control input" type="text" id="email" ng-model="email">
       </div>
+    </div>
 
-      <div class="form-group form-group-sm">
-        <label class="col-xs-3" for="password">Password</label>
-        <div class="col-xs-9">
-          <input class="form-control" type="password" id="password" ng-model="password">
-        </div>
+    <div class="form-group form-group-sm">
+      <label class="col-xs-3" for="password">Password</label>
+      <div class="col-xs-9">
+        <input class="form-control" type="password" id="password" ng-model="password">
       </div>
+    </div>
 
-      <div class="col-xs-6 col-xs-offset-4">
-        <div class="form-group">
-          <button class="btn btn-default btn-primary" ng-click="loginUser()">Login</button>
-          <a href="#register"> <button class="btn btn-danger">Register</button></a>
-        </div>
+    <div class="col-xs-6 col-xs-offset-4">
+      <div class="form-group">
+        <button class="btn btn-default btn-primary" ng-click="loginUser()">Login</button>
+        <a href="#register"> <button class="btn btn-danger">Register</button></a>
       </div>
-      
-    </form>
+    </div>
 
+  </form>
+
+  <div ng-show="hideForm">
+    <p>You need to be logged in to do that</p>
+    <button ng-click="backToForm()">Back to Login</button>
   </div>
+
+</div>
