@@ -31,6 +31,10 @@ myApp.config(['$routeProvider', function($routeProvider) {
             templateUrl: 'views/templates/logout.html',
             controller: 'LogoutController'
         })
+        .when('/failure', {
+            templateUrl: 'views/templates/failure.html',
+            controller: 'FailureController'
+        })
         .when('/register', {
             templateUrl: 'views/templates/register.html',
             controller: 'RegisterController'
