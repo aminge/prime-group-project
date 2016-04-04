@@ -1,7 +1,7 @@
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
 var encryptLib = require('../modules/encryption');
-var connectionString = require('../routes/connect');
+var connectionString = require('../modules/connection');
 var pg = require('pg');
 
 passport.serializeUser(function(user, done) {

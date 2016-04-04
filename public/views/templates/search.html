@@ -12,7 +12,58 @@
 
     <div class="form-group">
       <label for="state-search"></label>
-      <input class="form-control" type="text" id="state-search" ng-model="stateSearch" placeholder="STATE" name="state">
+      <select class="form-control" ng-model="model.stateSearch" id="state-search">
+        <option value="AL">Alabama</option>
+        <option value="AK">Alaska</option>
+        <option value="AZ">Arizona</option>
+        <option value="AR">Arkansas</option>
+        <option value="CA">California</option>
+        <option value="CO">Colorado</option>
+        <option value="CT">Connecticut</option>
+        <option value="DE">Delaware</option>
+        <option value="FL">Florida</option>
+        <option value="GA">Georgia</option>
+        <option value="HI">Hawaii</option>
+        <option value="ID">Idaho</option>
+        <option value="IL">Illinois</option>
+        <option value="IN">Indiana</option>
+        <option value="IA">Iowa</option>
+        <option value="KS">Kansas</option>
+        <option value="KY">Kentucky</option>
+        <option value="LA">Louisiana</option>
+        <option value="ME">Maine</option>
+        <option value="MD">Maryland</option>
+        <option value="MA">Massachusetts</option>
+        <option value="MI">Michigan</option>
+        <option value="MN">Minnesota</option>
+        <option value="MS">Mississippi</option>
+        <option value="MO">Missouri</option>
+        <option value="MT">Montana</option>
+        <option value="NE">Nebraska</option>
+        <option value="NV">Nevada</option>
+        <option value="NH">New Hampshire</option>
+        <option value="NJ">New Jersey</option>
+        <option value="NM">New Mexico</option>
+        <option value="NY">New York</option>
+        <option value="NC">North Carolina</option>
+        <option value="ND">North Dakota</option>
+        <option value="OH">Ohio</option>
+        <option value="OK">Oklahoma</option>
+        <option value="OR">Oregon</option>
+        <option value="PA">Pennsylvania</option>
+        <option value="RI">Rhode Island</option>
+        <option value="SC">South Carolina</option>
+        <option value="SD">South Dakota</option>
+        <option value="TN">Tennessee</option>
+        <option value="TX">Texas</option>
+        <option value="UT">Utah</option>
+        <option value="VT">Vermont</option>
+        <option value="VA">Virginia</option>
+        <option value="WA">Washington</option>
+        <option value="WV">West Virginia</option>
+        <option value="WI">Wisconsin</option>
+        <option value="WY">Wyoming</option>
+      </select>
     </div>
 
     <div class="form-group">
@@ -41,24 +92,24 @@
   <div class="row home-information">
     <div class="col-sm-4 info info-one">
       <ul>
-        <li>Listing:</li>
-        <li>Zestimate:</li>
-        <li>SqFt:</li>
-        <li>Price / SqFt:</li>
+        <li><strong>Listing:</strong> {{apiResults.address[0].street[0]}}<a class="symbols" ng-show="userHasSearched">,</a> {{apiResults.address[0].city[0]}}<a class="symbols" ng-show="userHasSearched">,</a> {{apiResults.address[0].state[0]}} {{apiResults.address[0].zipcode[0]}}</li>
+        <li><strong>Zestimate:</strong> {{apiResults.zestimate[0].amount[0]._ | currency}}</li>
+        <li><strong>SqFt:</strong> {{apiResults.finishedSqFt[0]}}</li>
+        <li><strong>Price / SqFt:</strong> {{pricePerSquareFoot | currency}}</li>
       </ul>
     </div>
     <div class="col-sm-4 info info-two">
       <ul>
-        <li>Use Code:</li>
-        <li>Year Built:</li>
-        <li>Beds:</li>
-        <li>Baths:</li>
+        <li><strong>Use Code:</strong> {{apiResults.useCode[0]}}</li>
+        <li><strong>Year Built:</strong> {{apiResults.yearBuilt[0]}}</li>
+        <li><strong>Beds:</strong> {{apiResults.bedrooms[0]}}</li>
+        <li><strong>Baths:</strong> {{apiResults.bathrooms[0]}}</li>
       </ul>
     </div>
     <div class="col-sm-4 info info-three">
       <ul>
-        <button class="btn btn-primary btn-xs btn-block" name="eval-button">Evaluate</button>
-        <button class="btn btn-secondary btn-xs btn-block" name="mortgage-button">Mortgage</button>
+        <a href="#evaluate"><button class="btn btn-primary btn-xs btn-block" name="eval-button">Evaluate</button></a>
+        <a href="#mortgage"><button class="btn btn-secondary btn-xs btn-block" name="mortgage-button">Mortgage</button></a>
       </ul>
     </div>
   </div>

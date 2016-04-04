@@ -11,6 +11,8 @@ myApp.controller('EvaluateController', ['$scope', 'DataFactory', function($scope
     $scope.buyHoldForm = true;
   };
 
+  $scope.closingCosts = '1,500';
+
   $scope.model = {
     includeCloseHoldCosts: "1",
     projectRehabPeriod: "2",
@@ -20,8 +22,30 @@ myApp.controller('EvaluateController', ['$scope', 'DataFactory', function($scope
     pointsClosingCosts: "1",
     splitBackendProfitsWithLender: "1",
     monthsCompleteSaleAfterRehab: "2",
-    monthsToRentAfterRehab: "2"
+    monthsToRentAfterRehab: "2",
+    refinancePerm: "true",
+    amortizationYears: "20"
   };
+$scope.financingUsed = true;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }]);

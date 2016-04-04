@@ -2,93 +2,61 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var pg = require('pg');
-//var register = require('./routes/register');
-var passport = require('passport');
+var passport = require('./strategies/user.js');
 var session = require('express-session');
-var request = require('request');
-var xml2js = require('xml2js'); // this one neccessary?? don't think so :/
-var parseString = require('xml2js').parseString;
-//var ZWSID = require('/modules/zillowID.js');
 var register = require('./routes/register');
-var parameters = require('./zillow/zillow');
+var user = require('./routes/user');
+var login = require('./routes/login');
 var ZWSID = "X1-ZWz19ssev2coi3_1u0pu";
-
-// xml2js parser instance
-var parser = new xml2js.Parser();
-
-// GET request to EVE Online API
-var url = 'http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id=' + ZWSID + '&address=2114+Bigelow+Ave&citystatezip=Seattle%2C+WA';
-
-
-request.get(url, function(error, request, body) {
-  // Parse XML data from body
-  parser.parseString(body, function(err, parsedXml) {
-    try {
-      var houseInfo = parsedXml;
-      console.log(houseInfo);
-    } catch(e) {
-      console.log('Character not found');
-    }
-  });
-});
-
-
-//var request = require('request');
-//
-//var xml2js = require('xml2js'); // this one neccessary?? don't think so :/
-//var parseString = require('xml2js').parseString;
-////var ZWSID = require('/modules/zillowID.js');
+var Zillow = require('node-zillow');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-//app.use('/GetZestimate', zillow);
 
+// Passport Session Configuration //
+app.use(session({
+  secret: 'secret',
+  key: 'user',
+  resave: 'true',
+  saveUninitialized: false,
+  cookie: {maxage: 60000, secure: false}
+}));
+
+// start up passport sessions
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/register', register);
+app.use('/login', login);
 
+app.get('/zillow/GetDeepSearchResults', function(req, res){
 
-var url = "http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=" + ZWSID
-    + "&address=2114+Bigelow+Ave&citystatezip=Seattle%2C+WA";
+  var zillow = new Zillow(ZWSID);
+  var queryParameters = req.query;
+  console.log('req.query is: ', req.query);
 
-var xmlResponse = '';
-
-app.get('/zillow/:searchCriteria', function(req, res){
-
-request(
-  { method: 'GET',
-    uri: url,
-    gzip: true
-  },
-  function (error, response, body){
-    console.log('server encoded the data as: ' + (response.headers['content-encoding'] || 'identity'));
-    console.log('the decoded data is: ' + body);
-  }).on('data', function(data){
-    console.log('decoded chunk: ' + data);
-    xmlData = data;
-  }).on('response', function(response) {
-    response.on('data', function(data){
-      console.log('received ' + data.length + ' bytes of compressed data');
-    });
+  zillow.get('GetDeepSearchResults', {
+    address: queryParameters.findAddress,
+    citystatezip: queryParameters.findState
+  }).then(function(data) {
+    res.send(data.response);
   });
-    //.get(url, function(error, request, body) {
-    //console.log('made it to app.js!')
-    //.on('response', function(response){
-    //    console.log(response.statusCode);
-    //    console.log(response.headers['content-type']);
-    //});
-    //
-    ////parse XML data from body
-    var x = parseString(xmlResponse, function(err, result){
-    console.log('Line 62: ', x);
-      //var xml = result;
-      //  parseString(xml)(err, result)
-      // console.dir(result);
-    });
 });
 
 
-//});
+app.get('/zillow/GetUpdatedPropertyDetails/:zpid', function(req, res){
 
+  var zillow = new Zillow(ZWSID);
+  console.log(req.params.zpid);
+  var zpid = req.params.zpid;
+  console.log('zpid is ', zpid);
+
+  zillow.get('GetUpdatedPropertyDetails', {
+    zpid: parseInt(zpid)
+  }).then(function(data) {
+    res.send(data);
+  });
+});
 
 
 // Serve back static files
@@ -105,16 +73,6 @@ app.use(express.static('public/styles/css'));
 app.use(express.static('public/styles/scss'));
 app.use(express.static('public/vendors'));
 
-//app.use(search);
-//app.use(register);
-
-////app.use(session({
-//  secret: 'secret',
-//  key: 'user',
-//  resave: 'true',
-//  saveUninitialized: false,
-//  cookie: {maxage: 60000, secure: false}
-//}));
 
 app.set('port', process.env.PORT || 5000);
 app.listen(app.get('port'), function() {

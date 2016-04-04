@@ -1,0 +1,11 @@
+.symbols {
+  color: $med-gray;
+  &:hover{
+    text-decoration: none;
+    color: $med-gray;
+  }
+}
+
+.listingLabels {
+  color: black;
+}
