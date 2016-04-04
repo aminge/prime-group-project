@@ -4,3 +4,6 @@ npm-debug.log
 
 *.sass-cache
 *.sass-cache/*
+
+index.css.map
+*/index.css.map

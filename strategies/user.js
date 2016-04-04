@@ -46,6 +46,10 @@ passport.use('local', new localStrategy({
       var user = {};
       var query = client.query("SELECT * FROM users WHERE email = $1", [email]);
 
+      //user = query;
+      //
+      //console.log('user is: ', user);
+
       query.on('row', function (row) {
         console.log('User obj', row);
         user = row;
@@ -64,6 +68,7 @@ passport.use('local', new localStrategy({
 
       // After all data is returned, close connection and return results
       query.on('end', function () {
+        console.log('ending the stuff');
         client.end();
       });
 
