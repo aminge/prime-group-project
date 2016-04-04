@@ -6,19 +6,22 @@ myApp.controller('MortgageController', ['$scope', '$location', 'DataFactory', fu
     DataFactory.factorySetReminderMessageToTrue();
     $location.path('./views/templates/login.html');
   }
-
   console.log('MortgageController works');
   $scope.dataFactory = DataFactory;
 
-  $scope.calculateMortgage = function() {
-    $scope.dataFactory.factoryCalculateMortgage(parseFloat($scope.price), $scope.years, $scope.interestRate);
-  };
+
+  // use search price for default mortgage price:
+  $scope.apiResults = $scope.dataFactory.factoryExportApiSearchResults();
+      console.log($scope.apiResults.zestimate[0].amount[0]._);
+
+  $scope.price = Math.round($scope.apiResults.zestimate[0].amount[0]._);
+  //$filter('currency')(git .price);
+  console.log($scope.price);
 
 
   $scope.calculateMortgage = function() {
     $scope.dataFactory.factoryCalculateMortgage(parseFloat($scope.price), $scope.years, $scope.interestRate);
-    $scope.mortgage = $scope.dataFactory.factoryExportMortgage()
-    console.log(mortgage);
+    $scope.mortgage = $scope.dataFactory.factoryExportMortgage();
   };
 
 
