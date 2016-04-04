@@ -38,23 +38,12 @@ $scope.model ={
           $scope.pricePerSquareFoot = Math.round($scope.apiResults.zestimate[0].amount[0]._ / $scope.apiResults.finishedSqFt[0]);
         }) // clear form fields
 
-        .then(function() {
-          $scope.userHasSearched = true;
-
-          $scope.addressSearch = null;
-          $scope.citySearch = null;
-          $scope.stateSearch = null;
-          $scope.zipSearch = null;
-        })
-
-
-
           .then(function() {
+            $scope.userHasSearched = true;
             $scope.addressSearch = null;
             $scope.citySearch = null;
             $scope.model.stateSearch = null;
             $scope.zipSearch = null;
-
 
             var photoArray = DataFactory.factoryGetPhotos();
             $scope.slides = [];
