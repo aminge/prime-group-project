@@ -26,9 +26,6 @@ $scope.model ={
 
       console.log('YEEEAAAH!');
 
-      var address = $scope.addressSearch;
-      var cityStateZip = $scope.citySearch + $scope.stateSearch + $scope.zipSearch;
-       // console.log('search controller: ', address, cityStateZip);
 
         var address = $scope.addressSearch;
         var cityStateZip = $scope.citySearch + $scope.model.stateSearch + $scope.zipSearch;
