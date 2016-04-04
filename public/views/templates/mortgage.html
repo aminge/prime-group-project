@@ -6,7 +6,7 @@
         <label for="price">Price:</label>
       </div>
       <div class="col-sm-4">
-        <input type="number" step="5000" ng-model="price" id="price" class="form-control" />
+        <input type="number" ng-model="price" id="price" class="form-control" min="0" />
       </div>
     </div>
 
@@ -15,7 +15,7 @@
         <label for="interest-rate">Percent Interest Rate:</label>
       </div>
       <div class="col-sm-4">
-        <input type="number" ng-model="interestRate" id="interest-rate" class="form-control" />
+        <input type="number" ng-model="interestRate" id="interest-rate" class="form-control" step="0.01" min="0" max="10" />
       </div>
     </div>
 
@@ -25,7 +25,7 @@
         <label for="mortgageLength">Mortgage Length</label>
       </div>
       <div class="col-sm-4">
-        <select class="form-control" ng-model="years">
+        <select class="form-control" ng-model="years" id="mortgageLength">
           <option value="10">10 Years</option>
           <option value="15">15 Years</option>
           <option value="20">20 Years</option>
@@ -40,3 +40,8 @@
     </div>
   </form>
 </div>
+
+
+{{}}
+
+

@@ -20,7 +20,6 @@ $scope.model ={
   stateSearch: "MN"
 };
 
-
 // button from search.html calls searchListings():
     $scope.searchListings = function() {
 
@@ -46,7 +45,7 @@ $scope.model ={
 
           $scope.addressSearch = null;
           $scope.citySearch = null;
-          $scope.stateSearch = null;
+          $scope.stateSearch =null;
           $scope.zipSearch = null;
 
           var photoArray = DataFactory.factoryGetPhotos();

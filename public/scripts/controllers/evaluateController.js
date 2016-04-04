@@ -1,6 +1,8 @@
 myApp.controller('EvaluateController', ['$scope', 'DataFactory', function($scope, DataFactory) {
   $scope.buyHoldForm = false;
   $scope.flipForm = true;
+  $scope.financingUsed = true;
+
 
   $scope.viewFlip = function() {
     $scope.flipForm = true;
@@ -26,8 +28,6 @@ myApp.controller('EvaluateController', ['$scope', 'DataFactory', function($scope
     refinancePerm: "true",
     amortizationYears: "20"
   };
-$scope.financingUsed = true;
-
 
 
 

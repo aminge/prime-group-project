@@ -1,18 +1,9 @@
 myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
   var apiData = undefined;
   var apiPhotoData = undefined;
+  var mortgage = undefined;
 
   // Private
-
-  var privateCalculateMortgage = function(price, years, ir) {
-    var months = parseInt(years) * 12;
-    ir = ir / 1200;
-
-    var numerator = ir * price * Math.pow(1 + ir, months);
-    var denominator = Math.pow(1 + ir, months) - 1;
-    var output =  numerator / denominator;
-    return output.toFixed(2);
-  };
 
   var privateAddNewUser = function(user) {
     $http.post('/register', user).then(function(response){
@@ -69,6 +60,17 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
     });
   };
 
+  var privateCalculateMortgage = function(price, years, ir) {
+    var months = parseInt(years) * 12;
+    ir = ir / 1200;
+    var numerator = ir * price * Math.pow(1 + ir, months);
+    var denominator = Math.pow(1 + ir, months) - 1;
+    var output =  numerator / denominator;
+    mortgage = output.toFixed(2);
+console.log(mortgage);
+    return mortgage;
+  };
+
 
 
 
@@ -95,6 +97,9 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
       },
       factoryGetPhotos: function() {
         return apiPhotoData;
+      },
+      factoryExportMortgage: function() {
+        return mortgage;
       }
     };
 
