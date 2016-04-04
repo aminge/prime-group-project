@@ -55,8 +55,7 @@ $scope.model ={
               console.log('resetting photo array');
               // display message saying no photos are available
               $scope.slides = [
-                {id: 0, image: '../../images/house-1.jpg'},
-                {id: 1, image: '../../images/house-2.jpg'}
+                {id: 0, image: '../../images/Mpls-4.jpg'},
               ];
             } else {
               for (var i = 0; i < photoArray.length; i++) {
@@ -73,8 +72,7 @@ $scope.model ={
   $scope.noWrapSlides = false;
   $scope.active = 0;
   $scope.slides = [
-    {id: 0, image: '../../images/house-1.jpg'},
-    {id: 1, image: '../../images/house-2.jpg'}
+    {id: 0, image: '../../images/Mpls-4.jpg'},
   ];
   var currIndex = 0;
 

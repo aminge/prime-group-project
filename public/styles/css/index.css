@@ -11,6 +11,9 @@
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:active, .navbar-default .navbar-nav > li > a:focus {
   color: #111; }
 
+.navbar-default {
+  opacity: .85; }
+
 .hr-form {
   border-top: 2px solid #ddd; }
 
@@ -113,7 +116,7 @@ select.blue-background {
   background-color: #99ccff; }
 
 .login-background {
-  background: url("../../images/house-1.jpg") no-repeat center center/cover;
+  background: url("../../images/Mpls-2.jpg") no-repeat center center/cover;
   position: relative;
   width: 100%;
   height: 100vh;
