@@ -29,7 +29,7 @@
       <div class="form-group form-group-sm">
         <label class="col-xs-8" for="includeCloseHoldCosts">4. Would you like to include Closing and Holding Costs in Loan?</label>
         <div class="col-xs-4">
-          <select class="form-control" ng-model="model.includeCloseHoldCosts">
+          <select class="form-control" ng-model="model.includeCloseHoldCosts" id="includeCloseHoldCosts">
             <option value="1">Yes</option>
             <option value="0">No</option>
           </select>
@@ -79,17 +79,20 @@
       </div>
 
       <h3>Step 3: Short Term Financing assumptions</h3>
+
       <div class="form-group form-group-sm">
         <label class="col-xs-8 text-weight-bold" for="financingUsed">7. Financing Used or All-Cash?</label>
         <div class="col-xs-4">
-          <select class="form-control" ng-model="model.financingUsed">
-            <option value="1">Financing</option>
-            <option value="0">All Cash</option>
+          <select class="form-control" id="financingUsed" ng-model="financingUsed">
+            <option value="true">Financing</option>
+            <option value="false">All Cash</option>
           </select>
         </div>
       </div>
+      {{model.financingUsed}}
+<span ng-if="financingUsed" class="animate-if" >
 
-      <div class="form-group form-group-sm">
+        <div class="form-group form-group-sm">
         <label class="col-xs-8" for="lenderAVRCostOfProject">8. Lender caps AVR or Cost of Project?</label>
         <div class="col-xs-4">
           <select class="form-control" ng-model="model.lenderAVRCostOfProject">
@@ -170,7 +173,9 @@
         </div>
       </div>
 
-      <button class="btn btn-default btn-lg" ng-click="searchListings()">Search</button>
+</span>
+
+      <!--<button class="btn btn-default btn-lg" ng-click="assumptionPannel()">Search</button>-->
     </form>
   </div>
 
