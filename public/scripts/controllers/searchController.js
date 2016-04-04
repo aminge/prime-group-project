@@ -60,7 +60,7 @@ myApp.controller('SearchController', ['$scope', '$http', '$location', 'DataFacto
               console.log('resetting photo array');
               // display message saying no photos are available
               $scope.slides = [
-                {id: 0, image: '../../images/house-2.jpg'},
+                {id: 0, image: '../../images/mpls-1.jpg'}
               ];
             } else {
               for (var i = 0; i < photoArray.length; i++) {
@@ -75,7 +75,7 @@ myApp.controller('SearchController', ['$scope', '$http', '$location', 'DataFacto
   $scope.noWrapSlides = false;
   $scope.active = 0;
   $scope.slides = [
-    {id: 0, image: '../../images/house-2.jpg'},
+    {id: 0, image: '../../images/mpls-1.jpg'}
   ];
   var currIndex = 0;
 
