@@ -19,22 +19,22 @@ myApp.controller('EvaluateController', ['$scope', '$location', 'DataFactory', fu
     $scope.buyHoldForm = true;
   };
 
-  $scope.closingCosts = '1,500';
-
-  $scope.model = {
-    includeCloseHoldCosts: "1",
-    projectRehabPeriod: "2",
-    financingUsed: "1",
-    lenderAVRCostOfProject: "1",
-    interestPaymentDuringRehab: "0",
-    pointsClosingCosts: "1",
-    splitBackendProfitsWithLender: "1",
-    monthsCompleteSaleAfterRehab: "2",
-    monthsToRentAfterRehab: "2",
-    refinancePerm: "true",
-    amortizationYears: "20"
-  };
-
+  $scope.closingCosts = 1500;
+  $scope.holdingCosts = 1500;
   $scope.financingUsed = true;
+
+  $scope.includeCloseHoldCosts = 1;
+  $scope.projectRehabPeriod = 2;
+  $scope.financingUsed = 1;
+  $scope.lenderAVRCostOfProject = 1;
+  $scope.interestPaymentDuringRehab = 0;
+  $scope.pointsClosingCosts = 1;
+  $scope.splitBackendProfitsWithLender = 1;
+  $scope.monthsCompleteSaleAfterRehab = 2;
+  $scope.monthsToRentAfterRehab = 2;
+  $scope.refinancePerm = true;
+  $scope.amortizationYears = 20;
+
+
 
 }]);
