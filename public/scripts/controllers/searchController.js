@@ -26,7 +26,6 @@ myApp.controller('SearchController', ['$scope', '$http', '$location', 'DataFacto
     stateSearch: "MN"
   };
 
-
 // button from search.html calls searchListings():
     $scope.searchListings = function() {
 
@@ -42,8 +41,7 @@ myApp.controller('SearchController', ['$scope', '$http', '$location', 'DataFacto
           $scope.apiResults = DataFactory.factoryExportApiSearchResults();
           $scope.pricePerSquareFoot = Math.round($scope.apiResults.zestimate[0].amount[0]._ / $scope.apiResults.finishedSqFt[0]);
         }) // clear form fields
-
-          .then(function() {
+         .then(function() {
             $scope.userHasSearched = true;
             $scope.addressSearch = null;
             $scope.citySearch = null;
@@ -68,7 +66,7 @@ myApp.controller('SearchController', ['$scope', '$http', '$location', 'DataFacto
               }
             }
           });
-    };
+};
 
   //begin elements for Angular Carousel//
 

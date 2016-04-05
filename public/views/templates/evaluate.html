@@ -8,30 +8,31 @@
       <div class="form-group form-group-sm">
         <label class="col-xs-8" for="purchasePrice">1. Purchase Price</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="purchasePrice" placeholder="50,000" id="purchasePrice">
+          <input class="form-control input" type="text" id="purchasePrice" ng-model="purchasePrice" format="currency" ng-change="doStuff()">
+          <p>{{purchasePrice}}</p>
         </div>
       </div>
 
       <div class="form-group form-group-sm">
         <label class="col-xs-8" for="closingCosts">2. Closing Costs</label>
         <div class="col-xs-4">
-          <input class="form-control" type="text" ng-model="closingCosts" placeholder="1,500" id="closingCosts">
+          <input class="form-control" type="number" ng-model="closingCosts" id="closingCosts">
         </div>
       </div>
 
       <div class="form-group form-group-sm">
         <label class="col-xs-8" for="holdingCosts">3. Holding Costs</label>
         <div class="col-xs-4">
-          <input class="form-control " type="text" ng-model="holdingCosts" placeholder="1,500" id="holdingCosts">
+          <input class="form-control" type="number" ng-model="holdingCosts" id="holdingCosts">
         </div>
       </div>
 
       <div class="form-group form-group-sm">
         <label class="col-xs-8" for="includeCloseHoldCosts">4. Would you like to include Closing and Holding Costs in Loan?</label>
         <div class="col-xs-4">
-          <select class="form-control" ng-model="model.includeCloseHoldCosts" id="includeCloseHoldCosts">
-            <option value="1">Yes</option>
-            <option value="0">No</option>
+          <select class="form-control" ng-model="includeCloseHoldCosts" id="includeCloseHoldCosts">
+            <option value="true" ng-selected="true">Yes</option>
+            <option value="false">No</option>
           </select>
 
         </div>
@@ -41,17 +42,17 @@
       <div class="form-group form-group-sm">
         <label class="col-xs-8" for="rehabBudget">5. Rehab Budget</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="rehabBudget" placeholder="20,000" id="rehabBudget">
+          <input class="form-control input" type="number" ng-model="rehabBudget" id="rehabBudget">
         </div>
       </div>
 
       <div class="form-group form-group-sm">
         <label class="col-xs-8" for="projectRehabPeriod">6. Project Rehab Period (Months)</label>
         <div class="col-xs-4">
-          <select class="form-control" ng-model="model.projectRehabPeriod">
+          <select class="form-control" id="projectRehabPeriod" ng-model="projectRehabPeriod">
             <option value="0">0</option>
             <option value="1">1</option>
-            <option value="2">2</option>
+            <option value="2" ng-selected="true">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
             <option value="5">5</option>
@@ -84,44 +85,47 @@
         <label class="col-xs-8 text-weight-bold" for="financingUsed">7. Financing Used or All-Cash?</label>
         <div class="col-xs-4">
           <select class="form-control" id="financingUsed" ng-model="financingUsed">
-            <option value="true">Financing</option>
+            <option value="true" ng-selected="true">Financing</option>
             <option value="false">All Cash</option>
+
           </select>
         </div>
       </div>
       {{model.financingUsed}}
-<span ng-if="financingUsed" class="animate-if" >
 
-        <div class="form-group form-group-sm">
+<span ng-show="model.financingUsed == "1">
+
+      <div class="form-group form-group-sm">
         <label class="col-xs-8" for="lenderAVRCostOfProject">8. Lender caps AVR or Cost of Project?</label>
         <div class="col-xs-4">
-          <select class="form-control" ng-model="model.lenderAVRCostOfProject">
+]          <select class="form-control" id="lenderAVRCostOfProject" ng-model="lenderAVRCostOfProject">
             <option value="0">ARV</option>
-            <option value="1">Cost</option>
+            <option value="1" ng-selected="true">Cost</option>
           </select>
         </div>
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="lenderAVRCostOfProject">9. Max % of Cost to be Financed</label>
+        <label class="col-xs-8" for="maxPercentOfCostFinanced">9. Max % of Cost to be Financed</label>
         <div class="col-xs-4 input-group">
-          <input type="text" class="form-control input" id="exampleInputAmount" placeholder="9">
+          <input type="number" class="form-control input" id="maxPercentOfCostFinanced">
           <div class="input-group-addon">%</div>
         </div>
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="originationDiscountPoints">10. Origination Discount Points</label>
+        <label class="col-xs-8" for="originationDiscountPoints">10. Origination/Discount Points</label>
         <div class="col-xs-4 input-group">
-          <input class="form-control input" type="text" ng-model="originationDiscountPoints" placeholder="3" name="originationDiscountPoints">
+          <input class="form-control input" type="number" id="originationDiscountPoints" ng-model="originationDiscountPoints">
           <div class="input-group-addon">%</div>
         </div>
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="otherClosingCost">11. Other Closing Cost Paid to Lender</label>
+        <label class="col-xs-8" for="otherClosingCosts">11. Other Closing Costs Paid to Lender</label>
         <div class="col-xs-4 input-group">
-          <input class="form-control input" type="text" ng-model="otherClosingCost" placeholder="0">
+          <input class="form-control input" type="number" id="otherClosingCosts" ng-model="otherClosingCosts">
+
           <span class="input-group-addon">%</span>
         </div>
       </div>
@@ -129,17 +133,18 @@
       <div class="form-group form-group-sm">
         <label class="col-xs-8" for="pointsClosingCosts">12. Points and Closing Costs Upfront or Back-end</label>
         <div class="col-xs-4">
-          <select class="form-control" ng-model="model.pointsClosingCosts">
-            <option value="1">Paid Backend</option>
-            <option value="0">Paid Upfront</option>
+          <select class="form-control" id="pointsClosingCosts" ng-model="pointsClosingCosts">
+            <option value="backend" ng-selected="true">Paid Backend</option>
+            <option value="upfront">Paid Upfront</option>
           </select>
         </div>
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="interestRate">13. Interest Rate</label>
+        <label class="col-xs-8"  for="interestRate">13. Interest Rate</label>
         <div class="col-xs-4 input-group">
-          <input class="form-control input" type="text" ng-model="interestRate" placeholder="10">
+          <input class="form-control input" id="interestRate" type="text" ng-model="interestRate" placeholder="10">
+
           <span class="input-group-addon">%</span>
 
         </div>
@@ -148,9 +153,9 @@
       <div class="form-group form-group-sm">
         <label class="col-xs-8" for="interestPaymentDuringRehab">14. Interest Payment During Rehab</label>
         <div class="col-xs-4">
-          <select class="form-control" ng-model="model.interestPaymentDuringRehab">
+          <select class="form-control" id="interestPaymentDuringRehab" ng-model="interestPaymentDuringRehab">
             <option value="1">Yes</option>
-            <option value="0">No</option>
+            <option value="0" ng-selected="true">No</option>
           </select>
         </div>
       </div>
@@ -158,8 +163,8 @@
       <div class="form-group form-group-sm">
         <label class="col-xs-8" for="splitBackendProfitsWithLender">15. Split Back-End Profits with Lender?</label>
         <div class="col-xs-4">
-          <select class="form-control" ng-model="model.splitBackendProfitsWithLender">
-            <option value="1">Yes</option>
+          <select class="form-control" id="splitBackendProfitsWithLender" ng-model="splitBackendProfitsWithLender">
+            <option value="1" ng-selected="true">Yes</option>
             <option value="0">No</option>
           </select>
         </div>
@@ -168,14 +173,15 @@
       <div class="form-group form-group-sm">
         <label class="col-xs-8" for="percentagePreTaxProfits">16. What % of Pre-Tax Profits Does Lender Get?</label>
         <div class="col-xs-4 input-group">
-          <input class="form-control input" type="text" ng-model="percentagePreTaxProfits" placeholder="50">
+          <input class="form-control input" type="text" id="percentagePreTaxProfits" ng-model="percentagePreTaxProfits" placeholder="50">
           <span class="input-group-addon">%</span>
         </div>
       </div>
 
-</span>
+  </span>
+<!--need this button?-->
+      <button class="btn btn-default btn-lg" ng-click="searchListings()">Search</button>
 
-      <!--<button class="btn btn-default btn-lg" ng-click="assumptionPannel()">Search</button>-->
     </form>
   </div>
 
@@ -191,16 +197,18 @@
       <h3>Flip Analysis</h3>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="ArvForFlip">17. After-Repair Value (ARV) for FLiP</label>
+        <label class="col-xs-8" for="arvForFlip">17. After-Repair Value (ARV) for FLiP</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="ArvForFlip" placeholder="100,000">
+          <input class="form-control input" type="text" id="ArvForFlip" ng-model="ArvForFlip" placeholder="100,000">
+
         </div>
       </div>
 
       <div class="form-group form-group-sm">
         <label class="col-xs-8" for="monthsCompleteSaleAfterRehab">18. Months to Complete Sale (After Rehab)</label>
         <div class="col-xs-4">
-          <select class="form-control" ng-model="model.monthsCompleteSaleAfterRehab">
+          <select class="form-control" id="monthsCompleteSaleAfterRehab" ng-model="monthsCompleteSaleAfterRehab">
+
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -237,6 +245,8 @@
         </div>
       </div>
 
+<span ng-show="model.financingUsed == '1'">
+
       <div class="form-group form-group-sm">
         <label class="col-xs-8 greyedOutLabels" for="maxDollarsFinanced">20. Max $ that can be financed</label>
         <div class="col-xs-4">
@@ -267,10 +277,12 @@
         </div>
       </div>
 
+</span>
+
       <div class="form-group form-group-sm">
-        <label class="col-xs-8 text-weight-bold" for="cashRequired">24. Cash Required (over life of project)</label>
+        <label class="col-xs-8 text-weight-bold" for="cashRequiredOverLife">24. Cash Required (over life of project)</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="cashRequired" placeholder="7,000" disabled="disabled" id="cashRequired">
+          <input class="form-control input" type="text" ng-model="cashRequiredOverLife" placeholder="7,000" disabled="disabled" id="cashRequiredOverLife">
         </div>
       </div>
 
@@ -342,12 +354,12 @@
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="monthsToRentAfterRehab">33. 	Months to Rent (after Rehab Period is Over)</label>
+        <label class="col-xs-8" for="monthsToRentAfterRehab">33. Months to Rent (after Rehab Period is Over)</label>
         <div class="col-xs-4">
-          <select class="form-control" ng-model="model.monthsToRentAfterRehab">
+          <select class="form-control" id="monthsToRentAfterRehab" ng-model="monthsToRentAfterRehab">
             <option value="0">0</option>
             <option value="1">1</option>
-            <option value="2">2</option>
+            <option value="2" ng-selected="true">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
             <option value="5">5</option>
@@ -381,10 +393,12 @@
         </div>
       </div>
 
+<span ng-show="model.financingUsed == '1'">
+
       <div class="form-group form-group-sm">
         <label class="col-xs-8 greyedOutLabels" for="maxDollarsFinancedTwo">35. Max $ that can be financed</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="maxDollarsThatCanBeFinancedTwo" placeholder="63,000" disabled="disabled" id="maxDollarsThatCanBeFinancedTwo">
+          <input class="form-control input" type="text" ng-model="maxDollarsThatCanBeFinancedTwo" placeholder="63,000" disabled="disabled" id="maxDollarsFinancedTwo">
         </div>
       </div>
 
@@ -410,7 +424,7 @@
           <input class="form-control input" type="text" ng-model="totalLoanAmt" placeholder="70,086" id="totalLoanAmt" >
         </div>
       </div>
-
+</span>
       <div class="form-group form-group-sm">
         <label class="col-xs-8 text-weight-bold" for="cashRequired">39. Cash Required</label>
         <div class="col-xs-4">
@@ -474,9 +488,9 @@
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="newMtgPmnt">47. New Mtge Pmnt(monthly)</label>
+        <label class="col-xs-8" for="newMortgageRate">47. New Mortgage Rate</label>
         <div class="col-xs-4 input-group">
-          <input class="form-control input" type="text" ng-model="newMtgPmnt" placeholder="7" id="newMtgPmnt">
+          <input class="form-control input" type="text" ng-model="newMortgageRate" placeholder="7" id="newMortgageRate">
           <div class="input-group-addon">%</div>
         </div>
       </div>
@@ -529,9 +543,9 @@
       </div>
 <!--Text transform green or red depending-->
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="newMtgPmnt">50. New Mtge Pmnt (monthly)</label>
+        <label class="col-xs-8" for="newMortgagePayment">50. New Mortgage Payment (monthly)</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" ng-model="newMtgPmnt" placeholder="-659" disabled="disabled" id="newMtgPmnt">
+          <input class="form-control input" type="text" ng-model="newMortgagePayment" placeholder="-659" disabled="disabled" id="newMortgagePayment">
         </div>
       </div>
 
