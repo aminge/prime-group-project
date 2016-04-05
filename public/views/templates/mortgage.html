@@ -10,13 +10,11 @@
       </div>
     </div>
 
-    {{price}}
-
     <div class="form-group">
       <div class="col-sm-8">
         <label for="interest-rate">Percent Interest Rate:</label>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-4 input-group">
         <input type="number" ng-model="interestRate" id="interest-rate" class="form-control" step="0.01" min="0" max="10">
         <div class="input-group-addon">%</div>
       </div>
@@ -44,12 +42,11 @@
   </form>
 </div>
 
-
 <div class="row mortgage-information" ng-show="results">
   <div class="col-sm-8">
     <ul>
-      <li><strong>Monthly payment:</strong> {{monthlyPayments | currency}}</li>
-      <li><strong>Total cost of mortgage:</strong> {{totalCost | currency}}</li>
+      <li><h2>Monthly payment:</h2> {{monthlyPayments | currency}}</li>
+      <li><h2>Total cost of mortgage:</h2> {{totalCost | currency}}</li>
     </ul>
   </div>
 </div>
