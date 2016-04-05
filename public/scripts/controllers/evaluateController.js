@@ -9,6 +9,8 @@ myApp.controller('EvaluateController', ['$scope', '$location', 'DataFactory', fu
 
   $scope.buyHoldForm = false;
   $scope.flipForm = true;
+  $scope.financingUsed = true;
+
 
   $scope.viewFlip = function() {
     $scope.flipForm = true;

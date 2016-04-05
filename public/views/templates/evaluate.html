@@ -87,16 +87,18 @@
           <select class="form-control" id="financingUsed" ng-model="financingUsed">
             <option value="true" ng-selected="true">Financing</option>
             <option value="false">All Cash</option>
+
           </select>
         </div>
       </div>
       {{model.financingUsed}}
-<span ng-if="financingUsed" class="animate-if" >
 
-        <div class="form-group form-group-sm">
+<span ng-show="model.financingUsed == "1">
+
+      <div class="form-group form-group-sm">
         <label class="col-xs-8" for="lenderAVRCostOfProject">8. Lender caps AVR or Cost of Project?</label>
         <div class="col-xs-4">
-          <select class="form-control" id="lenderAVRCostOfProject" ng-model="lenderAVRCostOfProject">
+]          <select class="form-control" id="lenderAVRCostOfProject" ng-model="lenderAVRCostOfProject">
             <option value="0">ARV</option>
             <option value="1" ng-selected="true">Cost</option>
           </select>
@@ -123,6 +125,7 @@
         <label class="col-xs-8" for="otherClosingCosts">11. Other Closing Costs Paid to Lender</label>
         <div class="col-xs-4 input-group">
           <input class="form-control input" type="number" id="otherClosingCosts" ng-model="otherClosingCosts">
+
           <span class="input-group-addon">%</span>
         </div>
       </div>
@@ -141,6 +144,7 @@
         <label class="col-xs-8"  for="interestRate">13. Interest Rate</label>
         <div class="col-xs-4 input-group">
           <input class="form-control input" id="interestRate" type="text" ng-model="interestRate" placeholder="10">
+
           <span class="input-group-addon">%</span>
 
         </div>
@@ -174,9 +178,10 @@
         </div>
       </div>
 
-</span>
+  </span>
+<!--need this button?-->
+      <button class="btn btn-default btn-lg" ng-click="searchListings()">Search</button>
 
-      <!--<button class="btn btn-default btn-lg" ng-click="assumptionPannel()">Search</button>-->
     </form>
   </div>
 
@@ -192,9 +197,10 @@
       <h3>Flip Analysis</h3>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="ArvForFlip">17. After-Repair Value (ARV) for FLiP</label>
+        <label class="col-xs-8" for="arvForFlip">17. After-Repair Value (ARV) for FLiP</label>
         <div class="col-xs-4">
           <input class="form-control input" type="text" id="ArvForFlip" ng-model="ArvForFlip" placeholder="100,000">
+
         </div>
       </div>
 
@@ -202,6 +208,7 @@
         <label class="col-xs-8" for="monthsCompleteSaleAfterRehab">18. Months to Complete Sale (After Rehab)</label>
         <div class="col-xs-4">
           <select class="form-control" id="monthsCompleteSaleAfterRehab" ng-model="monthsCompleteSaleAfterRehab">
+
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -238,6 +245,8 @@
         </div>
       </div>
 
+<span ng-show="model.financingUsed == '1'">
+
       <div class="form-group form-group-sm">
         <label class="col-xs-8 greyedOutLabels" for="maxDollarsFinanced">20. Max $ that can be financed</label>
         <div class="col-xs-4">
@@ -267,6 +276,8 @@
           <input class="form-control input" type="text" ng-model="totalLoanAmount" placeholder="70,086" disabled="disabled" id="totalLoanAmount">
         </div>
       </div>
+
+</span>
 
       <div class="form-group form-group-sm">
         <label class="col-xs-8 text-weight-bold" for="cashRequiredOverLife">24. Cash Required (over life of project)</label>
@@ -382,6 +393,8 @@
         </div>
       </div>
 
+<span ng-show="model.financingUsed == '1'">
+
       <div class="form-group form-group-sm">
         <label class="col-xs-8 greyedOutLabels" for="maxDollarsFinancedTwo">35. Max $ that can be financed</label>
         <div class="col-xs-4">
@@ -411,7 +424,7 @@
           <input class="form-control input" type="text" ng-model="totalLoanAmt" placeholder="70,086" id="totalLoanAmt" >
         </div>
       </div>
-
+</span>
       <div class="form-group form-group-sm">
         <label class="col-xs-8 text-weight-bold" for="cashRequired">39. Cash Required</label>
         <div class="col-xs-4">
