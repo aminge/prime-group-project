@@ -2,6 +2,8 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
   var apiData = undefined;
   var apiPhotoData = undefined;
   var mortgage = undefined;
+  var housePrice = 0;
+
 
   // Private
 
@@ -49,7 +51,8 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
     }).then(function (response) {
       apiData = response.data.results.result[0];
       //console.log('from factory: ', apiData);
-
+      housePrice = Math.round(apiData.zestimate[0].amount[0]._);
+      console.log('factory housePrice: ', housePrice);
       // GetUpdatedPropertyDetails
       //console.log(apiData.zpid[0]);
 
@@ -106,6 +109,9 @@ console.log(mortgage);
       },
       factoryExportMortgage: function() {
         return mortgage;
+      },
+      factoryExportMortgagePrice: function() {
+        return housePrice;
       },
       factoryIsUserLoggedIn: function() {
         return isUserLoggedIn;
