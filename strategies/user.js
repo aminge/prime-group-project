@@ -41,6 +41,8 @@ passport.use('local', new localStrategy({
   passReqToCallback: true,
   usernameField: 'email'
   }, function(req, email, password, done){
+    console.log('login email: ', email);
+
     pg.connect(connectionString, function (err, client) {
       console.log('called local - pg');
       var user = {};
