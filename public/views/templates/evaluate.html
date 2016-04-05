@@ -8,7 +8,7 @@
       <div class="form-group form-group-sm">
         <label class="col-xs-8" for="purchasePrice">1. Purchase Price</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" id="purchasePrice" ng-model="purchasePrice" format="currency" ng-change="doStuff()">
+          <input class="form-control input" type="text" id="purchasePrice" currency-input= ng-model="purchasePrice" />
           <p>{{purchasePrice}}</p>
         </div>
       </div>
@@ -16,7 +16,7 @@
       <div class="form-group form-group-sm">
         <label class="col-xs-8" for="closingCosts">2. Closing Costs</label>
         <div class="col-xs-4">
-          <input class="form-control" type="number" ng-model="closingCosts" id="closingCosts">
+          <input class="form-control" type="text" currency-input ng-model="closingCosts" id="closingCosts" />
         </div>
       </div>
 
@@ -93,7 +93,7 @@
       </div>
       {{model.financingUsed}}
 
-<span ng-show="model.financingUsed == "1">
+<span ng-show="financingUsed == '1'">
 
       <div class="form-group form-group-sm">
         <label class="col-xs-8" for="lenderAVRCostOfProject">8. Lender caps AVR or Cost of Project?</label>
@@ -245,7 +245,7 @@
         </div>
       </div>
 
-<span ng-show="model.financingUsed == '1'">
+<span ng-show="financingUsed == '1'">
 
       <div class="form-group form-group-sm">
         <label class="col-xs-8 greyedOutLabels" for="maxDollarsFinanced">20. Max $ that can be financed</label>
@@ -393,7 +393,7 @@
         </div>
       </div>
 
-<span ng-show="model.financingUsed == '1'">
+<span ng-show="financingUsed == '1'">
 
       <div class="form-group form-group-sm">
         <label class="col-xs-8 greyedOutLabels" for="maxDollarsFinancedTwo">35. Max $ that can be financed</label>

@@ -1,15 +1,16 @@
 myApp.controller('EvaluateController', ['$scope', '$location', 'DataFactory', function($scope, $location, DataFactory) {
 
   // check to see if the user is logged in
-  if (!DataFactory.factoryIsUserLoggedIn()) {
-    // redirect to login and display message letting user know they have to log in to see the content
-    DataFactory.factorySetReminderMessageToTrue();
-    $location.path('./views/templates/login.html');
-  }
+  //if (!DataFactory.factoryIsUserLoggedIn()) {
+  //  // redirect to login and display message letting user know they have to log in to see the content
+  //  DataFactory.factorySetReminderMessageToTrue();
+  //  $location.path('./views/templates/login.html');
+  //}
 
   $scope.buyHoldForm = false;
   $scope.flipForm = true;
   $scope.financingUsed = true;
+  $scope.currencyVal;
 
 
   $scope.viewFlip = function() {
@@ -61,28 +62,97 @@ myApp.controller('EvaluateController', ['$scope', '$location', 'DataFactory', fu
   $scope.amortizationYears = 20;
 
   $scope.doStuff = function() {
-    console.log($scope.justNumber2($scope.purchasePrice));
+    console.log($scope.justNumber($scope.purchasePrice));
   }
 
-}])
-
-// allow you to format a text input field.
-// <input type="text" ng-model="test" format="number" />
-// <input type="text" ng-model="test" format="currency" />
-.directive('format', ['$filter', function ($filter) {
-  return {
-    require: '?ngModel',
-    link: function (scope, elem, attrs, ctrl) {
-      if (!ctrl) return;
-
-      ctrl.$formatters.unshift(function (a) {
-        return $filter(attrs.format)(ctrl.$modelValue)
-      });
-
-      elem.bind('blur', function(event) {
-        var plainNumber = elem.val().replace(/[^\d|\-+|\.+]/g, '');
-        elem.val($filter(attrs.format)(plainNumber));
-      });
-    }
-  };
 }]);
+
+String.prototype.splice = function(idx, rem, s) {
+  return (this.slice(0, idx) + s + this.slice(idx + Math.abs(rem)));
+};
+
+//
+//// allow you to format a text input field.
+//// <input type="text" ng-model="test" format="number" />
+//// <input type="text" ng-model="test" format="currency" />
+//.directive('format', ['$filter', function ($filter) {
+//  return {
+//    require: '?ngModel',
+//    link: function (scope, elem, attrs, ctrl) {
+//      if (!ctrl) return;
+//
+//      ctrl.$formatters.unshift(function (a) {
+//        return $filter(attrs.format)(ctrl.$modelValue)
+//      });
+//
+//      elem.bind('blur', function(event) {
+//        var plainNumber = elem.val().replace(/[^\d|\-+|\.+]/g, '');
+//        elem.val($filter(attrs.format)(plainNumber));
+//      });
+//    }
+//  };
+//}]);
+
+// Works
+
+
+//myApp.directive('currencyInput', function() {
+//    return {
+//      restrict: 'A',
+//      scope: {
+//        field: '='
+//      },
+//      replace: true,
+//      template: '<span><input type="text" ng-model="field" />{{field}}</span>',
+//      link: function($scope, $element, $attrs) {
+//        $element.bind('keyup', function(e) {
+//          var input = element.find('input');
+//          var inputVal = input.val();
+//
+//          //clearing left side zeros
+//          while ($scope.field.charAt(0) == '0') {
+//            $scope.field = $scope.field.substr(1);
+//          }
+//
+//          $scope.field = scope.field.replace(/[^\d.\',']/g, '');
+//
+//          var point = $scope.field.indexOf(".");
+//          if (point >= 0) {
+//            $scope.field = $scope.field.slice(0, point + 3);
+//          }
+//
+//          var decimalSplit = $scope.field.split(".");
+//          var intPart = decimalSplit[0];
+//          var decPart = decimalSplit[1];
+//
+//          intPart = intPart.replace(/[^\d]/g, '');
+//          if (intPart.length > 3) {
+//            var intDiv = Math.floor(intPart.length / 3);
+//            while (intDiv > 0) {
+//              var lastComma = intPart.indexOf(",");
+//              if (lastComma < 0) {
+//                lastComma = intPart.length;
+//              }
+//
+//              if (lastComma - 3 > 0) {
+//                intPart = intPart.splice(lastComma - 3, 0, ",");
+//              }
+//              intDiv--;
+//            }
+//          }
+//
+//          if (decPart === undefined) {
+//            decPart = "";
+//          }
+//          else {
+//            decPart = "." + decPart;
+//          }
+//          var res = intPart + decPart;
+//
+//          $scope.$apply(function() {$scope.field = res});
+//
+//        });
+//
+//      }
+//    };
+//  });
