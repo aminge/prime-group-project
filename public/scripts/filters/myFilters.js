@@ -1,4 +1,4 @@
-myApp.filter('addCommasToNumber', funtion(){
+myApp.filter('addCommasToNumber', function(){
   return function(input) {
     if (!number) {return ''; }
     var sNumber = toString(number);
@@ -8,5 +8,5 @@ myApp.filter('addCommasToNumber', funtion(){
       return $scope.addCommasToNumber(sNumber.slice(0, sNumber.length - 3)) + ',' + sNumber.slice(sNumber.length - 3);
     }
   }
-
 });
+
