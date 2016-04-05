@@ -1,4 +1,4 @@
-myApp.controller('LoginController', ['$scope', 'DataFactory', function($scope, DataFactory){
+myApp.controller('LoginController', ['$scope', '$http', 'DataFactory', function($scope, $http, DataFactory){
 console.log('LoginController works');
 
   $scope.dataFactory = DataFactory;
@@ -32,17 +32,20 @@ console.log('LoginController works');
     //get user data to update it for admin view
     $http.get('/updateUser').then(function(response){
               $scope.updateUser = response.data;
-            }
-          );
+              console.log($scope.updateUser);
 
-          for (var i = 0; i < $scope.updateUser.length; i++) {
-            if ($scope.updateUser[i].email == user.email) {
-              $scope.updateUser.number_of_visits++;
-              console.log('number of visits', $scope.updateUser.number_of_visits);
-              $scope.updateUser.date_of_last_visit = Date();
-              console.log('date of last visit', $scope.updateUser.date_of_last_visit);
+              for (var i = 0; i < $scope.updateUser.length; i++) {
+                if ($scope.updateUser[i].email == user.email) {
+                  $scope.updateUser.number_of_visits++;
+                  console.log('number of visits', $scope.updateUser.number_of_visits);
+                }
+              }
             }
-          }
+          ).then(function(response){
+            
+          });
+
+
 
   };
 }]);

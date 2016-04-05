@@ -25,7 +25,7 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
     $http.post('/login', user).then(
       // this needs to be different
       function (res) {
-        $location.path('/search');
+        // $location.path('/search');
         isUserLoggedIn = true;
       },
       function (err) {

@@ -9,7 +9,7 @@ router.get('/', function (req, res) {
   pg.connect(connection, function (err, client, done) {
 
     //do the work of the query here.
-    var query = client.query('SELECT number_of_visits, email, date_of_last_visit FROM users');
+    var query = client.query('SELECT number_of_visits, email FROM users');
 
     // Stream results back one row at a time
     query.on('row', function (row) {
@@ -19,7 +19,7 @@ router.get('/', function (req, res) {
     // close connection
     query.on('end', function () {
       client.end();
-        console.log("results: results");
+        // console.log("results: results");
       return res.json(results);
 
     });
