@@ -46,8 +46,8 @@ myApp.controller('EvaluateController', ['$scope', '$location', 'DataFactory', fu
   $scope.includeCloseHoldCosts = true;              // 4
   $scope.rehabBudget = 20000;                       // 5
   $scope.projectRehabPeriod = 2;                    // 6
-  $scope.financingUsed = true;                      // 7
-  $scope.lenderAVRCostOfProject = 1;                // 8
+  $scope.financingUsed = '1';                       // 7  (1 = true, 0 = false)
+  $scope.lenderAVRCostOfProject = 'cost';           // 8
   $scope.maxPercentOfCostFinanced = 90;             // 9
   $scope.originationDiscountPoints = 3;             // 10
   $scope.otherClosingCosts = 0;                     // 11
@@ -59,7 +59,7 @@ myApp.controller('EvaluateController', ['$scope', '$location', 'DataFactory', fu
   $scope.arvForFlip = 100000;                       // 17
   $scope.monthsCompleteSaleAfterRehab = 2;          // 18
   $scope.totalCapNeeded = $scope.purchasePrice + $scope.holdingCosts + $scope.closingCosts + $scope.rehabBudget;
-  $scope.maxDollarsFinanced = ($scope.purchasePrice + $scope.rehabBudget) * $scope.maxPercentOfCostFinanced / 100;
+  //$scope.updateMaxDollarsFinanced();
   //$scope.
   //$scope.
   //$scope.
@@ -73,6 +73,28 @@ myApp.controller('EvaluateController', ['$scope', '$location', 'DataFactory', fu
   //$scope.
   //$scope.
   //$scope.
+
+  // things are getting converted to string, since the form type is text. I need to convert them back to integer
+
+  $scope.updateMaxDollarsFinanced = function() {
+
+    if ($scope.lenderAVRCostOfProject == 'arv') {
+      $scope.maxDollarsFinanced = $scope.arvForFlip * $scope.maxPercentOfCostFinanced / 100;
+      console.log('lenderAVRCostOfProject is ', $scope.lenderAVRCostOfProject);
+    } else if ($scope.lenderAVRCostOfProject == 'cost') {
+      console.log('purchase price: ', $scope.purchasePrice);
+      console.log('rehab budget ', $scope.rehabBudget);
+      console.log('max percent ', $scope.maxPercentOfCostFinanced);
+      $scope.maxDollarsFinanced = ($scope.purchasePrice + $scope.rehabBudget) * $scope.maxPercentOfCostFinanced / 100;
+      console.log('lenderAVRCostOfProject is ', $scope.lenderAVRCostOfProject);
+    }
+    console.log($scope.maxDollarsFinanced);
+  };
+
+  $scope.updateEverything = function() {
+    $scope.updateMaxDollarsFinanced();
+    console.log('updating errything');
+  };
 
 
   $scope.pointsClosingCosts = 1;

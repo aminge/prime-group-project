@@ -8,28 +8,28 @@
       <div class="form-group form-group-sm">
         <label class="col-xs-8" for="purchasePrice">1. Purchase Price</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" id="purchasePrice" currency-input ng-model="purchasePrice" ng-change="doStuff()" />
+          <input class="form-control input" type="text" id="purchasePrice" currency-input ng-model="purchasePrice" ng-change="updateEverything()" />
         </div>
       </div>
 
       <div class="form-group form-group-sm">
         <label class="col-xs-8" for="closingCosts">2. Closing Costs</label>
         <div class="col-xs-4">
-          <input class="form-control" type="text" currency-input ng-model="closingCosts" id="closingCosts" />
+          <input class="form-control" type="text" currency-input ng-model="closingCosts" id="closingCosts" ng-change="updateEverything()"/>
         </div>
       </div>
 
       <div class="form-group form-group-sm">
         <label class="col-xs-8" for="holdingCosts">3. Holding Costs</label>
         <div class="col-xs-4">
-          <input class="form-control" type="text" currency-input ng-model="holdingCosts" id="holdingCosts" />
+          <input class="form-control" type="text" currency-input ng-model="holdingCosts" id="holdingCosts" ng-change="updateEverything()"/>
         </div>
       </div>
 
       <div class="form-group form-group-sm">
         <label class="col-xs-8" for="includeCloseHoldCosts">4. Would you like to include Closing and Holding Costs in Loan?</label>
         <div class="col-xs-4">
-          <select class="form-control" ng-model="includeCloseHoldCosts" id="includeCloseHoldCosts">
+          <select class="form-control" ng-model="includeCloseHoldCosts" id="includeCloseHoldCosts" ng-change="updateEverything()">
             <option value="true" ng-selected="true">Yes</option>
             <option value="false">No</option>
           </select>
@@ -41,14 +41,14 @@
       <div class="form-group form-group-sm">
         <label class="col-xs-8" for="rehabBudget">5. Rehab Budget</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" currency-input ng-model="rehabBudget" id="rehabBudget" />
+          <input class="form-control input" type="text" currency-input ng-model="rehabBudget" id="rehabBudget" ng-change="updateEverything()"/>
         </div>
       </div>
 
       <div class="form-group form-group-sm">
         <label class="col-xs-8" for="projectRehabPeriod">6. Project Rehab Period (Months)</label>
         <div class="col-xs-4">
-          <select class="form-control" id="projectRehabPeriod" ng-model="projectRehabPeriod">
+          <select class="form-control" id="projectRehabPeriod" ng-model="projectRehabPeriod" ng-change="updateEverything()">
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2" ng-selected="true">2</option>
@@ -83,9 +83,9 @@
       <div class="form-group form-group-sm">
         <label class="col-xs-8 text-weight-bold" for="financingUsed">7. Financing Used or All-Cash?</label>
         <div class="col-xs-4">
-          <select class="form-control" id="financingUsed" ng-model="financingUsed">
-            <option value="true" ng-selected="true">Financing</option>
-            <option value="false">All Cash</option>
+          <select class="form-control" id="financingUsed" ng-model="financingUsed" ng-change="updateEverything()">
+            <option value="1" ng-selected="true">Financing</option>
+            <option value="0">All Cash</option>
 
           </select>
         </div>
@@ -97,9 +97,9 @@
       <div class="form-group form-group-sm">
         <label class="col-xs-8" for="lenderAVRCostOfProject">8. Lender caps AVR or Cost of Project?</label>
         <div class="col-xs-4">
-          <select class="form-control" id="lenderAVRCostOfProject" ng-model="lenderAVRCostOfProject">
-            <option value="0">ARV</option>
-            <option value="1" ng-selected="true">Cost</option>
+          <select class="form-control" id="lenderAVRCostOfProject" ng-model="lenderAVRCostOfProject" ng-change="updateEverything()">
+            <option value="arv">ARV</option>
+            <option value="cost" ng-selected="true">Cost</option>
           </select>
         </div>
       </div>
@@ -198,7 +198,7 @@
       <div class="form-group form-group-sm">
         <label class="col-xs-8" for="arvForFlip">17. After-Repair Value (ARV) for FLiP</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" currency-input id="arvForFlip" ng-model="arvForFlip" />
+          <input class="form-control input" type="text" currency-input id="arvForFlip" ng-model="arvForFlip"  ng-change="updateEverything()"/>
 
         </div>
       </div>
