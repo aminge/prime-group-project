@@ -9,7 +9,8 @@ var user = require('./routes/user');
 var login = require('./routes/login');
 var ZWSID = "X1-ZWz19ssev2coi3_1u0pu";
 var Zillow = require('node-zillow');
-var getUsers = require('./routes/getUsers')
+var getUsers = require('./routes/getUsers');
+var updateUser = require('./routes/updateUser');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -30,6 +31,7 @@ app.use(passport.session());
 app.use('/register', register);
 app.use('/login', login);
 app.use('/getUsers', getUsers);
+app.use('/updateUser', updateUser);
 
 app.get('/zillow/GetDeepSearchResults', function(req, res){
 
