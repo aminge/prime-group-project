@@ -40,6 +40,7 @@ myApp.controller('EvaluateController', ['$scope', '$location', 'DataFactory', fu
     return parseInt(str.split(/ /)[0].replace(/[^\d]/g, ''));
   };
 
+  // Default Values for Assumptions Inputs
   $scope.purchasePrice = 50000;                     // 1
   $scope.closingCosts = 1500;                       // 2
   $scope.holdingCosts = 1500;                       // 3
@@ -56,12 +57,18 @@ myApp.controller('EvaluateController', ['$scope', '$location', 'DataFactory', fu
   $scope.interestPaymentDuringRehab = true;         // 14
   $scope.splitBackendProfitsWithLender = true;      // 15
   $scope.percentagePreTaxProfits = 50;              // 16
-  $scope.arvForFlip = 100000;                       // 17
+
+  // Default Values For Flip Analysis Inputs
+  $scope.arvForFlip = 100000;                       // 17 This one could be purchase price + rehab budget
   $scope.monthsCompleteSaleAfterRehab = 2;          // 18
+  $scope.projectedResalePrice = 100000;             // 27
+  $scope.projectedCostSale = 7;                     // 28
+
+  // Default Values for Hold/Rent Analysis
+  $scope.internalArvForRent = 100000;               // 32 This one could be purchase price + rehab budget
+  $scope.internalMonthsToRentAfterRehab = 2;        // 33
+
   $scope.totalCapNeeded = $scope.purchasePrice + $scope.holdingCosts + $scope.closingCosts + $scope.rehabBudget;
-  //$scope.updateMaxDollarsFinanced();
-  //$scope.
-  //$scope.
   //$scope.
   //$scope.
   //$scope.
@@ -92,6 +99,27 @@ myApp.controller('EvaluateController', ['$scope', '$location', 'DataFactory', fu
   };
 
   $scope.updateEverything = function() {
+    $scope.internalPurchasePrice = parseFloat($scope.purchasePrice);                                   // 1
+    $scope.internalClosingCosts = parseFloat($scope.closingCosts);                                     // 2
+    $scope.internalHoldingCosts = parseFloat($scope.holdingCosts);                                     // 3
+    $scope.internalRehabBudget = parseFloat($scope.internalRehabBudget);                               // 5
+    $scope.internalProjectRehabPeriod = parseFloat($scope.projectRehabPeriod);                         // 6
+    $scope.internalMaxPercentOfCostFinanced = parseFloat($scope.maxPercentOfCostFinanced);             // 9
+    $scope.internalOriginationDiscountPoints = parseFloat($scope.originationDiscountPoints);           // 10
+    $scope.internalOtherClosingCosts = parseFloat($scope.originationDiscountPoints);                   // 11
+    $scope.internalInterestRate = parseFloat($scope.interestRate);                                     // 13
+    $scope.internalPercentagePreTaxProfits = parseFloat($scope.percentagePreTaxProfits);               // 16
+    $scope.internalArvForFlip = parseFloat($scope.arvForFlip);                                         // 17
+    $scope.internalMonthsCompleteSaleAfterRehab = parseFloat($scope.monthsCompleteSaleAfterRehab);     // 18
+
+    $scope.internalProjectedResalePrice = parseFloat($scope.projectedResalePrice);                     // 27
+    $scope.internalProjectedCostSale = parseFloat($scope.projectedCostSale);                           // 28
+
+    $scope.internalArvForRent = parseFloat($scope.arvForRent);                                         // 32
+    $scope.internalMonthsToRentAfterRehab = parseFloat($scope.monthsToRentAfterRehab)                  // 33
+
+
+
     $scope.updateMaxDollarsFinanced();
     console.log('updating errything');
   };
