@@ -1,4 +1,4 @@
-myApp.controller('LoginController', ['$scope', 'DataFactory', function($scope, DataFactory){
+myApp.controller('LoginController', ['$scope', 'DataFactory', '$http', function($scope, DataFactory, $http){
 console.log('LoginController works');
 
   $scope.dataFactory = DataFactory;
@@ -29,6 +29,7 @@ console.log('LoginController works');
     $scope.failedLogin = false;
 
     $scope.dataFactory.factoryLoginUser(user);
+    var userIndex;
     //get user data to update it for admin view
     $http.get('/updateUser').then(function(response){
               $scope.updateUser = response.data;
@@ -36,12 +37,18 @@ console.log('LoginController works');
 
               for (var i = 0; i < $scope.updateUser.length; i++) {
                 if ($scope.updateUser[i].email == user.email) {
-                  $scope.updateUser.number_of_visits++;
-                  console.log('number of visits', $scope.updateUser.number_of_visits);
+                  console.log('found email match, ', $scope.updateUser[i].email);
+                  $scope.updateUser[i].number_of_visits++;
+                  console.log('number of visits', $scope.updateUser[i].number_of_visits);
+                  userIndex = i;
                 }
               }
             }
           ).then(function(response){
+            console.log('user object', $scope.updateUser[userIndex]);
+            $http.put('/updateUser', $scope.updateUser[userIndex]).then(function (response) {
+              console.log('data updated');
+            });
 
           });
   };
