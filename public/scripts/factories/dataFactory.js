@@ -12,7 +12,7 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
 
   // Private
 
-  var priavteSetReminderMessageToTrue = function() {
+  var privateSetReminderMessageToTrue = function() {
     displayReminderMessage = true;
   };
 
@@ -121,7 +121,7 @@ console.log(mortgage);
         return displayReminderMessage;
       },
       factorySetReminderMessageToTrue: function () {
-        return priavteSetReminderMessageToTrue();
+        return privateSetReminderMessageToTrue();
       }
     };
 
