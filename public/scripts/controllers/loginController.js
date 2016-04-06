@@ -29,5 +29,20 @@ console.log('LoginController works');
     $scope.failedLogin = false;
 
     $scope.dataFactory.factoryLoginUser(user);
+    //get user data to update it for admin view
+    $http.get('/updateUser').then(function(response){
+              $scope.updateUser = response.data;
+              console.log($scope.updateUser);
+
+              for (var i = 0; i < $scope.updateUser.length; i++) {
+                if ($scope.updateUser[i].email == user.email) {
+                  $scope.updateUser.number_of_visits++;
+                  console.log('number of visits', $scope.updateUser.number_of_visits);
+                }
+              }
+            }
+          ).then(function(response){
+
+          });
   };
 }]);
