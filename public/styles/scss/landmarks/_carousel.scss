@@ -36,3 +36,13 @@
 .carousel-control.left span:hover {
   border-bottom: 4px solid #ddd;
 }
+
+
+/// if no photos are available
+
+
+.carousel-caption {
+  @include centerer;
+  width: 65%;
+  text-shadow: -2px 2px 7px $black;
+}
