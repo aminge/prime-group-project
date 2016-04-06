@@ -60,9 +60,12 @@ myApp.controller('SearchController', ['$scope', '$http', '$location', 'DataFacto
               $scope.slides = [
                 {id: 0, image: '../../images/mpls-1.jpg'}
               ];
+              $scope.showAltMessage = true;
+
             } else {
               for (var i = 0; i < photoArray.length; i++) {
                 $scope.slides.push({id: i, image: photoArray[i]});
+
               }
             }
           });
