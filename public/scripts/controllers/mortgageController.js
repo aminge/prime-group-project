@@ -12,15 +12,24 @@ myApp.controller('MortgageController', ['$scope', '$location', 'DataFactory', fu
 
   // use search results price for default mortgage price:
   $scope.price = $scope.dataFactory.factoryExportMortgagePrice();
-  console.log('price: ', $scope.price);
 
+  // use search results photo, if not exist use stock photo:
+  $scope.housePhoto = $scope.dataFactory.factoryGetPhotos();
+  console.log($scope.housePhoto);
 
   $scope.calculateMortgage = function() {
     $scope.dataFactory.factoryCalculateMortgage(parseFloat($scope.price), $scope.years, $scope.interestRate);
     $scope.monthlyPayments = $scope.dataFactory.factoryExportMortgage();
     $scope.totalCost = $scope.monthlyPayments * parseFloat($scope.years) * 12 ;
     $scope.results = true;
+    $scope.price = '';
+    $scope.interestRate = '';
+    $scope.years = '';
   };
+
+
+
+
 
 
 }]);

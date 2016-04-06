@@ -37,18 +37,22 @@ console.log('LoginController works');
 
               for (var i = 0; i < $scope.updateUser.length; i++) {
                 if ($scope.updateUser[i].email == user.email) {
+
                   console.log('found email match, ', $scope.updateUser[i].email);
                   $scope.updateUser[i].number_of_visits++;
                   console.log('number of visits', $scope.updateUser[i].number_of_visits);
                   userIndex = i;
+
                 }
               }
             }
           ).then(function(response){
+
             console.log('user object', $scope.updateUser[userIndex]);
             $http.put('/updateUser', $scope.updateUser[userIndex]).then(function (response) {
               console.log('data updated');
             });
+
 
           });
   };

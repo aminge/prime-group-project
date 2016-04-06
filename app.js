@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var pg = require('pg');
-var passport = require('./strategies/user.js');
+var passport = require('passport'); //./strategies/user.js
 var session = require('express-session');
 var register = require('./routes/register');
 var user = require('./routes/user');
@@ -27,6 +27,8 @@ app.use(session({
 // start up passport sessions
 app.use(passport.initialize());
 app.use(passport.session());
+
+require('./strategies/user');
 
 app.use('/register', register);
 app.use('/login', login);

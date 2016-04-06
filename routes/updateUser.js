@@ -56,5 +56,4 @@ console.log('email: ', email);
 
 });
 
-
 module.exports = router;
