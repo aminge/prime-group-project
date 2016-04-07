@@ -192,6 +192,18 @@ myApp.controller('EvaluateController', ['$scope', '$location', 'DataFactory', fu
     $scope.roiAnnualized = $scope.returnOnCashInvested * 12 / totalMonths;
   };
 
+  $scope.updateTotalCapNeededHR = function() {
+    $scope.totalCapNeededHR = $scope.purchasePrice + $scope.holdingCosts + $scope.closingCosts + $scope.rehabBudget;
+  };
+
+  $scope.updateMaxDollarsFinancedHR = function() {
+    if ($scope.lenderAVRCostOfProject == 'arv') {
+      $scope.maxDollarsFinancedHR = $scope.internalArvForFlip * $scope.internalMaxPercentOfCostFinanced / 100;
+    } else if ($scope.lenderAVRCostOfProject == 'cost') {
+      $scope.maxDollarsFinancedHR = ($scope.internalPurchasePrice + $scope.internalRehabBudget) * $scope.internalMaxPercentOfCostFinanced / 100;
+    }
+  };
+
   $scope.updateEverything = function() {
     $scope.internalPurchasePrice = parseFloat($scope.purchasePrice);                                   // 1
     $scope.internalClosingCosts = parseFloat($scope.closingCosts);                                     // 2
