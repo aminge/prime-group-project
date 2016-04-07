@@ -184,7 +184,12 @@ myApp.controller('EvaluateController', ['$scope', '$location', 'DataFactory', fu
   };
 
   $scope.updateReturnOnCashInvested = function() {
-    $scope.returnOnCashInvested = Math.round($scope.projectedProfit / $scope.cashRequiredOverLife);
+    $scope.returnOnCashInvested = $scope.projectedProfit / $scope.cashRequiredOverLife * 100;
+  };
+
+  $scope.updateRoiAnnualized = function() {
+    var totalMonths = $scope.internalProjectRehabPeriod + $scope.internalMonthsCompleteSaleAfterRehab;
+    $scope.roiAnnualized = $scope.returnOnCashInvested * 12 / totalMonths;
   };
 
   $scope.updateEverything = function() {
@@ -227,6 +232,7 @@ myApp.controller('EvaluateController', ['$scope', '$location', 'DataFactory', fu
     $scope.updatePercentageOfArv();
     $scope.updateProjectedProfit();
     $scope.updateReturnOnCashInvested();
+    $scope.updateRoiAnnualized();
 
 
     console.log('updating everything');
