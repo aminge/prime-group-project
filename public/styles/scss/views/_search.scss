@@ -9,3 +9,10 @@
 .listingLabels {
   color: black;
 }
+
+img.zillow-logo {
+  height: auto;
+  position: absolute;
+  z-index: 100;
+  mix-blend-mode: multiply;
+}
