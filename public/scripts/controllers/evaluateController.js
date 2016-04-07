@@ -132,6 +132,7 @@ myApp.controller('EvaluateController', ['$scope', '$location', 'DataFactory', fu
     } else if ($scope.interestPaymentDuringRehab == '0') {
 
     }
+    $scope.closingCostAddedToLoan = 7086;
     //var totalMonths = $scope.internalProjectRehabPeriod + $scope.internalMonthsCompleteSaleAfterRehab;
     //var baseCost = $scope.actualToBeFinanced + $scope.internalClosingCosts + $scope.internalHoldingCosts;
     //var interest = calculateInterest()
@@ -148,6 +149,42 @@ myApp.controller('EvaluateController', ['$scope', '$location', 'DataFactory', fu
 
   $scope.updateTotalLoanAmount = function() {
     $scope.totalLoanAmount = $scope.actualToBeFinanced + $scope.closingCostAddedToLoan;
+  };
+
+  $scope.updateCashRequiredOverLife = function() {
+    if ($scope.financingUsed == '0') { // all cash
+      $scope.cashRequiredOverLife = $scope.internalPurchasePrice + $scope.internalClosingCosts + $scope.internalHoldingCosts;
+      console.log('all cash');
+    } else if ($scope.financingUsed == '1') { // financing
+      $scope.cashRequiredOverLife = $scope.totalCapNeeded - $scope.actualToBeFinanced - $scope.internalClosingCosts - $scope.internalHoldingCosts;
+      console.log('financing');
+    } else {
+      console.log('neither');
+      console.log('financing used is: ', $scope.financingUsed);
+    }
+
+    if ($scope.cashRequiredOverLife < 0) {
+      $scope.cashRequiredOverLife = 0;
+    }
+
+    console.log('cash required has been updated and is now: ', $scope.cashRequiredOverLife);
+  };
+
+  $scope.updateTotalCostEndOfRehab = function() {
+    $scope.totalCostEndOfRehab = $scope.totalLoanAmount + $scope.cashRequiredOverLife;
+  };
+
+  $scope.updatePercentageOfArv = function() {
+    $scope.percentageOfArv = Math.round($scope.totalCostEndOfRehab / $scope.internalArvForFlip);
+  };
+
+  $scope.updateProjectedProfit = function() {
+    var percentOfSale = (100 - $scope.internalProjectedCostSale) / 100;
+    $scope.projectedProfit = (($scope.internalProjectedResalePrice * percentOfSale) - $scope.totalCostEndOfRehab) * $scope.internalPercentagePreTaxProfits / 100;
+  };
+
+  $scope.updateReturnOnCashInvested = function() {
+    $scope.returnOnCashInvested = Math.round($scope.projectedProfit / $scope.cashRequiredOverLife);
   };
 
   $scope.updateEverything = function() {
@@ -183,7 +220,16 @@ myApp.controller('EvaluateController', ['$scope', '$location', 'DataFactory', fu
     $scope.updateMaxDollarsFinanced();
     $scope.updateTotalCapNeeded();
     $scope.updateActualToBeFinanced();
-    console.log('updating errything');
+    $scope.updateClosingCostAddedToLoan();
+    $scope.updateTotalLoanAmount();
+    $scope.updateCashRequiredOverLife();
+    $scope.updateTotalCostEndOfRehab();
+    $scope.updatePercentageOfArv();
+    $scope.updateProjectedProfit();
+    $scope.updateReturnOnCashInvested();
+
+
+    console.log('updating everything');
   };
 
   $scope.updateEverything();
