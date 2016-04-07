@@ -2,6 +2,10 @@
 //   position: relative;
 // }
 
+.navbar-default{
+  background-color: $white-90;
+}
+
 .navbar-default .navbar-nav>li{
 
     &:hover, &:active, &:focus {
@@ -16,6 +20,8 @@
   }
 }
 
-.navbar-default {
-  opacity: .85;
+
+.navbar-right {
+  position: absolute;
+    right: 2rem;
 }
