@@ -18,11 +18,10 @@
                 <li><a href="#mortgage">Mortgage</a></li>
                 <li><a href="#resources">Resources</a></li>
                 <li><a href="#admin">Admin</a></li>
+            </ul>
 
-            </ul>
-            <ul class="nav navbar-nav navbar-right" ng-controller="IndexController" >
-                <li ng-show="userLoggedin"><a href="#logout"><button class="btn btn-danger" ng-click="logoutUser()">Log Out</button></a></li>
-            </ul>
+            <a href="#logout"><button ng-show="isUserLoggedin" class="btn btn-danger" ng-click="logoutUser()">Log Out</button></a>
+
         </div>
         <!--/.nav-collapse -->
     </div>

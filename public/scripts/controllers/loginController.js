@@ -1,6 +1,5 @@
 myApp.controller('LoginController', ['$scope', 'DataFactory', '$http', function($scope, DataFactory, $http){
 console.log('LoginController works');
-
   $scope.dataFactory = DataFactory;
 
   $scope.hideForm = $scope.dataFactory.factoryDisplayReminderMessage();

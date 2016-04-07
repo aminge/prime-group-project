@@ -47,10 +47,13 @@
 <!-- TODO: Should Nav Be persistent across all pages or only the main 5? -->
 
 <body ng-app="myApp">
-  <nav ng-include="'/templates/nav.html'"></nav>
+
+    <nav ng-include="'/templates/nav.html'"></nav>
+
   <div>
     <main ng-view="main"></main>
   </div>
+
 </body>
 
 </html>
