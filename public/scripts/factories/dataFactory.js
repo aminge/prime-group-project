@@ -4,7 +4,6 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
   var mortgage = undefined;
   var housePrice = 0;
 
-
   // Private
 
   var isUserLoggedIn = false;
@@ -110,7 +109,7 @@ console.log(mortgage);
       factoryExportMortgage: function() {
         return mortgage;
       },
-      factoryExportMortgagePrice: function() {
+      factoryExportPrice: function() {
         return housePrice;
       },
       factoryIsUserLoggedIn: function() {

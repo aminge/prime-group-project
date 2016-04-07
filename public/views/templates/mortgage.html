@@ -2,11 +2,14 @@
 
   <div class="row">
 
-    <div class="col-sm-4">
-      <img src="{{housePhoto[0]}}" />
+    <div class="col-sm-6">
+      <img id="mortgage-pic" src="{{image}}" />
+      <p ng-show="imageDetails">{{}}</p>
     </div>
 
-    <div class="col-sm-8">
+
+
+    <div class="col-sm-6">
   <form class="mortgage-form form-horizontal">
     <div class="form-group">
       <div class="col-sm-8">
@@ -27,7 +30,6 @@
       </div>
     </div>
 
-    <!--<label for="years">Number of Years:</label>-->
     <div class="form-group">
       <div class="col-sm-8">
         <label for="mortgageLength">Mortgage Length</label>
@@ -48,24 +50,22 @@
     </div>
   </form>
     </div>
+
+    <div class="col-sm-6" ng-show="results" id="mortgage-results">
+        <h2>Monthly payment:</h2>
+        {{monthlyPayments | currency}}
+        <h2>Total cost of mortgage:</h2>
+        {{totalCost | currency}}
+    </div>
     </div>
 </div>
 
 
-<div class="row mortgage-information" ng-show="results">
-  <div class="col-sm-8 col-sm-offset-4">
-    <ul>
-      <li><h2>Monthly payment:</h2> {{monthlyPayments | currency}}</li>
-      <li><h2>Total cost of mortgage:</h2> {{totalCost | currency}}</li>
-    </ul>
-  </div>
-</div>
-
 <div class="row">
-  <div class="col-sm-4 col-sm-offset-4">
-    <ul>
-      <a href="#evaluate"><button class="btn btn-primary btn-xs btn-block" name="eval-button">Evaluate</button></a>
-      <a href="#search"><button class="btn btn-secondary btn-xs btn-block" name="search-button">New Search</button></a>
-    </ul>
+  <div class="col-sm-offset-5 col-sm-2 text-center">
+    <div class="btn-group">
+      <a href="#evaluate"><button class="btn btn-primary" name="eval-button">Evaluate</button></a>
+      <a href="#search"><button class="btn btn-secondary" name="search-button">New Search</button></a>
+    </div>
   </div>
 </div>
