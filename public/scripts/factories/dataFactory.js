@@ -49,7 +49,7 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
       params: searchCriteria
     }).then(function (response) {
       apiData = response.data.results.result[0];
-      //console.log('from factory: ', apiData);
+      console.log('from factory: ', response.data);
       housePrice = Math.round(apiData.zestimate[0].amount[0]._);
       console.log('factory housePrice: ', housePrice);
       // GetUpdatedPropertyDetails

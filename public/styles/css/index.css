@@ -188,6 +188,16 @@ select.blue-background {
 .listingLabels {
   color: black; }
 
+img.zillow-logo {
+  height: auto;
+  position: absolute;
+  z-index: 100;
+  mix-blend-mode: multiply; }
+
+.home-information {
+  float: none;
+  margin: 2em auto 0 auto; }
+
 #mortgage-pic {
   width: 100%; }
 
