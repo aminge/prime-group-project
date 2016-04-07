@@ -87,11 +87,7 @@
           </div>
       </uib-slide>
     </uib-carousel>
-    </div>
-    <!-- end carousel -->
-
-    <!-- begin info panel -->
-    <div class="row home-information">
+    <div class="row col-sm-8 home-information">
       <div class="col-sm-4 info info-one">
         <ul>
           <li><strong>Listing:</strong> {{apiResults.address[0].street[0]}}<a class="symbols" ng-show="userHasSearched">,</a> {{apiResults.address[0].city[0]}}<a class="symbols" ng-show="userHasSearched">,</a> {{apiResults.address[0].state[0]}} {{apiResults.address[0].zipcode[0]}}</li>
@@ -120,4 +116,9 @@
         </ul>
       </div>
     </div>
+    </div>
+    <!-- end carousel -->
+
+    <!-- begin info panel -->
+
   </div>
