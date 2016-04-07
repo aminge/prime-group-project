@@ -5,6 +5,9 @@ var pg = require('pg');
 var passport = require('passport'); //./strategies/user.js
 var session = require('express-session');
 var register = require('./routes/register');
+////// logout:
+//var logout = require('./route/logout');
+////////
 var user = require('./routes/user');
 var login = require('./routes/login');
 var ZWSID = "X1-ZWz19ssev2coi3_1u0pu";
@@ -34,7 +37,9 @@ app.use('/register', register);
 app.use('/login', login);
 app.use('/getUsers', getUsers);
 app.use('/updateUser', updateUser);
-
+///////// logout:
+//app.use('/logout', logout);
+////////////////////
 app.get('/zillow/GetDeepSearchResults', function(req, res){
 
   var zillow = new Zillow(ZWSID);
@@ -63,6 +68,14 @@ app.get('/zillow/GetUpdatedPropertyDetails/:zpid', function(req, res){
     res.send(data);
   });
 });
+
+app.get('logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
+
+
+
 
 
 // Serve back static files
