@@ -2,7 +2,7 @@ myApp.controller('IndexController', ['$scope', 'DataFactory', '$http', function(
 console.log('IndexController works');
   $scope.dataFactory = DataFactory;
 
-  $scope.userLoggedin = true;
+  $scope.userLoggedin = !DataFactory.factoryIsUserLoggedIn();
 
   //console.log($scope.factoryIsUserLoggedIn());
 
