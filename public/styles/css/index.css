@@ -5,14 +5,18 @@
   padding: 0 6vw;
   margin-top: 71px; }
 
+.navbar-default {
+  background-color: rgba(255, 255, 255, 0.9); }
+
 .navbar-default .navbar-nav > li:hover, .navbar-default .navbar-nav > li:active, .navbar-default .navbar-nav > li:focus {
   background-color: #ddd; }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:active, .navbar-default .navbar-nav > li > a:focus {
   color: #111; }
 
-.navbar-default {
-  opacity: .85; }
+.navbar-right {
+  position: absolute;
+  right: 2rem; }
 
 .hr-form {
   border-top: 2px solid #ddd; }
@@ -26,15 +30,19 @@
   transform: translate(-50%, -50%);
   max-width: 600px;
   width: 50%;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.95);
   padding: 2em; }
-  .centered-form h1 {
+  .centered-form h1, .centered-form h2 {
     font-weight: 300; }
 
 .carousel-inner > .item {
   height: 100%; }
 
-.carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {
+.carousel-inner > .item > a > img,
+.carousel-inner > .item > img,
+.img-responsive,
+.thumbnail a > img,
+.thumbnail > img {
   display: block;
   max-width: 100%;
   height: 100%;
@@ -43,22 +51,35 @@
 .carousel-control {
   color: #ddd;
   text-shadow: none; }
-  .carousel-control:hover {
-    color: #ddd; }
+
+.carousel-control:hover {
+  color: #ddd; }
 
 .carousel-control.right {
   background-image: none; }
-  .carousel-control.right span {
-    padding: 0 .1em 1.3em 0; }
-    .carousel-control.right span:hover {
-      border-bottom: 4px solid #ddd; }
+
+.carousel-control.right span {
+  padding: 0 0.1em 1.3em 0; }
+
+.carousel-control.right span:hover {
+  border-bottom: 4px solid #ddd; }
 
 .carousel-control.left {
   background-image: none; }
-  .carousel-control.left span {
-    padding: 0 .1em 1.3em 0; }
-    .carousel-control.left span:hover {
-      border-bottom: 4px solid #ddd; }
+
+.carousel-control.left span {
+  padding: 0 0.1em 1.3em 0; }
+
+.carousel-control.left span:hover {
+  border-bottom: 4px solid #ddd; }
+
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 65%;
+  text-shadow: -2px 2px 7px #000; }
 
 #search-button {
   display: inline-block; }
@@ -166,5 +187,18 @@ select.blue-background {
 
 .listingLabels {
   color: black; }
+
+img.zillow-logo {
+  height: auto;
+  position: absolute;
+  z-index: 100;
+  mix-blend-mode: multiply; }
+
+.home-information {
+  float: none;
+  margin: 2em auto 0 auto; }
+
+#mortgage-pic {
+  width: 100%; }
 
 /*# sourceMappingURL=index.css.map */

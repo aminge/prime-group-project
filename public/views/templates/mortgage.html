@@ -1,27 +1,35 @@
 <div class="container-fluid">
 
+  <div class="row">
+
+    <div class="col-sm-6">
+      <img id="mortgage-pic" src="{{image}}" />
+      <p ng-show="imageDetails">{{}}</p>
+    </div>
+
+
+
+    <div class="col-sm-6">
   <form class="mortgage-form form-horizontal">
     <div class="form-group">
       <div class="col-sm-8">
         <label for="price">Price:</label>
       </div>
       <div class="col-sm-4">
-        <input type="number" ng-model="price" id="price" class="form-control" min="0" />
+        <input type="number" ng-model="price"  id="price" class="form-control" min="0" />
       </div>
     </div>
-
-{{apiResults.zestimate[0].amount[0]._ | currency}}
 
     <div class="form-group">
       <div class="col-sm-8">
         <label for="interest-rate">Percent Interest Rate:</label>
       </div>
-      <div class="col-sm-4">
-        <input type="number" ng-model="interestRate" id="interest-rate" class="form-control" step="0.01" min="0" max="10" />
+      <div class="col-sm-4 input-group">
+        <input type="number" ng-model="interestRate" id="interest-rate" class="form-control" step="0.01" min="0" max="10">
+        <div class="input-group-addon">%</div>
       </div>
     </div>
 
-    <!--<label for="years">Number of Years:</label>-->
     <div class="form-group">
       <div class="col-sm-8">
         <label for="mortgageLength">Mortgage Length</label>
@@ -41,8 +49,23 @@
       <button id="mortgage-button" class="btn btn-primary" ng-click="calculateMortgage()">Calculate Mortgage</button>
     </div>
   </form>
+    </div>
+
+    <div class="col-sm-6" ng-show="results" id="mortgage-results">
+        <h2>Monthly payment:</h2>
+        {{monthlyPayments | currency}}
+        <h2>Total cost of mortgage:</h2>
+        {{totalCost | currency}}
+    </div>
+    </div>
 </div>
 
 
-
-
+<div class="row">
+  <div class="col-sm-offset-5 col-sm-2 text-center">
+    <div class="btn-group">
+      <a href="#evaluate"><button class="btn btn-primary" name="eval-button">Evaluate</button></a>
+      <a href="#search"><button class="btn btn-secondary" name="search-button">New Search</button></a>
+    </div>
+  </div>
+</div>

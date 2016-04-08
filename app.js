@@ -2,13 +2,15 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var pg = require('pg');
-var passport = require('./strategies/user.js');
+var passport = require('passport'); //./strategies/user.js
 var session = require('express-session');
 var register = require('./routes/register');
 var user = require('./routes/user');
 var login = require('./routes/login');
 var ZWSID = "X1-ZWz19ssev2coi3_1u0pu";
 var Zillow = require('node-zillow');
+var getUsers = require('./routes/getUsers');
+var updateUser = require('./routes/updateUser');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -26,8 +28,12 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+require('./strategies/user');
+
 app.use('/register', register);
 app.use('/login', login);
+app.use('/getUsers', getUsers);
+app.use('/updateUser', updateUser);
 
 app.get('/zillow/GetDeepSearchResults', function(req, res){
 
@@ -57,6 +63,14 @@ app.get('/zillow/GetUpdatedPropertyDetails/:zpid', function(req, res){
     res.send(data);
   });
 });
+
+app.get('logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
+
+
+
 
 
 // Serve back static files

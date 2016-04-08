@@ -8,7 +8,11 @@ myApp.controller('MortgageController', ['$scope', '$location', 'DataFactory', fu
   //}
   console.log('MortgageController works');
   $scope.dataFactory = DataFactory;
+  $scope.results = false;
 
+  $scope.interestRate = 3.7;
+  // use search results price for default mortgage price:
+  $scope.price = $scope.dataFactory.factoryExportPrice();
 
   // I commented these out for now so that it doesn't throw errors
   // I'm using the mortgage calculator to test some of the evaluate equations, since they need to do similar things
@@ -22,19 +26,32 @@ myApp.controller('MortgageController', ['$scope', '$location', 'DataFactory', fu
 
   //$scope.price = Math.round($scope.apiResults.zestimate[0].amount[0]._);
   //$filter('currency')(git .price);
-  $scope.price = 0;
+  //$scope.price = 0;
+  //
+  //console.log($scope.price);
+  //
+  //
+  //$scope.calculateMortgage = function() {
+  //  $scope.months = $scope.years * 12;
+  //  $scope.dataFactory.factoryCalculateMortgage(parseFloat($scope.price), $scope.months, $scope.interestRate);
+  //  $scope.mortgage = $scope.dataFactory.factoryExportMortgage();
 
-  console.log($scope.price);
+
+   //use search results photo, if not exist use stock photo:
+  if ($scope.dataFactory.factoryGetPhotos() == undefined){
+    $scope.image = '../../images/mpls-1.jpg';
+    $scope.imageDetails = true;
+  } else {
+    $scope.image = $scope.housePhoto = $scope.dataFactory.factoryGetPhotos()[0];
+  }
+  console.log($scope.image);
+  console.log($scope.dataFactory.factoryGetPhotos());
 
 
   $scope.calculateMortgage = function() {
-    $scope.months = $scope.years * 12;
-    $scope.dataFactory.factoryCalculateMortgage(parseFloat($scope.price), $scope.months, $scope.interestRate);
-    $scope.mortgage = $scope.dataFactory.factoryExportMortgage();
+    $scope.dataFactory.factoryCalculateMortgage(parseFloat($scope.price), $scope.years, $scope.interestRate);
+    $scope.monthlyPayments = $scope.dataFactory.factoryExportMortgage();
+    $scope.totalCost = $scope.monthlyPayments * parseFloat($scope.years) * 12 ;
+    $scope.results = true;
   };
-
-
-
-
-
 }]);
