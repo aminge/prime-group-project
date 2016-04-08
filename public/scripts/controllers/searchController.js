@@ -1,10 +1,12 @@
 myApp.controller('SearchController', ['$scope', '$http', '$location', 'DataFactory', function($scope, $http, $location, DataFactory) {
   console.log('SearchController working');
 
+  $scope.dataFactory = DataFactory;
+
   // check to see if the user is logged in
-  if (!DataFactory.factoryIsUserLoggedIn()) {
+  if (!$scope.dataFactory.factoryIsUserLoggedIn()) {
     // redirect to login and display message letting user know they have to log in to see the content
-    DataFactory.factorySetReminderMessageToTrue();
+    $scope.dataFactory.factorySetReminderMessageToTrue();
     $location.path('./views/templates/login.html');
   }
 
@@ -36,7 +38,7 @@ myApp.controller('SearchController', ['$scope', '$http', '$location', 'DataFacto
       //console.log('search controller: ', address, cityStateZip);
 
       // search
-      DataFactory.factorySearchListings(address, cityStateZip)
+      $scope.dataFactory.factorySearchListings(address, cityStateZip)
         .then(function () {
           $scope.apiResults = DataFactory.factoryExportApiSearchResults();
           $scope.pricePerSquareFoot = Math.round($scope.apiResults.zestimate[0].amount[0]._ / $scope.apiResults.finishedSqFt[0]);
@@ -49,7 +51,7 @@ myApp.controller('SearchController', ['$scope', '$http', '$location', 'DataFacto
             $scope.model.stateSearch = null;
             $scope.zipSearch = null;
 
-            var photoArray = DataFactory.factoryGetPhotos();
+            var photoArray = $scope.dataFactory.factoryGetPhotos();
             $scope.slides = [];
 
             console.log('photoArray is ', photoArray);
