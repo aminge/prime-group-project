@@ -1,10 +1,10 @@
 CREATE TABLE users (
 id serial PRIMARY KEY,
-email varchar(100) NOT NULL,
+email varchar(100) NOT NULL UNIQUE,
 password varchar(100) NOT NULL,
 first_name varchar(100) NOT NULL,
 last_name varchar(100) NOT NULL,
-phone_number varchar(100) NOT NULL,
+phone_number varchar(100),
 date_registered date DEFAULT now(),
 date_of_last_visit date DEFAULT now(),
 number_of_visits integer DEFAULT 1,

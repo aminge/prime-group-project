@@ -66,6 +66,14 @@ app.get('/zillow/GetUpdatedPropertyDetails/:zpid', function(req, res){
   });
 });
 
+app.get('logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
+
+
+
+
 
 // Serve back static files
 app.use(express.static('public'));

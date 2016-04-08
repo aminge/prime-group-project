@@ -1,6 +1,5 @@
 myApp.controller('LoginController', ['$scope', 'DataFactory', '$http', function($scope, DataFactory, $http){
 console.log('LoginController works');
-
   $scope.dataFactory = DataFactory;
 
   $scope.hideForm = $scope.dataFactory.factoryDisplayReminderMessage();
@@ -15,11 +14,11 @@ console.log('LoginController works');
 
   $scope.loginUser = function() {
 
-    // if (!$scope.email || !$scope.password) {
-    //  // do stuff to prevent the user from logging in
-    //  $scope.failedLogin = true;
-    //  return
-    // }
+    if (!$scope.email || !$scope.password) {
+      // do stuff to prevent the user from logging in
+      $scope.failedLogin = true;
+      return
+    }
 
     var user = {
       email: $scope.email,

@@ -1,5 +1,5 @@
 <!-- Navbar taken directly from bootstrap sample site.  -->
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top" ng-controller="IndexController">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -18,13 +18,11 @@
                 <li><a href="#mortgage">Mortgage</a></li>
                 <li><a href="#resources">Resources</a></li>
                 <li><a href="#admin">Admin</a></li>
-
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#login">Log Out</a></li>
+            <ul class="nav navbar-nav navbar-right" ng-show="isUserLoggedin">
+                <li><a href="#logout">Log Out</a></li>
             </ul>
-
-        </div>
-        <!--/.nav-collapse -->
+       </div>
+       <!--/.nav-collapse -->
     </div>
 </nav>

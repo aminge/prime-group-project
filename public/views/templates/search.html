@@ -75,7 +75,9 @@
   </form>
 
   <!-- begin carousel -->
+  <h1 ng-show="userHasSearched">Showing results for {{apiResults.address[0].street[0]}}.</h1>
   <div class="main-carousel">
+    <img src="http://www.zillow.com/widgets/GetVersionedResource.htm?path=/static/logos/Zillowlogo_150x40.gif" width="150" height="40" alt="Zillow Real Estate Search" class="zillow-logo" />
     <uib-carousel active="active" no-wrap="noWrapSlides">
       <uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
         <img ng-src="{{slide.image}}" class="img-responsive">
@@ -85,17 +87,14 @@
           </div>
       </uib-slide>
     </uib-carousel>
-    </div>
-    <!-- end carousel -->
-
-    <!-- begin info panel -->
-    <div class="row home-information">
+    <div class="row col-sm-8 home-information">
       <div class="col-sm-4 info info-one">
         <ul>
           <li><strong>Listing:</strong> {{apiResults.address[0].street[0]}}<a class="symbols" ng-show="userHasSearched">,</a> {{apiResults.address[0].city[0]}}<a class="symbols" ng-show="userHasSearched">,</a> {{apiResults.address[0].state[0]}} {{apiResults.address[0].zipcode[0]}}</li>
           <li><strong>Zestimate:</strong> {{apiResults.zestimate[0].amount[0]._ | currency}}</li>
           <li><strong>SqFt:</strong> {{apiResults.finishedSqFt[0]}}</li>
           <li><strong>Price / SqFt:</strong> {{pricePerSquareFoot | currency}}</li>
+          <li ng-show="userHasSearched"><a href="{{apiResults.links[0].homedetails[0]}}">See more details for {{apiResults.links[0].homedetails[0]}} on Zillow </a></li>
         </ul>
       </div>
       <div class="col-sm-4 info info-two">
@@ -117,4 +116,9 @@
         </ul>
       </div>
     </div>
+    </div>
+    <!-- end carousel -->
+
+    <!-- begin info panel -->
+
   </div>

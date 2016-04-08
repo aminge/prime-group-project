@@ -22,7 +22,9 @@
     <div class="col-xs-6 col-xs-offset-4">
       <div class="form-group">
         <button class="btn btn-default btn-primary" ng-click="loginUser()">Login</button>
-        <a href="#register"> <button class="btn btn-danger">Register</button></a>
+        <a href="#register">
+          <button class="btn btn-danger">Register</button>
+        </a>
       </div>
       <!--<div>-->
          <!--<button ng-click="sendEmail()">Send E-mail</button>-->
@@ -39,12 +41,18 @@
   </form>
 
   <div ng-show="hideForm">
-    <p>You need to be logged in to do that</p>
-    <button ng-click="backToForm()">Back to Login</button>
-  </div>
 
-  <div ng-show="failedLogin">
-    <p>Login Failed. Try again.</p>
-  </div>
+    <div class="form-group">  <h2 class="text-center">We're sorry, In order to view this content you must login or register.</h2></div>
+    <div class="col-xs-12 text-center">
+      <div class="form-group"><button class="btn btn-default btn-primary" ng-click="backToForm()">Back to Login</button>
+      <a href="#register">
+        <button class="btn btn-danger">Register</button>
+      </a></div>
 
+    </div>
+  </div>
 </div>
+
+
+  <!--  -->
+  <!-- <button ng-click="backToForm()">Back to Login</button> -->

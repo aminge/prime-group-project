@@ -47,7 +47,7 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
       params: searchCriteria
     }).then(function (response) {
       apiData = response.data.results.result[0];
-      //console.log('from factory: ', apiData);
+      console.log('from factory: ', response.data);
       housePrice = Math.round(apiData.zestimate[0].amount[0]._);
       console.log('factory housePrice: ', housePrice);
       // GetUpdatedPropertyDetails
@@ -71,8 +71,8 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
     });
   };
 
-  var privateCalculateMortgage = function(price, years, ir) {
-    var months = parseInt(years) * 12;
+  var privateCalculateMortgage = function(price, months, ir) {
+    //var months = parseInt(years) * 12;
     ir = ir / 1200;
     var numerator = ir * price * Math.pow(1 + ir, months);
     var denominator = Math.pow(1 + ir, months) - 1;
@@ -86,8 +86,8 @@ console.log(mortgage);
     // Public
 
     var publicAPI = {
-      factoryCalculateMortgage: function(price, years, interestRate) {
-        return privateCalculateMortgage(price, years, interestRate)
+      factoryCalculateMortgage: function(price, months, interestRate) {
+        return privateCalculateMortgage(price, months, interestRate)
       },
       factorySearchListings: function (address, cityStateZip) {
         return initialSearch(address, cityStateZip);

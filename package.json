@@ -21,6 +21,7 @@
     "dom-js": "0.0.9",
     "express": "^4.13.4",
     "express-session": "^1.13.0",
+    "jquery": "^2.2.3",
     "node-sass": "^3.4.2",
     "node-zillow": "^1.0.1",
     "passport": "^0.3.2",
