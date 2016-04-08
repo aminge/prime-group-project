@@ -1,4 +1,4 @@
-myApp.controller('RegisterController', ['$scope', 'DataFactory', function($scope, DataFactory){
+myApp.controller('RegisterController', ['$scope', 'DataFactory', '$http', function($scope, DataFactory, $http){
   console.log('RegisterController works');
 
   $scope.dataFactory = DataFactory;
@@ -20,7 +20,6 @@ myApp.controller('RegisterController', ['$scope', 'DataFactory', function($scope
       };
       $scope.dataFactory.factoryAddNewUser(user);
     }
-
 
   }
 }]);

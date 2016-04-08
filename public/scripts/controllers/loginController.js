@@ -55,4 +55,9 @@ console.log('LoginController works');
 
           });
   };
+  //links to the sendgrid function
+  $scope.sendEmail = function() {
+    $http.post("/email").then(function(response) {
+    });
+  }
 }]);

@@ -22,9 +22,7 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
   };
 
   var privateLoginUser = function(user) {
-    console.log('sending login to server');
     $http.post('/login', user).then(
-      // this needs to be different
       function (res) {
         $location.path('/search');
         isUserLoggedIn = true;
