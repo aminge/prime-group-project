@@ -73,14 +73,14 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
     });
   };
 
-  var privateCalculateMortgage = function(price, months, ir) {
-    //var months = parseInt(years) * 12;
+  var privateCalculateMortgage = function(price, years, ir) {
+    var months = parseInt(years) * 12;
     ir = ir / 1200;
     var numerator = ir * price * Math.pow(1 + ir, months);
     var denominator = Math.pow(1 + ir, months) - 1;
     var output =  numerator / denominator;
     mortgage = output.toFixed(2);
-console.log(mortgage);
+    console.log(mortgage);
     return mortgage;
   };
 

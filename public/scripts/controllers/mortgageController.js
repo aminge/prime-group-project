@@ -49,7 +49,7 @@ myApp.controller('MortgageController', ['$scope', '$location', 'DataFactory', fu
 
 
   $scope.calculateMortgage = function() {
-    $scope.dataFactory.factoryCalculateMortgage(parseFloat($scope.price), $scope.years, $scope.interestRate);
+    $scope.dataFactory.factoryCalculateMortgage(parseFloat($scope.price), parseInt($scope.years), parseFloat($scope.interestRate));
     $scope.monthlyPayments = $scope.dataFactory.factoryExportMortgage();
     $scope.totalCost = $scope.monthlyPayments * parseFloat($scope.years) * 12 ;
     $scope.results = true;
