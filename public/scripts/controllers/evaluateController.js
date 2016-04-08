@@ -39,39 +39,39 @@ myApp.controller('EvaluateController', ['$scope', '$location', 'DataFactory', fu
   };
 
   // Default Values for Assumptions Inputs
-  $scope.purchasePrice = 50000;                     // 1
-  $scope.closingCosts = 1500;                       // 2
-  $scope.holdingCosts = 1500;                       // 3
-  $scope.includeCloseHoldCosts = 'yes';             // 4
-  $scope.rehabBudget = 20000;                       // 5
-  $scope.projectRehabPeriod = 2;                    // 6
-  $scope.financingUsed = '1';                       // 7  (1 = true, 0 = false)
-  $scope.lenderCapsARVorCost = 'cost';              // 8
-  $scope.maxPercentOfCostFinanced = 90;             // 9
-  $scope.originationDiscountPoints = 3;             // 10
-  $scope.otherClosingCosts = 0;                     // 11
-  $scope.pointsClosingCosts = 'upfront';            // 12
-  $scope.interestRate = 10;                         // 13
-  $scope.interestPaymentDuringRehab = 'yes';        // 14
-  $scope.splitBackendProfitsWithLender = 'no';      // 15
-  $scope.percentagePreTaxProfits = 50;              // 16
+  $scope.purchasePrice = $scope.dataFactory.factoryExportPrice();   // 1
+  $scope.closingCosts = 1500;                                       // 2
+  $scope.holdingCosts = 1500;                                       // 3
+  $scope.includeCloseHoldCosts = 'yes';                             // 4
+  $scope.rehabBudget = 20000;                                       // 5
+  $scope.projectRehabPeriod = 2;                                    // 6
+  $scope.financingUsed = '1';                                       // 7  (1 = true, 0 = false)
+  $scope.lenderCapsARVorCost = 'cost';                              // 8
+  $scope.maxPercentOfCostFinanced = 90;                             // 9
+  $scope.originationDiscountPoints = 3;                             // 10
+  $scope.otherClosingCosts = 0;                                     // 11
+  $scope.pointsClosingCosts = 'upfront';                            // 12
+  $scope.interestRate = 10;                                         // 13
+  $scope.interestPaymentDuringRehab = 'yes';                        // 14
+  $scope.splitBackendProfitsWithLender = 'no';                      // 15
+  $scope.percentagePreTaxProfits = 50;                              // 16
 
   // Default Values For Flip Analysis Inputs
-  $scope.arvForFlip = 100000;                       // 17 This one could be purchase price + rehab budget
+  $scope.arvForFlip = 100000;                       // 17 This one could be purchase price + 2 * rehab budget
   $scope.monthsCompleteSaleAfterRehab = 2;          // 18
   $scope.projectedResalePrice = 100000;             // 27
   $scope.projectedCostSale = 7;                     // 28
 
   // Default Values for Hold/Rent Analysis
-  $scope.arvForRentHR = 100000;                       // 32 This one could be purchase price + rehab budget
-  $scope.monthsToRentAfterRehabHR = 2;                // 33
-  $scope.projectedOperatingIncomeHR = 1200;           // 42
-  $scope.projectedOperatingExpensesHR = 260;          // 43
-  $scope.refinancePermHR = '1';                       // 45
-  $scope.refiPercentARVHR = 85;                       // 46
-  $scope.newMortgageRateHR = 7;                       // 47
-  $scope.amortizationYearsHR = 20;                    // 48
-  $scope.refiDiscPtsMiscCostsHR = 3;                  // 49
+  $scope.arvForRentHR = 100000;                     // 32 This one could be purchase price + 2 * rehab budget
+  $scope.monthsToRentAfterRehabHR = 2;              // 33
+  $scope.projectedOperatingIncomeHR = 1200;         // 42
+  $scope.projectedOperatingExpensesHR = 260;        // 43
+  $scope.refinancePermHR = '1';                     // 45
+  $scope.refiPercentARVHR = 85;                     // 46
+  $scope.newMortgageRateHR = 7;                     // 47
+  $scope.amortizationYearsHR = 20;                  // 48
+  $scope.refiDiscPtsMiscCostsHR = 3;                // 49
 
 
 

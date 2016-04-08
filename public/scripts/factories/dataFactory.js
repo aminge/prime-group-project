@@ -32,8 +32,6 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
       });
   };
 
-
-
   var initialSearch = function(address, cityStateZip) {
     console.log('API search from factory happening NOW!', address, cityStateZip);
     var searchCriteria = {
@@ -82,6 +80,10 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
     return mortgage;
   };
 
+  var privateUpdatePrice = function(price) {
+    housePrice = price;
+  };
+
 
     // Public
 
@@ -109,6 +111,9 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
       },
       factoryExportPrice: function() {
         return housePrice;
+      },
+      factoryUpdatePrice: function(price) {
+        return privateUpdatePrice(price);
       },
       factoryIsUserLoggedIn: function() {
         return isUserLoggedIn;

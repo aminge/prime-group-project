@@ -40,6 +40,7 @@ myApp.controller('SearchController', ['$scope', '$http', '$location', 'DataFacto
         .then(function () {
           $scope.apiResults = DataFactory.factoryExportApiSearchResults();
           $scope.pricePerSquareFoot = Math.round($scope.apiResults.zestimate[0].amount[0]._ / $scope.apiResults.finishedSqFt[0]);
+          $scope.dataFactory.factoryUpdatePrice($scope.apiResults.zestimate[0].amount[0]._);
         }) // clear form fields
          .then(function() {
             $scope.userHasSearched = true;
