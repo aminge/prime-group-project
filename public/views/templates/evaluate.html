@@ -348,7 +348,7 @@
       <div class="form-group form-group-sm">
         <label class="col-xs-8 text-weight-bold" for="roiAnnualized">31. ROI (Annualized)</label>
         <div class="col-xs-4 input-group">
-          <input class="form-control input text-highlights-green" type="text" disabled="disabled" ng-model="roiAnnualized" id="roiAnnualized" />
+          <input class="form-control input text-highlights-green" type="text" currency-input disabled="disabled" ng-model="roiAnnualized" id="roiAnnualized" />
           <div class="input-group-addon">%</div>
         </div>
       </div>
@@ -418,76 +418,76 @@
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8 greyedOutLabels" for="actualToBeFinancedTwo">36. Actual to be financed (not inc. closing/holding)</label>
+        <label class="col-xs-8 greyedOutLabels" for="actualToBeFinancedHR">36. Actual to be financed (not inc. closing/holding)</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" currency-input ng-model="actualToBeFinancedTwo" disabled="disabled" id="actualToBeFinancedTwo" />
+          <input class="form-control input" type="text" currency-input ng-model="actualToBeFinancedHR" disabled="disabled" id="actualToBeFinancedHR" />
         </div>
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="intAddedLoan">37. Closing/Holding Costs/Interest Added to Loan</label>
+        <label class="col-xs-8" for="closingCostAddedToLoanHR">37. Closing/Holding Costs/Interest Added to Loan</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" currency-input ng-model="intAddedLoan" disabled="disabled" id="intAddedLoan" />
+          <input class="form-control input" type="text" currency-input ng-model="closingCostAddedToLoanHR" disabled="disabled" id="closingCostAddedToLoanHR" />
         </div>
       </div>
 
       <hr class="hr-form">
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8 text-weight-bold" for="totalLoanAmt">38. Total Loan Amount</label>
+        <label class="col-xs-8 text-weight-bold" for="totalLoanAmountHR">38. Total Loan Amount</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" currency-input ng-model="totalLoanAmt" disabled="disabled" id="totalLoanAmt" />
+          <input class="form-control input" type="text" currency-input ng-model="totalLoanAmountHR" disabled="disabled" id="totalLoanAmountHR" />
         </div>
       </div>
 </span>
       <div class="form-group form-group-sm">
-        <label class="col-xs-8 text-weight-bold" for="cashRequired">39. Cash Required</label>
+        <label class="col-xs-8 text-weight-bold" for="cashRequiredOverLifeHR">39. Cash Required (over life of project)</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" currency-input ng-model="cashRequired" disabled="disabled" id="cashRequired" />
+          <input class="form-control input" type="text" currency-input ng-model="cashRequiredOverLifeHR" disabled="disabled" id="cashRequiredOverLifeHR" />
         </div>
       </div>
 
       <hr class="hr-form">
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8 text-weight-bold" for="allInCost">40. Total All-in Cost at end of Rehab</label>
+        <label class="col-xs-8 text-weight-bold" for="allInCostHR">40. Total All-in Cost at end of Rehab</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" currency-input ng-model="allInCost" disabled="disabled" id="allInCost" />
+          <input class="form-control input" type="text" currency-input ng-model="allInCostHR" disabled="disabled" id="allInCostHR" />
         </div>
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="percentOfArv">41. % of ARV</label>
+        <label class="col-xs-8" for="percentOfArvHR">41. % of ARV</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" currency-input ng-model="percentOfArv" disabled="disabled" id="percentOfArv" />
+          <input class="form-control input" type="text" currency-input ng-model="percentOfArvHR" disabled="disabled" id="percentOfArvHR" />
         </div>
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="projectedOperatingIncome">42. Projected Operating Income</label>
+        <label class="col-xs-8" for="projectedOperatingIncomeHR">42. Projected Operating Income</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" currency-input ng-model="projectedOperatingIncome" id="projectedOperatingIncome" />
+          <input class="form-control input" type="text" currency-input ng-model="projectedOperatingIncomeHR" id="projectedOperatingIncomeHR" />
         </div>
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="projectedOperatingExpenses">43. Projected Operating Expenses</label>
+        <label class="col-xs-8" for="projectedOperatingExpensesHR">43. Projected Operating Expenses</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" currency-input ng-model="projectedOperatingExpenses" id="projectedOperatingExpenses" />
+          <input class="form-control input" type="text" currency-input ng-model="projectedOperatingExpensesHR" id="projectedOperatingExpensesHR" />
         </div>
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8 text-weight-bold" for="netOperatingIncome">44. Net Operating Income (monthly)</label>
+        <label class="col-xs-8 text-weight-bold" for="netOperatingIncomeHR">44. Net Operating Income (monthly)</label>
         <div class="col-xs-4">
-          <input class="form-control input text-highlights-green" type="text" currency-input ng-model="netOperatingIncome" disabled="disabled" id="netOperatingIncome" />
+          <input class="form-control input text-highlights-green" type="text" currency-input ng-model="netOperatingIncomeHR" disabled="disabled" id="netOperatingIncomeHR" />
         </div>
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8 text-weight-bold" for="refinancePerm">45. Refinance into permanent financing</label>
+        <label class="col-xs-8 text-weight-bold" for="refinancePermHR">45. Refinance into permanent financing</label>
         <div class="col-xs-4">
-          <select class="form-control blue-background" ng-model="refinancePerm" id="refinancePerm">
+          <select class="form-control blue-background" ng-model="refinancePermHR" id="refinancePermHR">
             <option value="1">Yes</option>
             <option value="0">No</option>
           </select>
@@ -495,25 +495,25 @@
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="refiPercentARV">46. Refi % of Appraisal (ARV)</label>
+        <label class="col-xs-8" for="refiPercentARVHR">46. Refi % of Appraisal (ARV)</label>
         <div class="col-xs-4 input-group">
-          <input class="form-control input" type="text" currency-input ng-model="refiPercentARV" id="refiPercentARV" />
+          <input class="form-control input" type="text" currency-input ng-model="refiPercentARVHR" id="refiPercentARVHR" />
           <div class="input-group-addon">%</div>
         </div>
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="newMortgageRate">47. New Mortgage Rate</label>
+        <label class="col-xs-8" for="newMortgageRateHR">47. New Mortgage Rate</label>
         <div class="col-xs-4 input-group">
-          <input class="form-control input" type="text" currency-input ng-model="newMortgageRate" id="newMortgageRate" />
+          <input class="form-control input" type="text" currency-input ng-model="newMortgageRateHR" id="newMortgageRateHR" />
           <div class="input-group-addon">%</div>
         </div>
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="amortizationYears">48. # of Amortization Years / Interest Only?</label>
+        <label class="col-xs-8" for="amortizationYearsHR">48. # of Amortization Years / Interest Only?</label>
         <div class="col-xs-4">
-          <select class="form-control" ng-model="amortizationYears" id="amortizationYears">
+          <select class="form-control" ng-model="amortizationYearsHR" id="amortizationYearsHR">
             <option value="interestOnly">Interest Only</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -550,24 +550,24 @@
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="refiDiscPtsMiscCosts">49. Refi Discount Points and Misc Costs (%)</label>
+        <label class="col-xs-8" for="refiDiscPtsMiscCostsHR">49. Refi Discount Points and Misc Costs (%)</label>
         <div class="col-xs-4 input-group">
-          <input class="form-control input" type="text" currency-input ng-model="refiDiscPtsMiscCosts" id="refiDiscPtsMiscCosts" />
+          <input class="form-control input" type="text" currency-input ng-model="refiDiscPtsMiscCostsHR" id="refiDiscPtsMiscCostsHR" />
           <div class="input-group-addon">%</div>
         </div>
       </div>
 <!--Text transform green or red depending-->
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="newMortgagePayment">50. New Mortgage Payment (monthly)</label>
+        <label class="col-xs-8" for="newMortgagePaymentHR">50. New Mortgage Payment (monthly)</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" currency-input ng-model="newMortgagePayment" disabled="disabled" id="newMortgagePayment" />
+          <input class="form-control input" type="text" currency-input ng-model="newMortgagePaymentHR" disabled="disabled" id="newMortgagePaymentHR" />
         </div>
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8" for="refiLoanAmt">51. Refi Loan Amount</label>
+        <label class="col-xs-8" for="refiLoanAmtHR">51. Refi Loan Amount</label>
         <div class="col-xs-4">
-          <input class="form-control input" type="text" currency-input ng-model="refiLoanAmt" disabled="disabled" id="refiLoanAmt" />
+          <input class="form-control input" type="text" currency-input ng-model="refiLoanAmtHR" disabled="disabled" id="refiLoanAmtHR" />
         </div>
       </div>
 
@@ -575,51 +575,51 @@
 
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8 text-weight-bold" for="cashOutRefi">52. Cash Out at Refi</label>
+        <label class="col-xs-8 text-weight-bold" for="cashOutRefiHR">52. Cash Out at Refi</label>
         <div class="col-xs-4">
-          <input class="form-control input text-highlights-green" type="text" currency-input ng-model="cashOutRefi" disabled="disabled" id="cashOutRefi" />
+          <input class="form-control input text-highlights-green" type="text" currency-input ng-model="cashOutRefiHR" disabled="disabled" id="cashOutRefiHR" />
         </div>
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8 text-weight-bold" for="profitRefi">53. Profit at Refi (after any lender split)</label>
+        <label class="col-xs-8 text-weight-bold" for="profitRefiHR">53. Profit at Refi (after any lender split)</label>
         <div class="col-xs-4">
-          <input class="form-control input text-highlights-green" type="text" currency-input ng-model="profitRefi" disabled="disabled" id="profitRefi" />
+          <input class="form-control input text-highlights-green" type="text" currency-input ng-model="profitRefiHR" disabled="disabled" id="profitRefiHR" />
         </div>
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8 text-weight-bold" for="roiOnCashInvested">54. ROI On Cash Invested (Annualized)</label>
+        <label class="col-xs-8 text-weight-bold" for="roiOnCashInvestedHR">54. ROI On Cash Invested (Annualized)</label>
         <div class="col-xs-4">
-          <input class="form-control input text-highlights-green" type="text" currency-input ng-model="roiOnCashInvested" id="roiOnCashInvested" disabled="disabled" />
+          <input class="form-control input text-highlights-green" type="text" currency-input ng-model="roiOnCashInvestedHR" id="roiOnCashInvestedHR" disabled="disabled" />
         </div>
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8 text-weight-bold" for="orgMoneyTiedUpRefi">55. Original money tied up after refi</label>
+        <label class="col-xs-8 text-weight-bold" for="orgMoneyTiedUpRefiHR">55. Original money tied up after refi</label>
         <div class="col-xs-4">
-          <input class="form-control input text-highlights-green" type="text" currency-input ng-model="orgMoneyTiedUpRefi" disabled="disabled" id="orgMoneyTiedUpRefi" />
+          <input class="form-control input text-highlights-green" type="text" currency-input ng-model="orgMoneyTiedUpRefiHR" disabled="disabled" id="orgMoneyTiedUpRefiHR" />
         </div>
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8 text-weight-bold" for="equityLeftRefi">56. Equity Left in the Deal after Refi</label>
+        <label class="col-xs-8 text-weight-bold" for="equityLeftRefiHR">56. Equity Left in the Deal after Refi</label>
         <div class="col-xs-4">
-          <input class="form-control input text-highlights-green" type="text" currency-input ng-model="equityLeftRefi" disabled="disabled" id="equityLeftRefi" />
+          <input class="form-control input text-highlights-green" type="text" currency-input ng-model="equityLeftRefiHR" disabled="disabled" id="equityLeftRefiHR" />
         </div>
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8 text-weight-bold" for="cashFlowPreTax">57. Cash Flow (Monthly, Pre-Tax)</label>
+        <label class="col-xs-8 text-weight-bold" for="cashFlowPreTaxHR">57. Cash Flow (Monthly, Pre-Tax)</label>
         <div class="col-xs-4">
-          <input class="form-control input text-highlights-green" type="text" currency-input ng-model="cashFlowPreTax" disabled="disabled" id="cashFlowPreTax" />
+          <input class="form-control input text-highlights-green" type="text" currency-input ng-model="cashFlowPreTaxHR" disabled="disabled" id="cashFlowPreTaxHR" />
         </div>
       </div>
 
       <div class="form-group form-group-sm">
-        <label class="col-xs-8 text-weight-bold" for="cashOnCash">58. Cash-on-Cash (Annual, Pre-Tax)</label>
+        <label class="col-xs-8 text-weight-bold" for="cashOnCashHR">58. Cash-on-Cash (Annual, Pre-Tax)</label>
         <div class="col-xs-4">
-          <input class="form-control input text-highlights-green" type="text" currency-input ng-model="cashOnCash" placeholder="infinite" disabled="disabled" id="cashOnCash" />
+          <input class="form-control input text-highlights-green" type="text" currency-input ng-model="cashOnCashHR" placeholder="infinite" disabled="disabled" id="cashOnCashHR" />
         </div>
       </div>
     </form>
