@@ -42,18 +42,18 @@ myApp.controller('EvaluateController', ['$scope', '$location', 'DataFactory', fu
   $scope.purchasePrice = 50000;                     // 1
   $scope.closingCosts = 1500;                       // 2
   $scope.holdingCosts = 1500;                       // 3
-  $scope.includeCloseHoldCosts = '1';               // 4
+  $scope.includeCloseHoldCosts = 'yes';             // 4
   $scope.rehabBudget = 20000;                       // 5
   $scope.projectRehabPeriod = 2;                    // 6
   $scope.financingUsed = '1';                       // 7  (1 = true, 0 = false)
-  $scope.lenderAVRCostOfProject = 'cost';           // 8
+  $scope.lenderCapsARVorCost = 'cost';              // 8
   $scope.maxPercentOfCostFinanced = 90;             // 9
   $scope.originationDiscountPoints = 3;             // 10
   $scope.otherClosingCosts = 0;                     // 11
-  $scope.pointsClosingCosts = 'backend';            // 12
+  $scope.pointsClosingCosts = 'upfront';            // 12
   $scope.interestRate = 10;                         // 13
-  $scope.interestPaymentDuringRehab = '1';          // 14
-  $scope.splitBackendProfitsWithLender = '1';       // 15
+  $scope.interestPaymentDuringRehab = 'yes';        // 14
+  $scope.splitBackendProfitsWithLender = 'no';      // 15
   $scope.percentagePreTaxProfits = 50;              // 16
 
   // Default Values For Flip Analysis Inputs
@@ -78,73 +78,41 @@ myApp.controller('EvaluateController', ['$scope', '$location', 'DataFactory', fu
   // things are getting converted to string, since the form type is text. I need to convert them back to integer
 
   $scope.updateTotalCapNeeded = function() {          // 19
-    $scope.totalCapNeeded = $scope.purchasePrice + $scope.holdingCosts + $scope.closingCosts + $scope.rehabBudget;
+    $scope.totalCapNeeded = $scope.internalPurchasePrice + $scope.internalHoldingCosts + $scope.internalClosingCosts + $scope.internalRehabBudget;
   };
 
 
   $scope.updateMaxDollarsFinanced = function() {      // 20
 
-    if ($scope.lenderAVRCostOfProject == 'arv') {
+    if ($scope.lenderCapsARVorCost == 'arv') {
       $scope.maxDollarsFinanced = $scope.internalArvForFlip * $scope.internalMaxPercentOfCostFinanced / 100;
-      //console.log('lenderAVRCostOfProject is ', $scope.lenderAVRCostOfProject);
-    } else if ($scope.lenderAVRCostOfProject == 'cost') {
-      //console.log('purchase price: ', $scope.internalPurchasePrice);
-      //console.log('rehab budget ', $scope.internalRehabBudget);
-      //console.log('max percent ', $scope.internalMaxPercentOfCostFinanced);
+    } else if ($scope.lenderCapsARVorCost == 'cost') {
       $scope.maxDollarsFinanced = ($scope.internalPurchasePrice + $scope.internalRehabBudget) * $scope.internalMaxPercentOfCostFinanced / 100;
-      //console.log('lenderAVRCostOfProject is ', $scope.lenderAVRCostOfProject);
     }
-    //console.log($scope.maxDollarsFinanced);
+
+    //console.log($scope.internalMaxPercentOfCostFinanced);
   };
 
   $scope.updateActualToBeFinanced = function() {       // 21
-    if ($scope.lenderAVRCostOfProject == 'arv') {
-      $scope.actualToBeFinanced = $scope.internalArvForFlip * $scope.internalMaxPercentOfCostFinanced;
-    } else if ($scope.lenderAVRCostOfProject == 'cost') {
-      $scope.actualToBeFinanced = ($scope.internalPurchasePrice + $scope.internalRehabBudget) * $scope.internalMaxPercentOfCostFinanced / 100;
+    if ($scope.lenderCapsARVorCost == 'arv') {
+      $scope.actualToBeFinanced = Math.min($scope.internalArvForFlip * $scope.internalMaxPercentOfCostFinanced / 100,
+                                           $scope.internalPurchasePrice + $scope.internalRehabBudget);
+    } else if ($scope.lenderCapsARVorCost == 'cost') {
+      //$scope.actualToBeFinanced = ($scope.internalPurchasePrice + $scope.internalRehabBudget) * $scope.internalMaxPercentOfCostFinanced / 100;
+      $scope.actualToBeFinanced = Math.min($scope.internalPurchasePrice + $scope.internalRehabBudget, $scope.maxDollarsFinanced);
     }
   };
 
   $scope.updateClosingCostAddedToLoan = function() {
     if ($scope.financingUsed == '0') {
       $scope.closingCostAddedToLoan = 0;
-      return;
+    } else if ($scope.financingUsed == '1') {
+      if ($scope.lenderCapsARVorCost == 'arv') { // it's the same either way
+        $scope.closingCostAddedToLoan = $scope.internalClosingCosts + $scope.internalHoldingCosts;
+      } else if ($scope.lenderCapsARVorCost == 'cost') {
+        $scope.closingCostAddedToLoan = $scope.internalClosingCosts + $scope.internalHoldingCosts;
+      }
     }
-
-    var totalAddedCosts = 0;                    // this is what's going to be returned
-    var baseCost = $scope.actualToBeFinanced;   // this is the base cost, from which we will calculate the interest to be added to the total cost
-
-    if ($scope.includeCloseHoldCosts == '1') {
-      totalAddedCosts += $scope.internalClosingCosts + $scope.internalHoldingCosts;
-      baseCost += $scope.internalClosingCosts + $scope.internalHoldingCosts;
-    } else if ($scope.includeCloseHoldCosts == '0') {
-
-    }
-
-    if ($scope.pointsClosingCosts == 'upfront') {
-      $scope.closingCostAddedToLoan = $scope.internalClosingCosts + $scope.internalHoldingCosts;
-    } else if ($scope.pointsClosingCosts == 'backend') {
-
-    }
-
-    if ($scope.interestPaymentDuringRehab == '1') {
-
-    } else if ($scope.interestPaymentDuringRehab == '0') {
-
-    }
-    $scope.closingCostAddedToLoan = 7086;
-    //var totalMonths = $scope.internalProjectRehabPeriod + $scope.internalMonthsCompleteSaleAfterRehab;
-    //var baseCost = $scope.actualToBeFinanced + $scope.internalClosingCosts + $scope.internalHoldingCosts;
-    //var interest = calculateInterest()
-
-
-    //if ($scope.includeCloseHoldCosts == '0' && $scope.lenderAVRCostOfProject == 'cost' && $scope.pointsClosingCosts == 'upfront' && $scope.interestPaymentDuringRehab == '0') {
-    //
-    //} else if (true) {
-    //
-    //}
-    //var costs = 1;
-
   };
 
   $scope.updateTotalLoanAmount = function() {
@@ -152,22 +120,31 @@ myApp.controller('EvaluateController', ['$scope', '$location', 'DataFactory', fu
   };
 
   $scope.updateCashRequiredOverLife = function() {
+
     if ($scope.financingUsed == '0') { // all cash
       $scope.cashRequiredOverLife = $scope.internalPurchasePrice + $scope.internalClosingCosts + $scope.internalHoldingCosts;
-      console.log('all cash');
     } else if ($scope.financingUsed == '1') { // financing
-      $scope.cashRequiredOverLife = $scope.totalCapNeeded - $scope.actualToBeFinanced - $scope.internalClosingCosts - $scope.internalHoldingCosts;
-      console.log('financing');
-    } else {
-      console.log('neither');
-      console.log('financing used is: ', $scope.financingUsed);
+
+      var totalMonths = $scope.internalProjectRehabPeriod + $scope.internalMonthsCompleteSaleAfterRehab;
+
+      // Needs to take #10 and #11 into account, for both arv and cost
+      if ($scope.lenderCapsARVorCost == 'arv') {
+        $scope.cashRequiredOverLife = $scope.totalCapNeeded - $scope.totalLoanAmount + ($scope.totalLoanAmount * (totalMonths / 12) * ($scope.internalInterestRate / 100)) + ((($scope.internalOriginationDiscountPoints + $scope.internalOtherClosingCosts) / 100) * $scope.actualToBeFinanced);
+      } else if ($scope.lenderCapsARVorCost == 'cost') {
+        $scope.cashRequiredOverLife = $scope.totalCapNeeded - $scope.totalLoanAmount + ($scope.totalLoanAmount * (totalMonths / 12) * ($scope.internalInterestRate / 100)) + ((($scope.internalOriginationDiscountPoints + $scope.internalOtherClosingCosts) / 100) * $scope.actualToBeFinanced);
+      }
     }
+
+    //console.log('the amount is: ', ((($scope.internalOriginationDiscountPoints + $scope.internalOtherClosingCosts) / 100) * $scope.actualToBeFinanced));
+    //console.log($scope.internalOriginationDiscountPoints + $scope.internalOtherClosingCosts, '%');
+    //console.log('origination: ', $scope.internalOriginationDiscountPoints);
+    //console.log('other: ', $scope.internalOtherClosingCosts);
 
     if ($scope.cashRequiredOverLife < 0) {
       $scope.cashRequiredOverLife = 0;
     }
 
-    console.log('cash required has been updated and is now: ', $scope.cashRequiredOverLife);
+    //console.log('cash required has been updated and is now: ', $scope.cashRequiredOverLife);
   };
 
   $scope.updateTotalCostEndOfRehab = function() {
@@ -175,21 +152,29 @@ myApp.controller('EvaluateController', ['$scope', '$location', 'DataFactory', fu
   };
 
   $scope.updatePercentageOfArv = function() {
-    $scope.percentageOfArv = Math.round($scope.totalCostEndOfRehab / $scope.internalArvForFlip);
+    $scope.percentageOfArv = Math.round($scope.totalCostEndOfRehab / $scope.internalArvForFlip * 100);
   };
 
   $scope.updateProjectedProfit = function() {
     var percentOfSale = (100 - $scope.internalProjectedCostSale) / 100;
-    $scope.projectedProfit = (($scope.internalProjectedResalePrice * percentOfSale) - $scope.totalCostEndOfRehab) * $scope.internalPercentagePreTaxProfits / 100;
+    $scope.projectedProfit = ($scope.internalProjectedResalePrice * percentOfSale) - $scope.totalCostEndOfRehab; // i think i have to take this last /100 off
   };
 
   $scope.updateReturnOnCashInvested = function() {
-    $scope.returnOnCashInvested = $scope.projectedProfit / $scope.cashRequiredOverLife * 100;
+    if ($scope.cashRequiredOverLife == 0) {
+      $scope.returnOnCashInvested = 'Infinite';
+    } else {
+      $scope.returnOnCashInvested = $scope.projectedProfit / $scope.cashRequiredOverLife * 100;
+    }
   };
 
   $scope.updateRoiAnnualized = function() {
-    var totalMonths = $scope.internalProjectRehabPeriod + $scope.internalMonthsCompleteSaleAfterRehab;
-    $scope.roiAnnualized = $scope.returnOnCashInvested * 12 / totalMonths;
+    if ($scope.cashRequiredOverLife == 0) {
+      $scope.returnOnCashInvested = 'Infinite';
+    } else {
+      var totalMonths = $scope.internalProjectRehabPeriod + $scope.internalMonthsCompleteSaleAfterRehab;
+      $scope.roiAnnualized = Math.round($scope.returnOnCashInvested * 12 / totalMonths);
+    }
   };
 
   $scope.updateTotalCapNeededHR = function() {
@@ -197,9 +182,9 @@ myApp.controller('EvaluateController', ['$scope', '$location', 'DataFactory', fu
   };
 
   $scope.updateMaxDollarsFinancedHR = function() {
-    if ($scope.lenderAVRCostOfProject == 'arv') {
+    if ($scope.lenderCapsARVorCost == 'arv') {
       $scope.maxDollarsFinancedHR = $scope.internalArvForFlip * $scope.internalMaxPercentOfCostFinanced / 100;
-    } else if ($scope.lenderAVRCostOfProject == 'cost') {
+    } else if ($scope.lenderCapsARVorCost == 'cost') {
       $scope.maxDollarsFinancedHR = ($scope.internalPurchasePrice + $scope.internalRehabBudget) * $scope.internalMaxPercentOfCostFinanced / 100;
     }
   };
@@ -210,15 +195,12 @@ myApp.controller('EvaluateController', ['$scope', '$location', 'DataFactory', fu
     $scope.internalHoldingCosts = parseFloat($scope.holdingCosts);                                     // 3
     $scope.internalRehabBudget = parseFloat($scope.rehabBudget);                                       // 5
 
-    console.log('rehab budget: ', $scope.rehabBudget);
-    console.log('internal rehab budget: ', $scope.internalRehabBudget);
-
     $scope.internalProjectRehabPeriod = parseFloat($scope.projectRehabPeriod);                         // 6
     $scope.internalMaxPercentOfCostFinanced = parseFloat($scope.maxPercentOfCostFinanced);             // 9
     $scope.internalOriginationDiscountPoints = parseFloat($scope.originationDiscountPoints);           // 10
-    $scope.internalOtherClosingCosts = parseFloat($scope.originationDiscountPoints);                   // 11
+    $scope.internalOtherClosingCosts = parseFloat($scope.otherClosingCosts);                           // 11
     $scope.internalInterestRate = parseFloat($scope.interestRate);                                     // 13
-    $scope.internalPercentagePreTaxProfits = parseFloat($scope.percentagePreTaxProfits);               // 16
+    //$scope.internalPercentagePreTaxProfits = parseFloat($scope.percentagePreTaxProfits);               // 16
     $scope.internalArvForFlip = parseFloat($scope.arvForFlip);                                         // 17
     $scope.internalMonthsCompleteSaleAfterRehab = parseFloat($scope.monthsCompleteSaleAfterRehab);     // 18
 
@@ -233,6 +215,74 @@ myApp.controller('EvaluateController', ['$scope', '$location', 'DataFactory', fu
     $scope.internalNewMortgageRate = parseFloat($scope.newMortgageRate);                               // 47
     $scope.internalAmortizationYears = parseFloat($scope.amortizationYears);                           // 48
     $scope.internalRefiDiscPtsMiscCosts = parseFloat($scope.refiDiscPtsMiscCosts);                     // 49
+
+    if (!$scope.internalPurchasePrice) { // 1
+      $scope.internalPurchasePrice = 0;
+    }
+    if (!$scope.internalClosingCosts) { // 2
+      $scope.internalClosingCosts = 0;
+    }
+    if (!$scope.internalHoldingCosts) { //3
+      $scope.internalHoldingCosts = 0;
+    }
+    if (!$scope.internalRehabBudget) { // 5
+      $scope.internalRehabBudget = 0;
+    }
+    if (!$scope.internalProjectRehabPeriod) { // 6
+      $scope.internalProjectRehabPeriod = 0;
+    }
+    if (!$scope.internalMaxPercentOfCostFinanced) { // 9
+      $scope.internalMaxPercentOfCostFinanced = 0;
+    }
+    if (!$scope.internalOriginationDiscountPoints) { // 10
+      $scope.internalOriginationDiscountPoints = 0;
+    }
+    if (!$scope.internalOtherClosingCosts) { // 11
+      $scope.internalOtherClosingCosts = 0;
+      console.log('yo yo yo');
+      console.log('InternalOtherClosingCosts is: ', $scope.internalOtherClosingCosts);  // why isn't this getting executed?????
+    }
+    if (!$scope.internalInterestRate) { // 13
+      $scope.internalInterestRate = 0;
+    }
+    if (!$scope.internalArvForFlip) { // 17
+      $scope.internalArvForFlip = 0;
+    }
+    if (!$scope.internalMonthsCompleteSaleAfterRehab) { // 18
+      $scope.internalMonthsCompleteSaleAfterRehab = 0;
+    }
+    if (!$scope.internalProjectedResalePrice) { // 27
+      $scope.internalProjectedResalePrice = 0;
+    }
+    if (!$scope.internalProjectedCostSale) { // 28
+      $scope.internalProjectedCostSale = 0;
+    }
+    if (!$scope.internalArvForRent) { // 32
+      $scope.internalArvForRent = 0;
+    }
+    if (!$scope.internalMonthsToRentAfterRehab) { // 33
+      $scope.internalMonthsToRentAfterRehab = 0;
+    }
+    if (!$scope.internalProjectedOperatingIncome) { // 42
+      $scope.internalProjectedOperatingIncome = 0;
+    }
+    if (!$scope.internalProjectedOperatingExpenses) { // 43
+      $scope.internalProjectedOperatingExpenses = 0;
+    }
+    if (!$scope.internalRefiPercentARV) { // 46
+      $scope.internalRefiPercentARV = 0;
+    }
+    if (!$scope.internalNewMortgageRate) { // 47
+      $scope.internalNewMortgageRate = 0;
+    }
+    if (!$scope.internalAmortizationYears) { // 48   *** This one might have to change because 'Interest Only' is an option
+      $scope.internalAmortizationYears = 0;
+    }
+    if (!$scope.internalRefiDiscPtsMiscCosts) { // 49
+      $scope.internalRefiDiscPtsMiscCosts = 0;
+    }
+
+    console.log('InternalOtherClosingCosts is: ', $scope.internalOtherClosingCosts);
 
     $scope.updateMaxDollarsFinanced();
     $scope.updateTotalCapNeeded();
