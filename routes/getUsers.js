@@ -19,7 +19,7 @@ router.get('/', function (req, res) {
     // close connection
     query.on('end', function () {
       client.end();
-        console.log("results: results");
+        console.log("results:", results);
       return res.json(results);
 
     });
