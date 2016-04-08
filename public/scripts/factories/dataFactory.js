@@ -9,15 +9,13 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
   var isUserLoggedIn = false;
   var displayReminderMessage = false;
 
-  // Private
-
   var privateSetReminderMessageToTrue = function() {
     displayReminderMessage = true;
   };
 
   var privateAddNewUser = function(user) {
     $http.post('/register', user).then(function(response){
-      console.log('Successfully added new user');
+      //console.log('Successfully added new user');
     });
   };
 
@@ -45,9 +43,9 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
       params: searchCriteria
     }).then(function (response) {
       apiData = response.data.results.result[0];
-      console.log('from factory: ', response.data);
+      //console.log('from factory: ', response.data);
       housePrice = Math.round(apiData.zestimate[0].amount[0]._);
-      console.log('factory housePrice: ', housePrice);
+      //console.log('factory housePrice: ', housePrice);
       // GetUpdatedPropertyDetails
       //console.log(apiData.zpid[0]);
 
@@ -81,7 +79,8 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
   };
 
   var privateUpdatePrice = function(price) {
-    housePrice = price;
+    housePrice = parseInt(price);
+    //console.log('updating house price to ', housePrice);
   };
 
 
@@ -110,6 +109,7 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
         return mortgage;
       },
       factoryExportPrice: function() {
+        //console.log('exporting price, which is ', housePrice);
         return housePrice;
       },
       factoryUpdatePrice: function(price) {
@@ -119,7 +119,7 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
         return isUserLoggedIn;
       },
       factoryDisplayReminderMessage: function() {
-        console.log('Getting displayReminderMessage, which is equal to: ', displayReminderMessage);
+        //console.log('Getting displayReminderMessage, which is equal to: ', displayReminderMessage);
         return displayReminderMessage;
       },
       factorySetReminderMessageToTrue: function () {

@@ -1,5 +1,5 @@
 myApp.controller('SearchController', ['$scope', '$http', '$location', 'DataFactory', function($scope, $http, $location, DataFactory) {
-  console.log('SearchController working');
+  //console.log('SearchController working');
 
   $scope.dataFactory = DataFactory;
 
@@ -31,7 +31,7 @@ myApp.controller('SearchController', ['$scope', '$http', '$location', 'DataFacto
 // button from search.html calls searchListings():
     $scope.searchListings = function() {
 
-      console.log('YEEEAAAH!');
+      //console.log('YEEEAAAH!');
 
       var address = $scope.addressSearch;
       var cityStateZip = $scope.citySearch + $scope.model.stateSearch + $scope.zipSearch;
@@ -54,11 +54,11 @@ myApp.controller('SearchController', ['$scope', '$http', '$location', 'DataFacto
             var photoArray = $scope.dataFactory.factoryGetPhotos();
             $scope.slides = [];
 
-            console.log('photoArray is ', photoArray);
-            console.log('length of photoArray is ', photoArray.length);
+            //console.log('photoArray is ', photoArray);
+            //console.log('length of photoArray is ', photoArray.length);
 
             if (photoArray.length < 1) {
-              console.log('resetting photo array');
+              //console.log('resetting photo array');
               // display message saying no photos are available
               $scope.slides = [
                 {id: 0, image: '../../images/mpls-1.jpg'}
@@ -68,7 +68,6 @@ myApp.controller('SearchController', ['$scope', '$http', '$location', 'DataFacto
             } else {
               for (var i = 0; i < photoArray.length; i++) {
                 $scope.slides.push({id: i, image: photoArray[i]});
-
               }
             }
           });
