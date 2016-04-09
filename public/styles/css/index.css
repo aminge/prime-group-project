@@ -123,7 +123,7 @@
   color: #AAA; }
 
 .text-highlights-green:disabled {
-  background-color: #00FF00;
+  border: 2px solid #569646;
   color: #000;
   font-weight: 700; }
 
