@@ -20,7 +20,7 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
   };
 
   var privateLoginUser = function(user) {
-    $http.post('/login', user).then(
+    var promise = $http.post('/login', user).then(
       function (res) {
         $location.path('/search');
         isUserLoggedIn = true;
@@ -28,6 +28,14 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
       function (err) {
         $location.path('/login');
       });
+    return promise;
+  };
+
+  var privateUpdateUser = function(user) {
+    var promise = $http.put('/updateUser', user).then(function(response) {
+      console.log('user updated successfully ', response);
+    });
+    return promise;
   };
 
   var initialSearch = function(address, cityStateZip) {
@@ -101,6 +109,9 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
       },
       factoryLoginUser: function(user) {
         return privateLoginUser(user);
+      },
+      factoryUpdateUser: function(user) {
+        return privateUpdateUser(user)
       },
       factoryGetPhotos: function() {
         return apiPhotoData;
