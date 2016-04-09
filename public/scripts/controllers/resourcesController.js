@@ -11,11 +11,11 @@ myApp.controller('ResourcesController', ['$scope', '$location', 'DataFactory', f
   $scope.uploads = [
     {link : '../../hosted_files/management_agreement.pdf',
     title: 'Management Agreement'},
-    {link : '../../hosted_files/move_in_check_list',
+    {link : '../../hosted_files/move_in_check_list.pdf',
     title: 'Move-in Check List'},
     {link : '../../hosted_files/residential_lease.pdf',
     title: 'Residential Lease'},
-    {link : '../../hosted_files/seller_option_to_purchase_real_estate',
+    {link : '../../hosted_files/seller_option_to_purchase_real_estate.pdf',
     title: 'Seller Option to Purchase Real Estate'},
     {link : '../../hosted_files/sublease.pdf',
     title: 'Sublease'}

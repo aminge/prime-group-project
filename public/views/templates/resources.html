@@ -1,9 +1,9 @@
 <div class="container-fluid">
   <div class="row file-container clearfix">
     <div class="document" ng-repeat="file in uploads">
-      <div class="document-content">
-        <h2 class="filename"><a href="{{file.link}}" download>{{file.title}}</a></h2>
-        <h2><span class="glyphicon glyphicon-download-alt"></span></h2></div>
+    <div class="document-content">
+        <h3 class="filename"><a href="{{file.link}}" download>{{file.title}}</a></h3>
+        <a href="{{file.link}}" download><span class="glyphicon glyphicon-download-alt"></span></a></div>
     </div>
   </div>
 
