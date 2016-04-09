@@ -1,0 +1,30 @@
+footer {
+  background-color: $white-90;
+    // position: fixed;
+    z-index: 1000;
+    // bottom: 0;
+    width: 100%;
+    h2{
+      display: inline-block;
+    background: $med-gray;
+    color: $white-90;
+    width: 1.2em;
+    height: 1.2em;
+    padding-left: .2em;
+    padding-top: .1em;
+    margin: 0 .1em;
+    }
+
+}
+
+.headshot {
+  max-width: 100%;
+  padding: 2rem;
+}
+.social-icons{
+  margin-top: 1em;
+}
+
+i {
+  margin-right: .6em;
+}
