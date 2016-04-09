@@ -250,8 +250,10 @@ myApp.controller('EvaluateController', ['$scope', '$location', 'DataFactory', fu
   $scope.updateCashOutRefiHR = function() {
     // 1, 2, 3, 8, 9, 32, 46, 49
     //$scope.cashOutRefiHR = ($scope.refiLoanAmountHR * (100 - $scope.refiDiscPtsMiscCostsHR)) - $scope.totalLoanAmountHR - $scope.internalClosingCosts - $scope.internalHoldingCosts;
-    $scope.cashOutRefiHR = $scope.refiLoanAmountHR * ($scope.internalRefiPercentARVHR / 100) * (1 - ($scope.internalRefiDiscPtsMiscCostsHR / 100)) - $scope.totalLoanAmountHR;
-    console.log($scope.cashOutRefiHR);
+    //$scope.cashOutRefiHR = $scope.refiLoanAmountHR * ($scope.internalRefiPercentARVHR / 100) * (1 - ($scope.internalRefiDiscPtsMiscCostsHR / 100)) - $scope.totalLoanAmountHR;
+    //console.log($scope.cashOutRefiHR);
+    $scope.cashOutRefiHR = ($scope.refiLoanAmountHR * (100 - $scope.refiDiscPtsMiscCostsHR) / 100) - $scope.totalLoanAmountHR;
+    console.log('cashOutRefiHR is: ', $scope.cashOutRefiHR);
   };
 
   $scope.updateProfitRefiHR = function() {
