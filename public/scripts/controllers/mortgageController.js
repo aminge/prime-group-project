@@ -15,6 +15,7 @@ myApp.controller('MortgageController', ['$scope', '$location', 'DataFactory', fu
   $scope.interestRate = 3.7;
   // use search results price for default mortgage price:
   $scope.price = $scope.dataFactory.factoryExportPrice();
+
   //console.log($scope.price);
 
   // I commented these out for now so that it doesn't throw errors
@@ -52,6 +53,9 @@ myApp.controller('MortgageController', ['$scope', '$location', 'DataFactory', fu
 
 
   $scope.calculateMortgage = function() {
+    if (!$scope.price) {
+      $scope.price = 0;
+    }
     $scope.dataFactory.factoryCalculateMortgage(parseFloat($scope.price), parseInt($scope.years), parseFloat($scope.interestRate));
     $scope.monthlyPayments = $scope.dataFactory.factoryExportMortgage();
     $scope.totalCost = $scope.monthlyPayments * parseFloat($scope.years) * 12 ;
