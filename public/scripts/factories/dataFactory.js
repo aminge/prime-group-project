@@ -2,7 +2,7 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
   var apiData = undefined;
   var apiPhotoData = undefined;
   var mortgage = undefined;
-  var housePrice = 0;
+  var housePrice = 50000;
 
   // Private
 
@@ -77,12 +77,19 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
 
   var privateCalculateMortgage = function(price, years, ir) {
     var months = parseInt(years) * 12;
+
+    if (!ir || ir == 0) {
+      var output = parseFloat(price) / months;
+      mortgage = output.toFixed(2);
+      return mortgage;
+    }
+
+    ir = parseFloat(ir);
     ir = ir / 1200;
-    var numerator = ir * price * Math.pow(1 + ir, months);
+    var numerator = ir * parseFloat(price) * Math.pow(1 + ir, months);
     var denominator = Math.pow(1 + ir, months) - 1;
     var output =  numerator / denominator;
     mortgage = output.toFixed(2);
-    console.log(mortgage);
     return mortgage;
   };
 
