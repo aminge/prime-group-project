@@ -8,6 +8,17 @@ myApp.controller('ResourcesController', ['$scope', '$location', 'DataFactory', f
     $location.path('./views/templates/login.html');
   }
 
-  $scope.uploads = ['file #1', 'file #2', 'file #3', 'file #4', 'file #5', 'file#6'];
+  $scope.uploads = [
+    {link : '../../hosted_files/management_agreement.pdf',
+    title: 'Management Agreement'},
+    {link : '../../hosted_files/move_in_check_list.pdf',
+    title: 'Move-in Check List'},
+    {link : '../../hosted_files/residential_lease.pdf',
+    title: 'Residential Lease'},
+    {link : '../../hosted_files/seller_option_to_purchase_real_estate.pdf',
+    title: 'Seller Option to Purchase Real Estate'},
+    {link : '../../hosted_files/sublease.pdf',
+    title: 'Sublease'}
+  ];
 
 }]);

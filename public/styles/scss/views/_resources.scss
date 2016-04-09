@@ -5,17 +5,20 @@
 
 .document {
   @include flex(1);
-  height: 200px;
-  min-width: 200px;
-  max-width: 200px;
-  background-color: $med-gray;
-  color: $white;
+  height: 225px;
+  min-width: 225px;
+  max-width: 225px;
+  border: 4px solid $light-gray;
+  color: $med-gray;
   text-align: center;
   position: relative;
   margin: 1rem;
   cursor: pointer;
   &:hover{
     color: tomato;
+  }
+  .glyphicon {
+    font-size: 24px;
   }
 }
 

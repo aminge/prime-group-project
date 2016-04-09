@@ -5,6 +5,9 @@
   padding: 0 6vw;
   margin-top: 71px; }
 
+a:hover, a:focus {
+  text-decoration: none; }
+
 .navbar-default {
   background-color: rgba(255, 255, 255, 0.9); }
 
@@ -161,17 +164,19 @@ select.blue-background {
   -moz-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  height: 200px;
-  min-width: 200px;
-  max-width: 200px;
-  background-color: #666;
-  color: #fff;
+  height: 225px;
+  min-width: 225px;
+  max-width: 225px;
+  border: 4px solid #ddd;
+  color: #666;
   text-align: center;
   position: relative;
   margin: 1rem;
   cursor: pointer; }
   .document:hover {
     color: tomato; }
+  .document .glyphicon {
+    font-size: 24px; }
 
 .document-content {
   position: absolute;
