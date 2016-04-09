@@ -2,7 +2,7 @@
   <div class="row file-container clearfix">
     <div class="document" ng-repeat="file in uploads">
       <div class="document-content">
-        <h2 class="filename">{{file}}</h2>
+        <h2 class="filename"><a href="{{file.link}}" download>{{file.title}}</a></h2>
         <h2><span class="glyphicon glyphicon-download-alt"></span></h2></div>
     </div>
   </div>
