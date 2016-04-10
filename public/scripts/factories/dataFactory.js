@@ -3,11 +3,10 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
   var apiPhotoData = undefined;
   var mortgage = undefined;
   var housePrice = 50000;
-
-  // Private
-
   var isUserLoggedIn = false;
   var displayReminderMessage = false;
+
+// Private
 
   var privateSetReminderMessageToTrue = function() {
     displayReminderMessage = true;
@@ -51,14 +50,9 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
       params: searchCriteria
     }).then(function (response) {
       apiData = response.data.results.result[0];
-      //console.log('from factory: ', response.data);
       housePrice = Math.round(apiData.zestimate[0].amount[0]._);
-      //console.log('factory housePrice: ', housePrice);
-      // GetUpdatedPropertyDetails
-      //console.log(apiData.zpid[0]);
 
       var zpid = parseInt(apiData.zpid[0]);
-      //console.log('zpid is ', zpid);
 
       return $http({
         method: 'GET',
@@ -143,6 +137,9 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
       factorySetReminderMessageToTrue: function () {
         return privateSetReminderMessageToTrue();
       }
+      //factoryGetUserRole: function(user) {
+      //  return privateGetUserRole(user);
+      //}
     };
 
     return publicAPI;
