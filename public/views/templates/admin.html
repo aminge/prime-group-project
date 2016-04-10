@@ -18,7 +18,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="user in users">
+        <tr ng-repeat="user in users | orderBy: '-number_of_visits'">
           <th scope="row">{{user.id}}</th>
           <td>{{user.first_name}}</td>
           <td>{{user.last_name}}</td>
