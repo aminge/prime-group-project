@@ -257,27 +257,29 @@ myApp.controller('EvaluateController', ['$scope', '$location', 'DataFactory', fu
   };
 
   $scope.updateProfitRefiHR = function() {
-    // **********
+    $scope.profitRefiHR = $scope.cashOutRefiHR - $scope.cashRequiredHR;
   };
 
   $scope.updateRoiOnCashInvestedHR = function() {
-    // **********
+    // 1, 2, 3, 5, 6, 8, 9, 10, 13, 32, 33, 46, 49
+    var months = $scope.internalProjectRehabPeriod + $scope.internalMonthsToRentAfterRehabHR;
+    $scope.roiOnCashInvestedHR = (($scope.cashOutRefiHR / $scope.cashRequiredHR) - 1) * (12 / months) * 100;
   };
 
   $scope.updateOrgMoneyTiedUpRefiHR = function() {
-    // **********
+    $scope.orgMoneyTiedUpRefiHR = Math.max(0, $scope.cashRequiredHR - $scope.cashOutRefiHR);
   };
 
   $scope.updateEquityLeftRefiHR = function() {
-    // **********
+    $scope.equityLeftRefiHR = $scope.internalArvForRentHR - $scope.refiLoanAmountHR;
   };
 
   $scope.updateCashFlowPreTaxHR = function() {
-    // **********
+    $scope.cashFlowPreTaxHR = $scope.netOperatingIncomeHR - $scope.newMortgagePaymentHR;
   };
 
   $scope.updateCashOnCashHR = function() {
-    // **********
+    $scope.cashOnCashHR = $scope.cashFlowPreTaxHR * 12 / $scope.orgMoneyTiedUpRefiHR * 100;
   };
 
 
