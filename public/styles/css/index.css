@@ -347,6 +347,14 @@ img.zillow-logo {
 .showing-results {
   text-align: center; }
 
+.price-sqft {
+  font-size: 125%;
+  margin: 0 4.5px;
+  font-weight: bolder; }
+
+.info-three-buttons {
+  margin-top: 20px; }
+
 #mortgage-pic {
   width: 100%; }
 

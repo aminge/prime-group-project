@@ -94,7 +94,7 @@
           <li><strong>Listing:</strong> {{apiResults.address[0].street[0]}}<a class="symbols" ng-show="userHasSearched">,</a> {{apiResults.address[0].city[0]}}<a class="symbols" ng-show="userHasSearched">,</a> {{apiResults.address[0].state[0]}} {{apiResults.address[0].zipcode[0]}}</li>
           <li><strong>Zestimate:</strong> {{apiResults.zestimate[0].amount[0]._ | currency}}</li>
           <li><strong>SqFt:</strong> {{apiResults.finishedSqFt[0]}}</li>
-          <li><strong>Price / SqFt:</strong> {{pricePerSquareFoot | currency}}</li>
+          <!--<li class="price-sqft"><strong>Price / SqFt:</strong> {{pricePerSquareFoot | currency}}</li>-->
           <li ng-show="userHasSearched"><a href="{{apiResults.links[0].homedetails[0]}}" target="_blank">See more on Zillow.com </a></li>
         </ul>
       </div>
@@ -108,11 +108,12 @@
       </div>
       <div class="col-sm-4 info info-three">
         <ul>
+          <li class="price-sqft"><strong>Price / SqFt:</strong> {{pricePerSquareFoot | currency}}</li>
           <a href="#evaluate">
-            <button class="btn btn-primary" name="eval-button">Evaluate</button>
+            <button class="btn btn-primary info-three-buttons" name="eval-button">Evaluate</button>
           </a>
           <a href="#mortgage">
-            <button class="btn btn-warning" name="mortgage-button">Mortgage</button>
+            <button class="btn btn-warning info-three-buttons" name="mortgage-button">Mortgage</button>
           </a>
         </ul>
       </div>
