@@ -1,12 +1,21 @@
 .container-fluid {
   margin-bottom: 10rem; }
 
+body {
+  font-family: 'Lato', 'helvetica', sans-serif;
+  font-size: 16px;
+  color: #11131A; }
+
 .container-fluid {
   padding: 0 6vw;
   margin-top: 71px; }
 
+a {
+  color: #161B24; }
+
 a:hover, a:focus {
-  text-decoration: none; }
+  text-decoration: none;
+  color: #11131A; }
 
 .navbar-default {
   background-color: rgba(255, 255, 255, 0.9); }
@@ -106,7 +115,7 @@ i {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 65%;
-  text-shadow: -2px 2px 7px #000; }
+  text-shadow: -2px 2px 7px #11131A; }
 
 #search-button {
   display: inline-block; }
@@ -241,6 +250,9 @@ img.zillow-logo {
 .home-information {
   float: none;
   margin: 2em auto 0 auto; }
+
+.showing-results {
+  text-align: center; }
 
 #mortgage-pic {
   width: 100%; }

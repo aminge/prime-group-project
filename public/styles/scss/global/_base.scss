@@ -20,11 +20,22 @@
 
 ///begin the REAL rules
 
+body {
+  font-family: 'Lato', 'helvetica', sans-serif;
+  font-size: 16px;
+  color: $black;
+}
+
 .container-fluid {
   padding: 0 6vw;
   margin-top: 71px;
 }
 
+a{
+  color: $blue;
+}
+
 a:hover, a:focus {
   text-decoration: none;
+  color: $black;
 }
