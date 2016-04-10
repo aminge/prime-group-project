@@ -6,6 +6,7 @@
   background-color: $blue-90;
   color: $white;
   border: none;
+  font-size: 18px;
 }
 
 .navbar-default .navbar-nav>li{
@@ -24,6 +25,22 @@
   }
 }
 
+.navbar-default .navbar-toggle {
+  border: none;
+  &:hover, &:focus {
+    background-color: $blue;
+  }
+
+
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: $gold;
+}
+
+.navbar-default .navbar-collapse {
+  border-top: 2px solid $blue;
+  border-color: $blue;
+}
 
 .navbar-right {
   position: absolute;
@@ -32,8 +49,8 @@
 
 .navbar-default .navbar-brand {
     float: left;
-    height: 50px;
-    padding: 15px 15px;
+    height: 52px;
+    padding: 15px 25px;
     font-size: 18px;
     line-height: 20px;
     font-family: $serif;
@@ -50,4 +67,5 @@
 
 .nav>li {
   cursor: pointer;
+  padding: 0 .25em;
 }

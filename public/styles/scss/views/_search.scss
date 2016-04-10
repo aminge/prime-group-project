@@ -25,6 +25,7 @@ img.zillow-logo {
 .showing-results {
   text-align: center;
 }
+<<<<<<< HEAD
 .price-sqft {
   font-size: 125%;
   margin: 0 4.5px;
@@ -34,3 +35,13 @@ img.zillow-logo {
 .info-three-buttons{
   margin-top: 20px;
 }
+=======
+
+a.zillow-link {
+  margin-top: 9em;
+  color: $med-gray;
+  &:hover {
+    color: blue;
+  }
+}
+>>>>>>> 3155198459a7750e093422fd207e5b33b51b4c1b
