@@ -15,11 +15,17 @@ footer {
     padding-top: .1em;
     margin: 0 .1em;
     }
+}
 
+a.websites {
+  color: $white;
+  &:hover, &:active, &:visited{
+    color: $med-gray;
+  }
 }
 
 .headshot {
-  max-width: 100%;
+  width: 220px;
   padding: 2rem;
 }
 .social-icons{

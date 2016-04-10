@@ -114,8 +114,13 @@ footer {
     padding-top: .1em;
     margin: 0 .1em; }
 
+a.websites {
+  color: #FFFDFA; }
+  a.websites:hover, a.websites:active, a.websites:visited {
+    color: #666; }
+
 .headshot {
-  max-width: 100%;
+  width: 220px;
   padding: 2rem; }
 
 .social-icons {
