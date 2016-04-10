@@ -17,8 +17,11 @@ footer {
     }
 }
 
-.websites {
+a.websites {
   color: $white;
+  &:hover, &:active, &:visited{
+    color: $med-gray;
+  }
 }
 
 .headshot {

@@ -114,8 +114,10 @@ footer {
     padding-top: .1em;
     margin: 0 .1em; }
 
-.websites {
+a.websites {
   color: #FFFDFA; }
+  a.websites:hover, a.websites:active, a.websites:visited {
+    color: #666; }
 
 .headshot {
   width: 220px;
