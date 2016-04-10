@@ -4,6 +4,8 @@ var encryptLib = require('../modules/encryption');
 var connectionString = require('../modules/connection');
 var pg = require('pg');
 
+
+
 passport.serializeUser(function(user, done) {
   console.log('hola');
   done(null, user.id);
@@ -47,7 +49,6 @@ passport.use('local', new localStrategy({
       var query = client.query("SELECT * FROM users WHERE email = $1", [email]);
 
       //user = query;
-      //
       //console.log('user is: ', user);
 
       query.on('row', function (row) {

@@ -27,9 +27,9 @@ myApp.config(['$routeProvider', function($routeProvider) {
             templateUrl: 'views/templates/login.html',
             controller: 'LoginController'
         })
-        .when('/index', {
+        .when('/nav', {
             templateUrl: 'views/templates/index.html',
-            controller: 'IndexController'
+            controller: 'navController'
         })
         .when('/register', {
             templateUrl: 'views/templates/register.html',
