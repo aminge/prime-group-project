@@ -6,6 +6,7 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
   var isUserLoggedIn = false;
   var displayReminderMessage = false;
   var failedLogin = false;
+  var accountType = 'user';
 
 // Private
   // logout user
@@ -52,6 +53,14 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
   var privateUpdateUser = function(user) {
     var promise = $http.put('/updateUser', user).then(function(response) {
       console.log('user updated successfully ', response);
+    });
+    return promise;
+  };
+
+  var privateGetAccountType = function(user) {
+    var promise = $http.post('/updateUser', user).then(function(response) {
+      accountType = response.data.account_type;
+      console.log('from factory: ', accountType);
     });
     return promise;
   };
@@ -164,9 +173,13 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
       },
       factorySetFailedLoginToTrue: function() {
         return privateSetFailedLoginToTrue();
+      },
+      factoryGetAccountType: function(user) {
+        return privateGetAccountType(user);
+      },
+      factoryExportAccountType: function() {
+        return accountType;
       }
-
-
     };
 
     return publicAPI;

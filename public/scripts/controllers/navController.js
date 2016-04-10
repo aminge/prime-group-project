@@ -4,16 +4,22 @@ console.log('NavController works');
 
   // display logout tab only if user logged in
   $scope.isUserLoggedin = false;
-  //console.log(DataFactory.factoryIsUserLoggedIn());
-
-  // display admin tab only if user role == admin
-  $scope.isUserAdmin = true;
+  // display admin tab only if accountType == admin
+  $scope.adminUser = false;
 
   $scope.$watch(function (scope) {return scope.dataFactory.factoryIsUserLoggedIn()},
     function(newValue, oldValue){
-    //console.log('$watching in navController');
       $scope.isUserLoggedin = newValue;
+      $scope.adminUser = false;
   });
+
+  $scope.$watch(function (scope) {return scope.dataFactory.factoryExportAccountType()},
+    function(newValue, oldValue){
+     if (newValue == 'admin') {
+       $scope.adminUser = true;
+     }
+    }
+  );
 
   $scope.logoutUser = function(){
     $scope.dataFactory.factoryLogoutUser().then(function(){

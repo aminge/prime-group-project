@@ -29,7 +29,10 @@ console.log('LoginController works');
     // The put call is in the data factory
     $scope.dataFactory.factoryLoginUser(user).then(function() {
       $scope.failedLogin = $scope.dataFactory.factoryGetFailedLogin();
-      $scope.dataFactory.factoryUpdateUser(user);
+      if (!$scope.failedLogin) {
+        $scope.dataFactory.factoryUpdateUser(user);
+        $scope.dataFactory.factoryGetAccountType(user);
+      }
     });
 
     // ***************
@@ -66,8 +69,8 @@ console.log('LoginController works');
 
 
   //links to the sendgrid function
-  $scope.sendEmail = function() {
-    $http.post("/email").then(function(response) {
-    });
-  }
+  //$scope.sendEmail = function() {
+  //  $http.post("/email").then(function(response) {
+  //  });
+  //}
 }]);

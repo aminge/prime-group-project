@@ -4,29 +4,19 @@ var connection = require('../modules/connection');
 var pg = require('pg');
 
 
-router.get('/', function (req, res) {
-  var results = [];
+router.post('/', function (req, res) {
   pg.connect(connection, function (err, client, done) {
+    client.query('SELECT account_type, email FROM users WHERE email = $1',
+      [req.body.email],
+      function (err, results) {
+        //console.log('results are: ', results.rows[0].account_type);
+        res.send(results.rows[0]);
+        client.end();
 
-    //do the work of the query here.
-    var query = client.query('SELECT account_type, email FROM users');
-
-    // Stream results back one row at a time
-    query.on('row', function (row) {
-      results.push(row);
-    });
-
-    // close connection
-    query.on('end', function () {
-      client.end();
-         console.log("results: results");
-      return res.json(results);
-
-    });
-
-    if (err) {
-      console.log(err);
-    }
+        if (err) {
+          console.log('Error retrieving account_type ', err);
+        }
+      });
   });
 });
 
