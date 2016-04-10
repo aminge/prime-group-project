@@ -5,8 +5,20 @@
   max-width: 600px;
   width: 50%;
   background: $white-95;
-  padding: 2em;
+  padding: 0;
+  form {
+    padding: 0 2em;
+  }
   h1, h2 {
     font-weight: 300;
   }
+}
+
+.form-header {
+  color: $white;
+  background-color: $blue-90;
+  width: 100%;
+  border-bottom: $border;
+  margin: 0 0 1em 0;
+  padding: .2em
 }

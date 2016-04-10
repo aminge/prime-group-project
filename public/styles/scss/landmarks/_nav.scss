@@ -3,20 +3,24 @@
 // }
 
 .navbar-default{
-  background-color: $white-90;
+  background-color: $blue-90;
+  color: $white;
+  border: none;
 }
 
 .navbar-default .navbar-nav>li{
 
     &:hover, &:active, &:focus {
-      background-color: $light-gray;
+      border-bottom: $border;
     }
 }
 
 .navbar-default .navbar-nav>li>a {
+  color: $white;
+  @include transition;
     &:hover, &:active, &:focus {
       // background-color: $light-gray;
-      color: $dark-gray;
+      color: $gold;
   }
 }
 
@@ -24,4 +28,22 @@
 .navbar-right {
   position: absolute;
     right: 2rem;
+}
+
+.navbar-default .navbar-brand {
+    float: left;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    font-family: $serif;
+    font-size: 125%;
+    font-weight: 700;
+    font-style: italic;
+    letter-spacing: .03em;
+    color: $white;
+    &:hover{
+      color: $gold;
+      border-bottom: $border;
+    }
 }

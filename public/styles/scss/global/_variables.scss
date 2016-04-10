@@ -10,8 +10,15 @@ $white-90: rgba(255, 255, 255, .9);
 $white-95: rgba(255, 255, 255, .95);
 
 $blue: #161B24;
+$blue-90: rgba(27, 32, 43, .9);
 $gold: #E6A43C;
 
 
 
 //fonts
+
+$serif: 'Droid Serif', georgia, serif;
+$sans-serif: 'Lato', 'open sans', 'sans-serif';
+
+//otherClosingCosts
+$border: 2px solid $gold;

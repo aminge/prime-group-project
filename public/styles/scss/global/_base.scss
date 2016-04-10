@@ -21,14 +21,21 @@
 ///begin the REAL rules
 
 body {
-  font-family: 'Lato', 'helvetica', sans-serif;
+  font-family: $sans-serif;
   font-size: 16px;
   color: $black;
+  background-color: $white;
+  -webkit-font-smoothing: antialiased;
 }
 
 .container-fluid {
   padding: 0 6vw;
-  margin-top: 71px;
+
+}
+
+h1, h2 {
+  font-family: $serif;
+  font-weight: 700;
 }
 
 a{
@@ -38,4 +45,54 @@ a{
 a:hover, a:focus {
   text-decoration: none;
   color: $black;
+}
+
+.banner {
+  margin-top: 50px;
+    background-color: #161B24;
+    width: 100%;
+    border-bottom: 3px solid #E6A43C;
+    color: #FFFDFA;
+    padding: .5em;
+    padding-left: 6vw;
+    letter-spacing: .04em;
+    font-style: italic;
+}
+
+///buttons
+
+.btn {
+  border-radius: 0;
+  padding: 3px 20px;
+  letter-spacing: .05em;
+  font-size: 18px;
+  transition: background-color .2s;
+}
+
+.btn-primary {
+    color: $white;
+    background-color: $blue-90;
+    border: none;
+    border-bottom : 3px solid $black;
+    // border-left : 3px solid $black;
+
+    &:hover, &:active, &:focus {
+      background-color: darken($blue-90, 15%);
+      border-bottom : 3px solid $black;
+    }
+
+}
+
+.btn-danger {
+    color: $white;
+    background-color: $gold;
+    border: none;
+    border-bottom : 3px solid darken($gold, 15%);
+    // border-left : 3px solid darken($gold, 15%);
+
+    &:hover, &:active, &:focus {
+      background-color: darken($gold, 15%);
+      border-bottom : 3px solid darken($gold, 15%);
+    }
+
 }
