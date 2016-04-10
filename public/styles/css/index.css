@@ -114,8 +114,11 @@ footer {
     padding-top: .1em;
     margin: 0 .1em; }
 
+.websites {
+  color: #FFFDFA; }
+
 .headshot {
-  max-width: 100%;
+  width: 220px;
   padding: 2rem; }
 
 .social-icons {

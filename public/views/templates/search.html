@@ -95,7 +95,7 @@
           <li><strong>Zestimate:</strong> {{apiResults.zestimate[0].amount[0]._ | currency}}</li>
           <li><strong>SqFt:</strong> {{apiResults.finishedSqFt[0]}}</li>
           <li><strong>Price / SqFt:</strong> {{pricePerSquareFoot | currency}}</li>
-          <li ng-show="userHasSearched"><a href="{{apiResults.links[0].homedetails[0]}}">See more details for {{apiResults.links[0].homedetails[0]}} on Zillow </a></li>
+          <li ng-show="userHasSearched"><a href="{{apiResults.links[0].homedetails[0]}}" target="_blank">See more on Zillow.com </a></li>
         </ul>
       </div>
       <div class="col-sm-4 info info-two">
