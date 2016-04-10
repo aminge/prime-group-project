@@ -443,10 +443,17 @@
         </div>
       </div>
 
+      <!--<div class="form-group form-group-sm">-->
+        <!--<label class="col-xs-8 text-weight-bold" for="netOperatingIncomeHR">44. Net Operating Income (monthly)</label>-->
+        <!--<div class="col-xs-4">-->
+          <!--<input class="form-control input text-highlights-green" type="text" currency-input ng-model="netOperatingIncomeHR" disabled="disabled" id="netOperatingIncomeHR" />-->
+        <!--</div>-->
+      <!--</div>-->
+
       <div class="form-group form-group-sm">
         <label class="col-xs-8 text-weight-bold" for="netOperatingIncomeHR">44. Net Operating Income (monthly)</label>
         <div class="col-xs-4">
-          <input class="form-control input text-highlights-green" type="text" currency-input ng-model="netOperatingIncomeHR" disabled="disabled" id="netOperatingIncomeHR" />
+          <p ng-model="netOperatingIncomeHR" id="netOperatingIncomeHR" ng-class="{'loss': netOperatingIncomeHR <= 0, 'profit': netOperatingIncomeHR > 0}"> {{netOperatingIncomeHR | currency}} </p>
         </div>
       </div>
 
@@ -540,24 +547,38 @@
       <hr class="hr-form">
 
 
+      <!--<div class="form-group form-group-sm" ng-hide="refinancePermHR == 'no'">-->
+        <!--<label class="col-xs-8 text-weight-bold" for="cashOutRefiHR">52. Cash Out at Refi</label>-->
+        <!--<div class="col-xs-4">-->
+          <!--<input class="form-control input text-highlights-green" type="text" currency-input ng-model="cashOutRefiHR" disabled="disabled" id="cashOutRefiHR" />-->
+        <!--</div>-->
+      <!--</div>-->
+
       <div class="form-group form-group-sm" ng-hide="refinancePermHR == 'no'">
         <label class="col-xs-8 text-weight-bold" for="cashOutRefiHR">52. Cash Out at Refi</label>
         <div class="col-xs-4">
-          <input class="form-control input text-highlights-green" type="text" currency-input ng-model="cashOutRefiHR" disabled="disabled" id="cashOutRefiHR" />
+          <p ng-model="cashOutRefiHR" id="cashOutRefiHR" ng-class="{'loss': cashOutRefiHR <= 0, 'profit': cashOutRefiHR > 0}"> {{cashOutRefiHR | currency}} </p>
         </div>
       </div>
 
+      <!--<div class="form-group form-group-sm" ng-hide="refinancePermHR == 'no'">-->
+        <!--<label class="col-xs-8 text-weight-bold" for="profitRefiHR">53. Profit at Refi</label>-->
+        <!--<div class="col-xs-4">-->
+          <!--<input class="form-control input text-highlights-green" type="text" currency-input ng-model="profitRefiHR" disabled="disabled" id="profitRefiHR" />-->
+        <!--</div>-->
+      <!--</div>-->
+
       <div class="form-group form-group-sm" ng-hide="refinancePermHR == 'no'">
-        <label class="col-xs-8 text-weight-bold" for="profitRefiHR">53. Profit at Refi (after any lender split)</label>
+        <label class="col-xs-8 text-weight-bold" for="profitRefiHR">53. Profit at Refi</label>
         <div class="col-xs-4">
-          <input class="form-control input text-highlights-green" type="text" currency-input ng-model="profitRefiHR" disabled="disabled" id="profitRefiHR" />
+          <p ng-model="profitRefiHR" id="profitRefiHR" ng-class="{'loss': profitRefiHR <= 0, 'profit': profitRefiHR > 0}"> {{profitRefiHR | currency}} </p>
         </div>
       </div>
 
       <div class="form-group form-group-sm" ng-hide="refinancePermHR == 'no'">
         <label class="col-xs-8 text-weight-bold" for="roiOnCashInvestedHR">54. ROI On Cash Invested (Annualized)</label>
         <div class="col-xs-4">
-          <p ng-model="roiOnCashInvestedHR" id="roiOnCashInvestedHR" ng-class="{'loss': roiOnCashInvestedHR < 0, 'profit': roiOnCashInvestedHR > 0}"> {{roiOnCashInvestedHR | number : 1}} % </p>
+          <p ng-model="roiOnCashInvestedHR" id="roiOnCashInvestedHR" ng-class="{'loss': roiOnCashInvestedHR <= 0, 'profit': roiOnCashInvestedHR > 0}"> {{roiOnCashInvestedHR | number : 1}} % </p>
         </div>
       </div>
 
