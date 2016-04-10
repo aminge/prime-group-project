@@ -6,8 +6,19 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
   var isUserLoggedIn = false;
   var displayReminderMessage = false;
   var failedLogin = false;
+  var accountType = 'user';
 
 // Private
+  // logout user
+  var privateLogout = function() {
+    var promise = $http.get('/logout').then(function(response){
+      isUserLoggedIn = false;
+      displayReminderMessage = false;
+      $location.path('/login');
+      console.log('logout success!:: dataFactory');
+    });
+    return promise;
+  };
 
   var privateSetReminderMessageToTrue = function() {
     displayReminderMessage = true;
@@ -29,6 +40,7 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
       function (res) {
         $location.path('/search');
         isUserLoggedIn = true;
+        console.log('this is the response from privateLoginUser factory', res);
         failedLogin = false;
       },
       function (err) {
@@ -41,6 +53,14 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
   var privateUpdateUser = function(user) {
     var promise = $http.put('/updateUser', user).then(function(response) {
       console.log('user updated successfully ', response);
+    });
+    return promise;
+  };
+
+  var privateGetAccountType = function(user) {
+    var promise = $http.post('/updateUser', user).then(function(response) {
+      accountType = response.data.account_type;
+      console.log('from factory: ', accountType);
     });
     return promise;
   };
@@ -145,16 +165,21 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
       factorySetReminderMessageToTrue: function () {
         return privateSetReminderMessageToTrue();
       },
+      factoryLogoutUser: function(){
+        return privateLogout();
+      },
       factoryGetFailedLogin: function() {
         return failedLogin;
       },
       factorySetFailedLoginToTrue: function() {
         return privateSetFailedLoginToTrue();
+      },
+      factoryGetAccountType: function(user) {
+        return privateGetAccountType(user);
+      },
+      factoryExportAccountType: function() {
+        return accountType;
       }
-      //factoryGetUserRole: function(user) {
-      //  return privateGetUserRole(user);
-      //}
-
     };
 
     return publicAPI;
