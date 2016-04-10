@@ -150,9 +150,10 @@ i {
   color: #AAA; }
 
 .text-highlights-green:disabled {
-  border: 2px solid #569646;
+  border: 3px solid #569646;
   color: #000;
-  font-weight: 700; }
+  font-weight: 700;
+  padding: .2em .5em; }
 
 .assumptions-form label, .flip-form label, .buy-hold-form label {
   font-weight: 400; }
@@ -162,6 +163,16 @@ label.text-weight-bold {
 
 select.blue-background {
   background-color: #99ccff; }
+
+.loss {
+  border: 3px solid #ba3a3a;
+  font-weight: 700;
+  padding: .2em .5em; }
+
+.profit {
+  border: 3px solid #569646;
+  font-weight: 700;
+  padding: .2em .5em; }
 
 .login-background {
   background: url("../../images/Mpls-2.jpg") no-repeat center center/cover;
