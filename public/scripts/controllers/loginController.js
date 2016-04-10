@@ -25,11 +25,12 @@ console.log('LoginController works');
       password: $scope.password
     };
 
-    $scope.failedLogin = false;
-
     // This route should make it so that we only need a single put call to update the user, instead of a get call followed by a put call
     // The put call is in the data factory
-    $scope.dataFactory.factoryLoginUser(user).then($scope.dataFactory.factoryUpdateUser(user));
+    $scope.dataFactory.factoryLoginUser(user).then(function() {
+      $scope.failedLogin = $scope.dataFactory.factoryGetFailedLogin();
+      $scope.dataFactory.factoryUpdateUser(user);
+    });
 
     // ***************
     //var userIndex;

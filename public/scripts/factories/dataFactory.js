@@ -5,11 +5,17 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
   var housePrice = 50000;
   var isUserLoggedIn = false;
   var displayReminderMessage = false;
+  var failedLogin = false;
 
 // Private
 
   var privateSetReminderMessageToTrue = function() {
     displayReminderMessage = true;
+  };
+
+  // I'm not actually sure if we need this function, but we might, so I'm leaving it here for now
+  var privateSetFailedLoginToTrue = function() {
+    failedLogin = true;
   };
 
   var privateAddNewUser = function(user) {
@@ -23,9 +29,11 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
       function (res) {
         $location.path('/search');
         isUserLoggedIn = true;
+        failedLogin = false;
       },
       function (err) {
         $location.path('/login');
+        failedLogin = true;
       });
     return promise;
   };
@@ -136,10 +144,17 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
       },
       factorySetReminderMessageToTrue: function () {
         return privateSetReminderMessageToTrue();
+      },
+      factoryGetFailedLogin: function() {
+        return failedLogin;
+      },
+      factorySetFailedLoginToTrue: function() {
+        return privateSetFailedLoginToTrue();
       }
       //factoryGetUserRole: function(user) {
       //  return privateGetUserRole(user);
       //}
+
     };
 
     return publicAPI;
