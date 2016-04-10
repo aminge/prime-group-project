@@ -95,7 +95,7 @@ a:hover, a:focus {
 
 .navbar-default .navbar-brand {
   float: left;
-  height: 50px;
+  height: 52px;
   padding: 15px 25px;
   font-size: 18px;
   line-height: 20px;
@@ -129,9 +129,9 @@ footer {
     margin: 0 .1em; }
 
 a.websites {
-  color: #FFFDFA; }
+  color: #fffdfa; }
   a.websites:hover, a.websites:active, a.websites:visited {
-    color: #666; }
+    color: #aba690; }
 
 .headshot {
   width: 220px;
