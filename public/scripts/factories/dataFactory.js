@@ -7,6 +7,16 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
   var displayReminderMessage = false;
 
 // Private
+  // logout user
+  var privateLogout = function() {
+    var promise = $http.get('/logout').then(function(response){
+      isUserLoggedIn = false;
+      displayReminderMessage = false;
+      $location.path('/login');
+      console.log('logout success!:: dataFactory');
+    });
+    return promise;
+  };
 
   var privateSetReminderMessageToTrue = function() {
     displayReminderMessage = true;
@@ -23,6 +33,7 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
       function (res) {
         $location.path('/search');
         isUserLoggedIn = true;
+        console.log('this is the response from privateLoginUser factory', res);
       },
       function (err) {
         $location.path('/login');
@@ -136,10 +147,12 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
       },
       factorySetReminderMessageToTrue: function () {
         return privateSetReminderMessageToTrue();
+      },
+      factoryLogoutUser: function(){
+        return privateLogout();
       }
-      //factoryGetUserRole: function(user) {
-      //  return privateGetUserRole(user);
-      //}
+
+
     };
 
     return publicAPI;

@@ -12,6 +12,7 @@ var Zillow = require('node-zillow');
 var getUsers = require('./routes/getUsers');
 var updateUser = require('./routes/updateUser');
 var email = require('./routes/email');
+var logout = require('./routes/logout');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -36,6 +37,7 @@ app.use('/login', login);
 app.use('/getUsers', getUsers);
 app.use('/updateUser', updateUser);
 app.use('/email', email);
+app.use('/logout', logout);
 
 app.get('/zillow/GetDeepSearchResults', function(req, res){
 

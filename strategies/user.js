@@ -5,7 +5,6 @@ var connectionString = require('../modules/connection');
 var pg = require('pg');
 
 
-
 passport.serializeUser(function(user, done) {
   console.log('hola');
   done(null, user.id);
@@ -81,5 +80,6 @@ passport.use('local', new localStrategy({
     });
   }
 ));
+
 
 module.exports = passport;

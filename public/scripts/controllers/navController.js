@@ -3,21 +3,22 @@ console.log('NavController works');
   $scope.dataFactory = DataFactory;
 
   // display logout tab only if user logged in
-  $scope.isUserLoggedin = true;
-  console.log(DataFactory.factoryIsUserLoggedIn());
+  $scope.isUserLoggedin = false;
+  //console.log(DataFactory.factoryIsUserLoggedIn());
 
   // display admin tab only if user role == admin
   $scope.isUserAdmin = true;
 
-
+  $scope.$watch(function (scope) {return scope.dataFactory.factoryIsUserLoggedIn()},
+    function(newValue, oldValue){
+    //console.log('$watching in navController');
+      $scope.isUserLoggedin = newValue;
+  });
 
   $scope.logoutUser = function(){
-    console.log('HUZZZZAAAAAAAH! you\'re logging out');
-
-  //  $http.get('/logout'){
-  //    console.log('successfully logged out!')
-  //  }
-  //
+    $scope.dataFactory.factoryLogoutUser().then(function(){
+      //console.log('signed out of passport.')
+    });
   }
 
 
