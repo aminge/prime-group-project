@@ -171,7 +171,7 @@ myApp.controller('EvaluateController', ['$scope', '$location', 'DataFactory', fu
   };
 
   $scope.updateTotalCapNeededHR = function() {
-    $scope.totalCapNeededHR = $scope.purchasePrice + $scope.holdingCosts + $scope.closingCosts + $scope.rehabBudget;
+    $scope.totalCapNeededHR = $scope.internalPurchasePrice + $scope.internalHoldingCosts + $scope.internalClosingCosts + $scope.internalRehabBudget;
   };
 
   $scope.updateMaxDollarsFinancedHR = function() {
