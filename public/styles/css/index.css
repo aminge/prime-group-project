@@ -170,6 +170,10 @@ select.blue-background {
   height: 100vh;
   margin: 0; }
 
+.failed-login {
+  width: 100%;
+  margin-top: 5em; }
+
 .file-container {
   display: -webkit-box;
   display: -moz-box;

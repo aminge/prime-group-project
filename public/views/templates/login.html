@@ -26,6 +26,7 @@
           <button class="btn btn-danger">Register</button>
         </a>
       </div>
+
       <!--<div>-->
          <!--<button ng-click="sendEmail()">Send E-mail</button>-->
       <!--</div>-->
@@ -38,7 +39,14 @@
       <!--</div>-->
     <!--</div>-->
 
+
+
+
   </form>
+
+  <div class="failed-login" ng-show="failedLogin">
+    <h4>Sorry, we don't recognize that name and password combination. Please try again or register as a new user.</h4>
+  </div>
 
   <div ng-show="hideForm">
 
