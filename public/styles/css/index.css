@@ -23,7 +23,7 @@ a:hover, a:focus {
   color: #11131A; }
 
 .banner {
-  margin-top: 50px;
+  margin: 50px 0;
   background-color: #161B24;
   width: 100%;
   border-bottom: 3px solid #E6A43C;
@@ -38,7 +38,9 @@ a:hover, a:focus {
   padding: 3px 20px;
   letter-spacing: .05em;
   font-size: 18px;
-  transition: background-color .2s; }
+  transition: background-color .2s;
+  margin-right: .25em;
+  margin-left: .25em; }
 
 .btn-primary {
   color: #FFFDFA;
@@ -94,6 +96,9 @@ a:hover, a:focus {
     color: #E6A43C;
     border-bottom: 2px solid #E6A43C; }
 
+.nav > li {
+  cursor: pointer; }
+
 footer {
   background-color: #161B24;
   z-index: 1000;
@@ -121,6 +126,13 @@ i {
 
 .hr-form {
   border-top: 2px solid #ddd; }
+
+.form-group-sm .form-control {
+  height: 30px;
+  padding: 5px 10px;
+  font-size: 16px;
+  line-height: 1.5;
+  border-radius: 2px; }
 
 .centered-form {
   color: #111;

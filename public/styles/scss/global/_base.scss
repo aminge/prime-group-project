@@ -48,7 +48,7 @@ a:hover, a:focus {
 }
 
 .banner {
-  margin-top: 50px;
+  margin: 50px 0;
     background-color: #161B24;
     width: 100%;
     border-bottom: 3px solid #E6A43C;
@@ -67,6 +67,8 @@ a:hover, a:focus {
   letter-spacing: .05em;
   font-size: 18px;
   transition: background-color .2s;
+  margin-right: .25em;
+  margin-left: .25em;
 }
 
 .btn-primary {

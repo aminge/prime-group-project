@@ -1,3 +1,11 @@
 .hr-form {
   border-top: 2px solid $light-gray;
 }
+
+.form-group-sm .form-control {
+    height: 30px;
+    padding: 5px 10px;
+    font-size: 16px;
+    line-height: 1.5;
+    border-radius: 2px;
+}
