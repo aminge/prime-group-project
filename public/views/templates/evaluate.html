@@ -594,7 +594,7 @@
       <div class="form-group form-group-sm" ng-hide="refinancePermHR == 'no'">
         <label class="col-xs-8 text-weight-bold" for="roiOnCashInvestedHR">54. ROI On Cash Invested (Annualized)</label>
         <div class="col-xs-4">
-          <input class="form-control input text-highlights-green" type="text" currency-input ng-model="roiOnCashInvestedHR" id="roiOnCashInvestedHR" disabled="disabled" />
+          <p ng-model="roiOnCashInvestedHR" id="roiOnCashInvestedHR" ng-class="{'loss': roiOnCashInvestedHR < 0, 'profit': roiOnCashInvestedHR > 0}"> {{roiOnCashInvestedHR | currency}} </p>
         </div>
       </div>
 

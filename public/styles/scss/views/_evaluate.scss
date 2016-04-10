@@ -9,9 +9,10 @@
 
 .text-highlights-green:disabled {
   // background-color: #00FF00;
-  border: 2px solid rgb(86, 150, 70);
+  border: 3px solid rgb(86, 150, 70);
   color: #000;
   font-weight: 700;
+  padding: .2em .5em;
 }
 
 .assumptions-form label, .flip-form label, .buy-hold-form label {
@@ -24,4 +25,16 @@ label.text-weight-bold {
 
 select.blue-background {
   background-color: #99ccff;
+}
+
+.loss {
+  border: 3px solid rgb(186, 58, 58);
+  font-weight: 700;
+  padding: .2em .5em;
+}
+
+.profit {
+  border: 3px solid rgb(86, 150, 70);
+  font-weight: 700;
+  padding: .2em .5em;
 }
