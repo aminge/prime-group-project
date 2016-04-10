@@ -6,7 +6,7 @@ var pg = require('pg');
 
 
 passport.serializeUser(function(user, done) {
-  console.log('hola');
+  //console.log('hola');
   done(null, user.id);
 });
 
@@ -16,11 +16,11 @@ passport.deserializeUser(function(id, done) {
   pg.connect(connectionString, function (err, client) {
 
     var user = {};
-    console.log('called deserializeUser - pg');
+    //console.log('called deserializeUser - pg');
     var query = client.query("SELECT * FROM users WHERE id = $1", [id]);
 
     query.on('row', function (row) {
-      console.log('User row', row);
+      //console.log('User row', row);
       user = row;
       done(null, user);
     });
@@ -43,7 +43,7 @@ passport.use('local', new localStrategy({
   usernameField: 'email'
   }, function(req, email, password, done){
     pg.connect(connectionString, function (err, client) {
-      console.log('called local - pg');
+      //console.log('called local - pg');
       var user = {};
       var query = client.query("SELECT * FROM users WHERE email = $1", [email]);
 
@@ -51,7 +51,7 @@ passport.use('local', new localStrategy({
       //console.log('user is: ', user);
 
       query.on('row', function (row) {
-        console.log('User obj', row);
+        //console.log('User obj', row);
         user = row;
 
         // Hash and compare
