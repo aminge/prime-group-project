@@ -12,29 +12,31 @@
   margin: 0 auto;
 }
 .carousel-control {
-  color: #ddd;
+  color: $blue;
   text-shadow: none;
 }
 .carousel-control:hover {
-  color: #ddd;
+  color: $black;
 }
 .carousel-control.right {
   background-image: none;
+  color: $blue;
 }
 .carousel-control.right span {
   padding: 0 0.1em 1.3em 0;
 }
 .carousel-control.right span:hover {
-  border-bottom: 4px solid #ddd;
+  border-bottom: 4px solid $gold;
 }
 .carousel-control.left {
   background-image: none;
+  color: $blue;
 }
 .carousel-control.left span {
   padding: 0 0.1em 1.3em 0;
 }
 .carousel-control.left span:hover {
-  border-bottom: 4px solid #ddd;
+  border-bottom: 4px solid $gold;
 }
 
 

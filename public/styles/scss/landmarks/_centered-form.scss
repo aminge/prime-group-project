@@ -8,6 +8,7 @@
   padding: 0;
   form {
     padding: 0 2em;
+    margin-bottom: 2em;
   }
   h1, h2 {
     font-weight: 300;
@@ -21,4 +22,8 @@
   border-bottom: $border;
   margin: 0 0 1em 0;
   padding: .2em
+}
+
+.login-group {
+  margin-left: -11px;
 }

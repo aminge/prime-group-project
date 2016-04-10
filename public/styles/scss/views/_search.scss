@@ -25,3 +25,11 @@ img.zillow-logo {
 .showing-results {
   text-align: center;
 }
+
+a.zillow-link {
+  margin-top: 9em;
+  color: $med-gray;
+  &:hover {
+    color: blue;
+  }
+}
