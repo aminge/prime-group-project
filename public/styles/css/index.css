@@ -23,7 +23,7 @@ a:hover, a:focus {
   color: #11131A; }
 
 .banner {
-  margin: 50px 0;
+  margin: 52px 0;
   background-color: #161B24;
   width: 100%;
   border-bottom: 3px solid #E6A43C;
@@ -86,7 +86,6 @@ a:hover, a:focus {
   background-color: #e6a43c; }
 
 .navbar-default .navbar-collapse {
-  border-top: 2px solid #161b24;
   border-color: #161b24; }
 
 .navbar-right {
