@@ -582,17 +582,31 @@
         </div>
       </div>
 
+      <!--<div class="form-group form-group-sm" ng-hide="refinancePermHR == 'no'">-->
+        <!--<label class="col-xs-8 text-weight-bold" for="orgMoneyTiedUpRefiHR">55. Original money tied up after refi</label>-->
+        <!--<div class="col-xs-4">-->
+          <!--<input class="form-control input text-highlights-green" type="text" currency-input ng-model="orgMoneyTiedUpRefiHR" disabled="disabled" id="orgMoneyTiedUpRefiHR" />-->
+        <!--</div>-->
+      <!--</div>-->
+
       <div class="form-group form-group-sm" ng-hide="refinancePermHR == 'no'">
-        <label class="col-xs-8 text-weight-bold" for="orgMoneyTiedUpRefiHR">55. Original money tied up after refi</label>
+        <label class="col-xs-8 text-weight-bold" for="orgMoneyTiedUpRefiHR">55. Original Money Tied up After Refinancing</label>
         <div class="col-xs-4">
-          <input class="form-control input text-highlights-green" type="text" currency-input ng-model="orgMoneyTiedUpRefiHR" disabled="disabled" id="orgMoneyTiedUpRefiHR" />
+          <p ng-model="orgMoneyTiedUpRefiHR" id="orgMoneyTiedUpRefiHR" ng-class="{'profit': orgMoneyTiedUpRefiHR <= 0, 'loss': orgMoneyTiedUpRefiHR > 0}"> {{orgMoneyTiedUpRefiHR | currency}} </p>
         </div>
       </div>
 
-      <div class="form-group form-group-sm">
-        <label class="col-xs-8 text-weight-bold" for="equityLeftRefiHR">56. Equity Left in the Deal after Refi</label>
+      <!--<div class="form-group form-group-sm">-->
+        <!--<label class="col-xs-8 text-weight-bold" for="equityLeftRefiHR">56. Equity Left in the Deal After Refinancing</label>-->
+        <!--<div class="col-xs-4">-->
+          <!--<input class="form-control input text-highlights-green" type="text" currency-input ng-model="equityLeftRefiHR" disabled="disabled" id="equityLeftRefiHR" />-->
+        <!--</div>-->
+      <!--</div>-->
+
+      <div class="form-group form-group-sm" ng-hide="refinancePermHR == 'no'">
+        <label class="col-xs-8 text-weight-bold" for="equityLeftRefiHR">56. Equity Left in the Deal After Refinancing</label>
         <div class="col-xs-4">
-          <input class="form-control input text-highlights-green" type="text" currency-input ng-model="equityLeftRefiHR" disabled="disabled" id="equityLeftRefiHR" />
+          <p ng-model="equityLeftRefiHR" id="equityLeftRefiHR" ng-class="{'loss': equityLeftRefiHR <= 0, 'profit': equityLeftRefiHR > 0}"> {{equityLeftRefiHR | currency}} </p>
         </div>
       </div>
 
