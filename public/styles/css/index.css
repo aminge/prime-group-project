@@ -261,7 +261,7 @@ form h3 {
     height: 100%; }
 
 .home-information {
-  color: #aba690;
+  color: rgba(27, 32, 43, 0.9);
   margin: 2rem 0 0 0;
   border-top: 2px solid #aba690;
   padding: 3rem 0 0 0; }
