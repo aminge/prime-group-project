@@ -297,11 +297,12 @@
         </div>
       </div>
 
-
+      <div class="form-group form-group-sm">
         <label class="col-xs-8 text-weight-bold" for="projectedProfit">29. Projected Profit (after any lender split)</label>
         <div class="col-xs-4">
           <p ng-model="projectedProfit" id="projectedProfit" ng-class="{'loss': projectedProfit <= 0, 'profit': projectedProfit > 0}"> {{projectedProfit | currency}} </p>
         </div>
+      </div>
 
       <div class="form-group form-group-sm">
         <label class="col-xs-8 text-weight-bold" for="returnOnCashInvested">30. ROI (Return on CASH invested)</label>
