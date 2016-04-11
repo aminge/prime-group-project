@@ -28,15 +28,15 @@
       </div>
 
       <!--<div>-->
-         <!--<button ng-click="sendEmail()">Send E-mail</button>-->
+      <!--<button ng-click="sendEmail()">Send E-mail</button>-->
       <!--</div>-->
     </div>
     <!--<div class="form-group form-group-sm">-->
-      <!--<label class="col-sm-3" for="resetPassword">Forgot Your Password?</label>-->
-      <!--<div class="col-sm-9">-->
-        <!--<input class="form-control" type="password" id="resetPassword" ng-model="resetPassword">-->
-        <!--<button ng-click="sendEmail()">Send E-mail</button>-->
-      <!--</div>-->
+    <!--<label class="col-sm-3" for="resetPassword">Forgot Your Password?</label>-->
+    <!--<div class="col-sm-9">-->
+    <!--<input class="form-control" type="password" id="resetPassword" ng-model="resetPassword">-->
+    <!--<button ng-click="sendEmail()">Send E-mail</button>-->
+    <!--</div>-->
     <!--</div>-->
 
     <div class="failed-login" ng-show="failedLogin">
@@ -50,17 +50,21 @@
 
   <div ng-show="hideForm">
 
-    <div class="form-group">  <h2 class="text-center">We're sorry, In order to view this content you must login or register.</h2></div>
-    <div class="col-sm-12 text-center">
-      <div class="form-group"><button class="btn btn-default btn-primary" ng-click="backToForm()">Login</button>
-      <a href="#register">
-        <button class="btn btn-danger">Register</button>
-      </a></div>
-
+    <form>
+      <div class="form-group">
+        <h2 class="text-center">We're sorry, In order to view this content you must login or register.</h2></div>
+      <div class="col-sm-12 text-center">
+        <div class="form-group">
+          <button class="btn btn-default btn-primary" ng-click="backToForm()">Login</button>
+          <a href="#register">
+            <button class="btn btn-danger">Register</button>
+          </a>
+        </div>
     </div>
+  </form>
   </div>
 </div>
 
 
-  <!--  -->
-  <!-- <button ng-click="backToForm()">Back to Login</button> -->
+<!--  -->
+<!-- <button ng-click="backToForm()">Back to Login</button> -->
