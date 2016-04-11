@@ -39,12 +39,13 @@ h1, h2, h3 {
 }
 
 a{
-  color: $blue;
+  color: $med-gray;
+
 }
 
 a:hover, a:focus {
   text-decoration: none;
-  color: $black;
+  color: $blue;
 }
 
 .banner {
