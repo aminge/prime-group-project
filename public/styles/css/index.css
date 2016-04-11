@@ -16,11 +16,11 @@ h1, h2, h3 {
   font-weight: 700; }
 
 a {
-  color: #161b24; }
+  color: #aba690; }
 
 a:hover, a:focus {
   text-decoration: none;
-  color: #11131A; }
+  color: #161b24; }
 
 .banner {
   margin: 52px 0;
@@ -129,6 +129,8 @@ footer {
     -webkit-transition: all 0.15s ease-out 0s;
     -moz-transition: all 0.15s ease-out 0s;
     transition: all 0.15s ease-out 0s; }
+    footer h2 a {
+      color: #161b24; }
     footer h2:hover {
       background: #aba690; }
 
@@ -387,6 +389,11 @@ a.zillow-link {
   color: #aba690; }
   a.zillow-link:hover {
     color: blue; }
+
+.price {
+  color: #161b24;
+  border-bottom: 2px solid #e6a43c;
+  margin-left: 0.3em; }
 
 #mortgage-pic {
   width: 100%; }
