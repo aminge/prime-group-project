@@ -51,27 +51,25 @@ myApp.controller('EvaluateController', ['$scope', '$location', 'DataFactory', fu
   $scope.originationDiscountPoints = 3;                             // 10
   $scope.otherClosingCosts = 0;                                     // 11
   $scope.pointsClosingCosts = 'upfront';                            // 12
-  $scope.interestRate = 10;                                         // 13
+  $scope.interestRate = 7;                                          // 13
   $scope.interestPaymentDuringRehab = 'yes';                        // 14
-  //$scope.splitBackendProfitsWithLender = 'no';                      // 15
-  //$scope.percentagePreTaxProfits = 50;                              // 16
 
   // Default Values For Flip Analysis Inputs
-  $scope.arvForFlip = 100000;                       // 17 This one could be purchase price + 2 * rehab budget
-  $scope.monthsCompleteSaleAfterRehab = 2;          // 18
-  $scope.projectedResalePrice = 100000;             // 27
-  $scope.projectedCostSale = 7;                     // 28
+  $scope.arvForFlip = $scope.purchasePrice + (3 * $scope.rehabBudget);              // 17 This one could be purchase price + 2 * rehab budget
+  $scope.monthsCompleteSaleAfterRehab = 2;                                          // 18
+  $scope.projectedResalePrice = $scope.purchasePrice + (3 * $scope.rehabBudget);    // 27
+  $scope.projectedCostSale = 7;                                                     // 28
 
   // Default Values for Hold/Rent Analysis
-  $scope.arvForRentHR = 100000;                     // 32 This one could be purchase price + 2 * rehab budget
-  $scope.monthsToRentAfterRehabHR = 2;              // 33
-  $scope.projectedOperatingIncomeHR = 1200;         // 42
-  $scope.projectedOperatingExpensesHR = 260;        // 43
-  $scope.refinancePermHR = 'yes';                   // 45
-  $scope.refiPercentARVHR = 85;                     // 46
-  $scope.newMortgageRateHR = 7;                     // 47
-  $scope.amortizationYearsHR = 20;                  // 48
-  $scope.refiDiscPtsMiscCostsHR = 3;                // 49
+  $scope.arvForRentHR = $scope.purchasePrice + (3 * $scope.rehabBudget);          // 32 This one could be purchase price + 2 * rehab budget
+  $scope.monthsToRentAfterRehabHR = 2;                                            // 33
+  $scope.projectedOperatingIncomeHR = $scope.arvForRentHR / 100;                  // 42
+  $scope.projectedOperatingExpensesHR = $scope.projectedOperatingIncomeHR / 6;    // 43
+  $scope.refinancePermHR = 'yes';                                                 // 45
+  $scope.refiPercentARVHR = 95;                                                   // 46
+  $scope.newMortgageRateHR = 5;                                                   // 47
+  $scope.amortizationYearsHR = 20;                                                // 48
+  $scope.refiDiscPtsMiscCostsHR = 3;                                              // 49
 
 
 
