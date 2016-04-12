@@ -1,6 +1,3 @@
-.container-fluid {
-  margin-bottom: 10rem; }
-
 body {
   font-family: "Lato", "open sans", "sans-serif";
   font-size: 16px;
@@ -303,6 +300,14 @@ select.blue-background {
   border: 2px solid #569646;
   font-weight: 700;
   padding: .2em .5em; }
+
+.nav-tabs > li > a {
+  font-size: 150%;
+  font-family: 'Droid Serif';
+  font-weight: 700; }
+
+.nav-tabs {
+  border-bottom: 2px solid #aba690; }
 
 .login-background {
   background: url("../../images/Mpls-2.jpg") no-repeat center center;
