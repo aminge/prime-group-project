@@ -23,6 +23,8 @@ console.log('NavController works');
 
   $scope.logoutUser = function(){
     $scope.dataFactory.factoryLogoutUser().then(function(){
+      $scope.isUserLoggedin = false;
+      $scope.adminUser = false;
       //console.log('signed out of passport.')
     });
   }

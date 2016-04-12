@@ -15,7 +15,8 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
       isUserLoggedIn = false;
       displayReminderMessage = false;
       $location.path('/login');
-      console.log('logout success!:: dataFactory');
+      //console.log('logout success!:: dataFactory');
+      accountType = 'user';
     });
     return promise;
   };
@@ -40,7 +41,7 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
       function (res) {
         $location.path('/search');
         isUserLoggedIn = true;
-        console.log('this is the response from privateLoginUser factory', res);
+        //console.log('this is the response from privateLoginUser factory', res);
         failedLogin = false;
       },
       function (err) {
@@ -52,7 +53,7 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
 
   var privateUpdateUser = function(user) {
     var promise = $http.put('/updateUser', user).then(function(response) {
-      console.log('user updated successfully ', response);
+      //console.log('user updated successfully ', response);
     });
     return promise;
   };
@@ -60,13 +61,13 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
   var privateGetAccountType = function(user) {
     var promise = $http.post('/updateUser', user).then(function(response) {
       accountType = response.data.account_type;
-      console.log('from factory: ', accountType);
+      //console.log('from factory: ', accountType);
     });
     return promise;
   };
 
   var initialSearch = function(address, cityStateZip) {
-    console.log('API search from factory happening NOW!', address, cityStateZip);
+    //console.log('API search from factory happening NOW!', address, cityStateZip);
     var searchCriteria = {
       findAddress: address,
       findState: cityStateZip
@@ -90,9 +91,9 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
           apiPhotoData = response.data.response.images.image[0].url;
         } catch(err) {
           apiPhotoData = [];
-          console.log('Error: ', err);
+          //console.log('Error: ', err);
         }
-        console.log(apiPhotoData);
+        //console.log(apiPhotoData);
       });
     });
   };
