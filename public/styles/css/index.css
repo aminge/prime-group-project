@@ -6,7 +6,7 @@ body {
   -webkit-font-smoothing: antialiased; }
 
 .container-fluid {
-  padding: 0 6vw; }
+  padding: 0 6vw 2em 6vw; }
 
 h1, h2, h3 {
   font-family: "Droid Serif", georgia, serif;
@@ -412,5 +412,8 @@ a.zillow-link {
 
 #mortgage-pic {
   width: 100%; }
+
+.mortgage-buttons {
+  margin-right: 6vw; }
 
 /*# sourceMappingURL=index.css.map */
