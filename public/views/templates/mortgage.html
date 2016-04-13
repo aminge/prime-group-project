@@ -54,15 +54,15 @@
 
     <div class="col-sm-6" ng-show="results" id="mortgage-results">
         <h2>Monthly payment:</h2>
-        <h3>{{monthlyPayments | currency}}</h3>
-        <hr class="hr-form">
+        <h3><span class="price">{{monthlyPayments | currency}}</span></h3>
+
         <h2>Total cost of mortgage:</h2>
-        <h3>{{totalCost | currency}}</h3>
+        <h3><span class="price">{{totalCost | currency}}</span></h3>
     </div>
     </div>
 </div>
 
-<hr class="hr-form">
+  <hr class="hr-form">
 
 
 <div class="row">
