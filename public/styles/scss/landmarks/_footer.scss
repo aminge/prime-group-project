@@ -5,6 +5,7 @@ footer {
     // bottom: 0;
     width: 100%;
     color: $white;
+    padding-bottom: 2em;
     h2{
       display: inline-block;
     background: $white;
@@ -13,7 +14,6 @@ footer {
     height: 1.2em;
     padding-left: .2em;
     padding-top: .1em;
-    padding-bottom: 2em;
     margin: 0 .1em;
     @include transition;
     a {

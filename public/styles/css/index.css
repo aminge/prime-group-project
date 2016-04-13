@@ -113,7 +113,8 @@ footer {
   background-color: #161b24;
   z-index: 1000;
   width: 100%;
-  color: #fffdfa; }
+  color: #fffdfa;
+  padding-bottom: 2em; }
   footer h2 {
     display: inline-block;
     background: #fffdfa;
@@ -122,7 +123,6 @@ footer {
     height: 1.2em;
     padding-left: .2em;
     padding-top: .1em;
-    padding-bottom: 2em;
     margin: 0 .1em;
     -webkit-transition: all 0.15s ease-out 0s;
     -moz-transition: all 0.15s ease-out 0s;
@@ -168,7 +168,7 @@ form h3 {
   left: 50%;
   transform: translate(-50%, -50%);
   max-width: 600px;
-  width: 50%;
+  width: 80%;
   background: rgba(255, 253, 250, 0.95);
   padding: 0; }
   .centered-form form {
