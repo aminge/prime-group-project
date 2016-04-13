@@ -63,16 +63,15 @@ a:hover, a:focus {
   border: none;
   font-size: 18px; }
 
-.navbar-default .navbar-nav > li:hover, .navbar-default .navbar-nav > li:active, .navbar-default .navbar-nav > li:focus {
-  border-bottom: 2px solid #e6a43c; }
-
 .navbar-default .navbar-nav > li > a {
   color: #fffdfa;
   -webkit-transition: all 0.15s ease-out 0s;
   -moz-transition: all 0.15s ease-out 0s;
-  transition: all 0.15s ease-out 0s; }
+  transition: all 0.15s ease-out 0s;
+  border-bottom: 2px solid transparent; }
   .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:active, .navbar-default .navbar-nav > li > a:focus {
-    color: #e6a43c; }
+    color: #e6a43c;
+    border-bottom: 2px solid #e6a43c; }
 
 .navbar-default .navbar-toggle {
   border: none; }
@@ -180,7 +179,7 @@ form h3 {
 
 .form-header {
   color: #fffdfa;
-  background-color: rgba(27, 32, 43, 0.9);
+  background-color: rgba(27, 32, 43, 0.95);
   width: 100%;
   border-bottom: 2px solid #e6a43c;
   margin: 0 0 1em 0;
