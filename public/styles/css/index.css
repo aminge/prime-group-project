@@ -357,8 +357,6 @@ select.blue-background {
   position: relative;
   margin: 1rem;
   cursor: pointer; }
-  .document:hover {
-    color: tomato; }
   .document .glyphicon {
     font-size: 24px; }
 
@@ -367,6 +365,10 @@ select.blue-background {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); }
+
+.blog-link {
+  margin: 2em 0;
+  padding: 9px; }
 
 .symbols {
   color: #aba690; }

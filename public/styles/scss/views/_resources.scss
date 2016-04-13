@@ -14,9 +14,6 @@
   position: relative;
   margin: 1rem;
   cursor: pointer;
-  &:hover{
-    color: tomato;
-  }
   .glyphicon {
     font-size: 24px;
   }
@@ -25,4 +22,9 @@
 .document-content {
 
   @include centerer;
+}
+
+.blog-link {
+  margin: 2em 0;
+  padding: 9px;
 }
