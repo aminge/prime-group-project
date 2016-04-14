@@ -43,13 +43,17 @@ select.blue-background {
   font-size: 150%;
   font-family: 'Droid Serif';
   font-weight: 700;
+  margin-bottom: 2px;
+  text-decoration: underline;
   &:hover{
-    background-color: $med-gray;
+    background-color: transparent;
+    text-decoration: underline;
+
   }
 }
 
 .nav-tabs {
-  border-bottom: 2px solid $med-gray;
+  border-bottom: 3px solid $med-gray;
 }
 
 .well {

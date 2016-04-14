@@ -32,7 +32,7 @@ a:hover, a:focus {
   text-shadow: -2px 2px #11131A; }
 
 .btn {
-  border-radius: 0;
+  border-radius: 4px;
   padding: 3px 20px;
   letter-spacing: .05em;
   font-size: 18px;
@@ -170,12 +170,14 @@ form h3 {
   max-width: 600px;
   width: 80%;
   background: rgba(255, 253, 250, 0.95);
-  padding: 0; }
+  padding: 0;
+  border-radius: 6px; }
   .centered-form form {
     padding: 0 2em;
     margin-bottom: 2em; }
   .centered-form h1, .centered-form h2 {
-    font-weight: 300; }
+    font-weight: 300;
+    border-radius: 6px 6px 0 0; }
 
 .form-header {
   color: #fffdfa;
@@ -304,12 +306,15 @@ select.blue-background {
 .nav-tabs > li > a {
   font-size: 150%;
   font-family: 'Droid Serif';
-  font-weight: 700; }
+  font-weight: 700;
+  margin-bottom: 2px;
+  text-decoration: underline; }
   .nav-tabs > li > a:hover {
-    background-color: #aba690; }
+    background-color: transparent;
+    text-decoration: underline; }
 
 .nav-tabs {
-  border-bottom: 2px solid #aba690; }
+  border-bottom: 3px solid #aba690; }
 
 .well {
   background-color: #f1eee3;
