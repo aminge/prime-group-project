@@ -322,7 +322,7 @@ select.blue-background {
   padding: 25px; }
 
 .login-background {
-  background: url("../../images/Mpls-2.jpg") no-repeat center center;
+  background: url("../../images/mpls-2.jpg") no-repeat center center;
   background-size: cover;
   position: relative;
   width: 100%;
