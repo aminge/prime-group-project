@@ -93,6 +93,7 @@ app.use(express.static('public/styles'));
 app.use(express.static('public/styles/css'));
 app.use(express.static('public/styles/scss'));
 app.use(express.static('public/vendors'));
+app.use(express.static('hosted_files'));
 
 
 app.set('port', process.env.PORT || 5000);
