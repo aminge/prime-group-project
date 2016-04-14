@@ -11,7 +11,7 @@
 
 
     <div class="col-sm-6">
-  <form class="mortgage-form form-horizontal">
+  <form class="mortgage-form form-horizontal clearfix">
     <div class="form-group">
       <div class="col-sm-8">
         <label for="price">Price:</label>
@@ -46,7 +46,7 @@
       </div>
     </div>
 
-    <div class="col-sm-4 col-sm-offset-8">
+    <div class="form-group text-right">
       <button id="mortgage-button" class="btn btn-primary" ng-click="calculateMortgage()">Calculate Mortgage</button>
     </div>
   </form>
@@ -54,19 +54,22 @@
 
     <div class="col-sm-6" ng-show="results" id="mortgage-results">
         <h2>Monthly payment:</h2>
-        {{monthlyPayments | currency}}
+        <h3><span class="price">{{monthlyPayments | currency}}</span></h3>
+
         <h2>Total cost of mortgage:</h2>
-        {{totalCost | currency}}
+        <h3><span class="price">{{totalCost | currency}}</span></h3>
     </div>
     </div>
 </div>
 
+  <hr class="hr-form">
+
 
 <div class="row">
-  <div class="col-sm-offset-5 col-sm-2 text-center">
-    <div class="btn-group">
+
+    <div class="form-group mortgage-buttons text-right">
       <a href="#evaluate"><button class="btn btn-primary" name="eval-button">Evaluate</button></a>
-      <a href="#search"><button class="btn btn-secondary" name="search-button">New Search</button></a>
+      <a href="#search"><button class="btn btn-danger" name="search-button">New Search</button></a>
     </div>
-  </div>
+
 </div>

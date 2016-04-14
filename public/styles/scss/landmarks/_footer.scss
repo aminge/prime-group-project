@@ -5,6 +5,7 @@ footer {
     // bottom: 0;
     width: 100%;
     color: $white;
+    padding-bottom: 2em;
     h2{
       display: inline-block;
     background: $white;
@@ -33,7 +34,8 @@ a.websites {
 
 .headshot {
   width: 220px;
-  padding: 2rem;
+  max-width: 100%;
+  padding-top: 2rem;
 }
 .social-icons{
   margin-top: 1em;

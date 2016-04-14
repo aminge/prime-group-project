@@ -12,16 +12,18 @@
 .navbar-default .navbar-nav>li{
 
     &:hover, &:active, &:focus {
-      border-bottom: $border;
+      // border-bottom: $border;
     }
 }
 
 .navbar-default .navbar-nav>li>a {
   color: $white;
   @include transition;
+   border-bottom: 2px solid transparent;
     &:hover, &:active, &:focus {
       // background-color: $light-gray;
       color: $gold;
+      border-bottom: $border
   }
 }
 
