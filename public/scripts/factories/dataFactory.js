@@ -8,14 +8,11 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
   var failedLogin = false;
   var accountType = 'user';
 
-// Private
-  // logout user
   var privateLogout = function() {
     var promise = $http.get('/logout').then(function(response){
       isUserLoggedIn = false;
       displayReminderMessage = false;
       $location.path('/login');
-      //console.log('logout success!:: dataFactory');
       accountType = 'user';
     });
     return promise;
@@ -25,14 +22,8 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
     displayReminderMessage = true;
   };
 
-  // I'm not actually sure if we need this function, but we might, so I'm leaving it here for now
-  var privateSetFailedLoginToTrue = function() {
-    failedLogin = true;
-  };
-
   var privateAddNewUser = function(user) {
     $http.post('/register', user).then(function(response){
-      //console.log('Successfully added new user');
     });
   };
 
@@ -41,7 +32,6 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
       function (res) {
         $location.path('/search');
         isUserLoggedIn = true;
-        //console.log('this is the response from privateLoginUser factory', res);
         failedLogin = false;
       },
       function (err) {
@@ -53,7 +43,6 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
 
   var privateUpdateUser = function(user) {
     var promise = $http.put('/updateUser', user).then(function(response) {
-      //console.log('user updated successfully ', response);
     });
     return promise;
   };
@@ -61,18 +50,15 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
   var privateGetAccountType = function(user) {
     var promise = $http.post('/updateUser', user).then(function(response) {
       accountType = response.data.account_type;
-      //console.log('from factory: ', accountType);
     });
     return promise;
   };
 
   var initialSearch = function(address, cityStateZip) {
-    //console.log('API search from factory happening NOW!', address, cityStateZip);
     var searchCriteria = {
       findAddress: address,
       findState: cityStateZip
     };
-    //http returns a promise
     return $http({
       method: 'GET',
       url: '/zillow/GetDeepSearchResults',
@@ -91,9 +77,7 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
           apiPhotoData = response.data.response.images.image[0].url;
         } catch(err) {
           apiPhotoData = [];
-          //console.log('Error: ', err);
         }
-        //console.log(apiPhotoData);
       });
     });
   };
@@ -118,11 +102,9 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
 
   var privateUpdatePrice = function(price) {
     housePrice = parseInt(price);
-    //console.log('updating house price to ', housePrice);
   };
 
 
-    // Public
 
     var publicAPI = {
       factoryCalculateMortgage: function(price, months, interestRate) {
@@ -171,9 +153,6 @@ myApp.factory('DataFactory', ['$http', '$location', function($http, $location) {
       },
       factoryGetFailedLogin: function() {
         return failedLogin;
-      },
-      factorySetFailedLoginToTrue: function() {
-        return privateSetFailedLoginToTrue();
       },
       factoryGetAccountType: function(user) {
         return privateGetAccountType(user);
